@@ -1,0 +1,657 @@
+<!--[if lt IE 7 ]> <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd"> <![endif]-->
+<!--[if IE 7 ]> <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd"> <![endif]-->
+<!--[if IE 8 ]> <!DOCTYPE html> <![endif]-->
+<!--[if IE 9 ]> <!DOCTYPE html> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <!DOCTYPE html> <!--<![endif]-->
+<!--[if lt IE 7 ]> <html lang="en" class="ie6"> <![endif]-->
+<!--[if IE 7 ]> <html lang="en" class="ie7"> <![endif]-->
+<!--[if IE 8 ]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9 ]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
+   <head>
+   <!--[if lt IE 8 ]><meta http-equiv="X-UA-Compatible" content="IE=8" ><![endif]-->
+    <title>Solicitud de Token</title>
+    <script src="js/pollyfills.js"></script>
+    <meta charset="UTF-8">
+    <!--[if IE 8]>
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <link href="css/pie.css" type="text/css"  rel="stylesheet">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSS -->
+    <link href="css/bootstrap.css" type="text/css"  rel="stylesheet">
+    <!--[if lt IE 8]>
+    <link href="css/bootstrap-fix.css" type="text/css"  rel="stylesheet">
+   <script src="js/boxmodel.js" type="text/javascript"></script>
+    <![endif]-->
+    <link href="css/style.css" type="text/css"  rel="stylesheet">
+    <link href="css/print.css" type="text/css"  rel="stylesheet" media="print">
+    <!-- FILES -->
+
+    <!--[if lt IE 9]>
+    <script src="js/respond.js" type="text/javascript"></script>
+    <script src="js/html5shiv-printshiv.js" type="text/javascript"></script>
+    <![endif]-->
+   </head>
+  <body>
+  <!-- FORMULARIO   -->
+  <form role="form" id="form">
+    <!-- MAIN CONTAINER -->
+    
+	<!--[if (gte IE 9)|!(IE)]><!--> <section id="main-container" class="container form3"> <!--<![endif]-->
+	<!--[if lt IE 9 ]> <section id="main-container" class="container-fluid form3"> <![endif]-->
+        <!-- HEADER -->
+        <header class="header">
+          <div class="row">
+            <div class="col-md-4 col-sm-5 col-xs-6 logo"><img alt="BBVA Continental" src="img/logo.jpg"></div>
+            <div class="col-md-8 col-sm-7 col-xs-6 texto-header margin-5">
+              <div><h1>Solicitud de Token</h1></div>
+              <div><p>Página 1 de 1</p></div>
+            </div>
+          </div>
+        </header>
+        <!-- /HEADER -->
+
+        <!-- MODULO 1 -->
+        <section class="titulo-modulo hidden-print">
+          <div class="row">
+            <div class="col-md-12">
+              <h3>Sección 1: Datos de la Empresa (Campos Obligatorios)</h3>
+            </div>
+          </div>
+        </section>
+        <section class="titulo-modulo-2 visible-print hidden-xs hidden-sm hidden-md hidden-lg">
+          <div class="row">
+            <div class="col-md-12">
+              <img src="img/imgh3.jpg" alt="img" />
+              <h3>Sección 1: Datos de la Empresa (Campos Obligatorios)</h3>
+            </div>
+          </div>
+        </section>
+
+        <section class="contenido-modulo">
+          <div class="row">
+              <div class="col-md-4 col-xs-4">
+                <div class="form-group">
+                  <label for="razon_social_empresa">Razón Social de la Empresa</label>
+                  <input type="text" class="form-control" id="razon_social_empresa" name="razon_social_empresa">
+                </div>
+              </div>
+
+              <div class="col-md-4 col-xs-4">
+                <div class="form-group">
+                  <label for="num_ruc">Nro. de RUC o Documento</label>
+                  <input type="text" class="form-control" id="num_ruc" name="num_ruc" maxlength="11">
+                </div>
+              </div>
+
+              <div class="col-md-4 col-xs-4">
+                <div class="form-group">
+                  <label for="cod_empresa">Código de la Empresa</label>
+                  <input type="text" class="form-control" id="cod_empresa" name="cod_empresa" maxlength="8">
+                </div>
+              </div>
+          </div>
+        </section>
+        <!-- /MODULO 1 -->
+
+        <!-- SECCION 2 -->
+        <section class="titulo-modulo hidden-print">
+          <div class="row">
+            <div class="col-md-12">
+              <h3>Sección 2: Datos del Usuario Administrador que recibirá el(los) dispositivo(s) TOKEN (Campos Obligatorios)</h3>
+            </div>
+          </div>
+        </section>
+        <section class="titulo-modulo-2 visible-print hidden-xs hidden-sm hidden-md hidden-lg">
+          <div class="row">
+            <div class="col-md-12">
+              <img src="img/imgh3.jpg" alt="img" />
+              <h3>Sección 2: Datos del Usuario Administrador que recibirá el(los) dispositivo(s) TOKEN (Campos Obligatorios)</h3>
+            </div>
+          </div>
+        </section>
+
+        <section class="contenido-modulo form3-sec2">
+          <div class="row">
+              <div class="col-md-4 col-xs-5">
+                <div class="form-group">
+                  <label for="nom_usuario_admin">Nombre Completo del Usuario Administrador</label>
+                  <input type="text" class="form-control" id="nom_usuario_admin" name="nom_usuario_admin">
+                </div>
+              </div>
+
+              <div class="col-md-4 col-xs-4">
+                <div class="form-group">
+                  <label for="email_usuario_admin">Correo Electrónico</label>
+                  <input type="text" class="form-control" name="email_usuario_admin">
+                </div>
+              </div>
+          </div>
+
+          <div class="row">
+              <div class="col-md-3 col-xs-4">
+                <div class="form-group">
+                    <label for="tipo_doc_ident">Tipo de Doc. de Identidad</label>
+                    <select class="form-control" id="tipo_doc_ident" name="tipo_doc_ident" onchange="toggleselect(this)">
+                        <option value="">Elija una opción</option>
+                        <option value="1">D - Carnet Diplomático</option>
+                        <option value="2">L - DNI/Libreta Electoral</option>
+                        <option value="3">M - Carnet de Identidad Militar</option>
+                        <option value="4">E- Carnet de Extranjería</option>
+                        <option value="5">P - Pasaporte</option>
+                        <option value="6">O - Otros</option>
+                    </select>
+                 </div>
+              </div>
+
+              <div class="col-md-3 col-xs-3">
+                <div class="form-group">
+                  <label for="num_doc_admin">Nro. Doc. de Identidad</label>
+                  <input type="text" class="form-control" id="num_doc_admin" name="num_doc_admin" maxlength="11">
+                </div>
+              </div>
+
+              <div class="col-md-3 col-xs-3">
+                <div class="form-group">
+                  <label for="tel_admin_usuario">Teléfono de Contacto</label>
+                  <input type="text" class="form-control" id="tel_admin_usuario" name="tel_admin_usuario" maxlength="11">
+                </div>
+              </div>
+          </div>
+        </section>
+        <!-- /SECCION 2 -->
+
+        <!-- SECCION 3 -->
+        <section class="titulo-modulo">
+          <div class="row">
+            <div class="col-md-12 hidden-print">
+              <h3>Sección 3: Solicitud de Token (Campos Obligatorios)</h3>
+            </div>
+          </div>
+        </section>
+        <section class="titulo-modulo-2 visible-print hidden-xs hidden-sm hidden-md hidden-lg">
+          <div class="row">
+            <div class="col-md-12">
+              <img src="img/imgh3.jpg" alt="img" />
+              <h3>Sección 3: Solicitud de Token (Campos Obligatorios)</h3>
+            </div>
+          </div>
+        </section>
+
+        <section class="contenido-modulo form3-sec-3">
+          <div class="row">
+
+             <div class="col-md-12">
+                <p>El uso del dispositivo TOKEN es OBLIGATORIO para todos los apoderados. Se deberá solicitar un dispositivo por cada usuario apoderado y/o usuario administrador.</p>
+              </div>
+
+             <div class="form-group">
+                 <div class="col-md-12 col-xs-12 margin-5 padding-0">
+
+                    <div class="col-md-2 col-xs-3">
+                         <label for="num_tokens" class="margin-top-6">Número de Tokens que solicita:</label>
+                    </div>
+                    <div class="col-md-2 col-xs-2">
+                       <input type="text" class="form-control" id="num_tokens" name="num_tokens" maxlength="3">
+                    </div>
+
+                  </div>
+            </div>
+
+             <div class="col-md-12">
+                <p>El dispositivo TOKEN le permitirá validar las configuraciones realizadas en el Módulo de Administración de Usuarios, así como autorizar las operaciones que tenga configuradas en su perfil.</p>
+                 <p class="titulo-parrafo"><span>NOTA:</span> Entregar el presente formulario a su Ejecutivo de Cuenta.</p>
+             </div>
+          </div>
+        </section>
+        <!-- /SECCION 3 -->
+
+        <!-- SECCION 4 -->
+        <section class="titulo-modulo hidden-print">
+          <div class="row">
+            <div class="col-md-12">
+              <h3>Sección 4: Persona de Contacto (Datos Obligatorios)</h3>
+            </div>
+          </div>
+        </section>
+        <section class="titulo-modulo-2 visible-print hidden-xs hidden-sm hidden-md hidden-lg">
+          <div class="row">
+            <div class="col-md-12">
+              <img src="img/imgh3.jpg" alt="img" />
+              <h3>Sección 4: Persona de Contacto (Datos Obligatorios)</h3>
+            </div>
+          </div>
+        </section>
+
+        <section class="contenido-modulo">
+          <div class="row">
+            <div class="col-md-4 col-xs-4">
+              <div class="form-group">
+                 <label for="nombre_persona_contacto">Nombre y Apellido de la persona de contacto</label>
+                 <input type="text" class="form-control" id="nombre_persona_contacto" name="nombre_persona_contacto">
+              </div>
+
+              <div class="form-group">
+                 <label for="email_persona_contacto">Correo Electrónico</label>
+                 <input type="text" class="form-control" id="email_persona_contacto" name="email_persona_contacto">
+              </div>
+           </div>
+
+           <div class="col-md-4 col-xs-3">
+              <div class="form-group">
+                 <label for="tipo_doc_ident_contacto">Doc. de Identidad</label>
+                 <select class="form-control" id="tipo_doc_ident_contacto" name="tipo_doc_ident_contacto" onchange="toggleselect(this)">
+                    <option value="">Elija una opción</option>
+                    <option value="1">D - Carnet Diplomático</option>
+                    <option value="2">L - DNI/Libreta Electoral</option>
+                    <option value="3">M - Carnet de Identidad Militar</option>
+                    <option value="4">E- Carnet de Extranjería</option>
+                    <option value="5">P - Pasaporte</option>
+                    <option value="6">O - Otros</option>
+                 </select>
+              </div>
+           </div>
+
+           <div class="col-md-4 col-xs-2">
+              <div class="form-group">
+                 <label for="num_ident_persona_contacto">Nro. Doc. Identidad</label>
+                 <input type="text" class="form-control" id="num_ident_persona_contacto" name="num_ident_persona_contacto" maxlength="11">
+              </div>
+           </div>
+
+           <div class="col-md-5 col-xs-3">
+
+           </div>
+          </div>
+        </section>
+        <!-- /SECCION 4 -->
+
+        <!-- SECCION 5 -->
+        <section class="titulo-modulo hidden-print">
+          <div class="row">
+            <div class="col-md-12">
+              <h3>Sección 5: Autorización de los Representantes Legales de la Empresa - Campo(s) obligatorio(s)</h3>
+            </div>
+          </div>
+        </section>
+        <section class="titulo-modulo-2 visible-print hidden-xs hidden-sm hidden-md hidden-lg">
+          <div class="row">
+            <div class="col-md-12">
+              <img src="img/imgh3.jpg" alt="img" />
+              <h3>Sección 5: Autorización de los Representantes Legales de la Empresa - Campo(s) obligatorio(s)</h3>
+            </div>
+          </div>
+        </section>
+
+        <section class="contenido-modulo form1-sec-8">
+           <div class="row">
+              <div class="col-md-12">
+                 <p>El presente formulario debe ser autorizado por representantes legales facultados para ello (Límites, Tipo de Forma)</p>
+              </div>
+           </div>
+
+               <div class="row">
+                  <div class="col-md-10 col-sm-10 col-xs-12 col-md-offset-1 col-sm-offset-1">
+
+                      <!-- MODULO CON BORDE 1-->
+                      <div class="col-md-3 col-sm-3 col-xs-3 border-2 box-width-24 padding-0">
+                        <div class="col-md-12 border-bottom">
+
+                            <div class="col-md-12">
+                               <div class="form-group">
+                                  <label for="rep_leg_doc_1">1. Tipo de Doc. de Identidad</label>
+                                  <select class="form-control" id="rep_leg_doc_1" name="rep_leg_doc_1" onchange="toggleselect(this)" required>
+                                      <option value="">Elija una opción</option>
+                                      <option value="1">D - Carnet Diplomático</option>
+                                      <option value="2">L - DNI/Libreta Electoral</option>
+                                      <option value="3">M - Carnet de Identidad Militar</option>
+                                      <option value="4">E- Carnet de Extranjería</option>
+                                      <option value="5">P - Pasaporte</option>
+                                      <option value="6">O - Otros</option>
+                                  </select>
+                               </div>
+                            </div>
+
+                            <div class="col-md-12">
+                              <div class="form-group">
+                                 <label for="num_doc_rep_leg_1">Nro. Doc. de Identidad</label>
+                                 <input type="text" class="form-control" id="num_doc_rep_leg_1" name="num_doc_rep_leg_1"  maxlength="11">
+                              </div>
+                            </div>
+
+                            <div class="col-md-12">
+                              <div class="form-group">
+                                 <label for="cargo_rep_leg_1">Cargo / Puesto</label>
+                                 <input type="text" class="form-control" id="cargo_rep_leg_1" name="cargo_rep_leg_1" >
+                              </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                           <div class="col-md-12 espacio-firma"></div>
+                           <div class="firma-sello">
+                              <p>Firma y Sello de Representante Legal</p>
+                           </div>
+                        </div>
+                      </div>
+                     <!-- /MODULO CON BORDE 1-->
+                     <!-- MODULO CON BORDE 2-->
+                     <div class="col-md-3 col-sm-3 col-xs-3 border-2 box-width-24 padding-0">
+
+                        <div class="col-md-12 border-bottom">
+
+                              <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="rep_leg_doc_2">2. Tipo de Doc. de Identidad</label>
+                                    <select class="form-control" id="rep_leg_doc_2" name="rep_leg_doc_2" onchange="toggleselect(this)">
+                                        <option value="">Elija una opción</option>
+                                        <option value="1">D - Carnet Diplomático</option>
+                                        <option value="2">L - DNI/Libreta Electoral</option>
+                                        <option value="3">M - Carnet de Identidad Militar</option>
+                                        <option value="4">E- Carnet de Extranjería</option>
+                                        <option value="5">P - Pasaporte</option>
+                                        <option value="6">O - Otros</option>
+                                    </select>
+                                 </div>
+                              </div>
+
+                           <div class="col-md-12">
+                              <div class="form-group">
+                                 <label for="num_doc_rep_leg_2">Nro. Doc. de Identidad</label>
+                                 <input type="text" class="form-control" id="num_doc_rep_leg_2" name="num_doc_rep_leg_2" maxlength="11">
+                              </div>
+                           </div>
+
+                           <div class="col-md-12">
+                              <div class="form-group">
+                                 <label for="cargo_rep_leg_2">Cargo / Puesto</label>
+                                 <input type="text" class="form-control" id="cargo_rep_leg_2" name="cargo_rep_leg_2">
+                              </div>
+                           </div>
+
+                        </div>
+
+                        <div class="col-md-12">
+                           <div class="col-md-12 espacio-firma"></div>
+                           <div class="firma-sello">
+                              <p>Firma y Sello de Representante Legal</p>
+                           </div>
+                        </div>
+
+                     </div>
+                     <!-- /MODULO CON BORDE 2-->
+                     <!-- MODULO CON BORDE 3-->
+                     <div class="col-md-3 col-sm-3 col-xs-3 border-2 box-width-24 padding-0">
+
+                        <div class="col-md-12 border-bottom">
+
+
+                              <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="rep_leg_doc_3">3. Tipo de Doc. de Identidad</label>
+                                    <select class="form-control" id="rep_leg_doc_3" name="rep_leg_doc_3" onchange="toggleselect(this)">
+                                        <option value="">Elija una opción</option>
+                                        <option value="1">D - Carnet Diplomático</option>
+                                        <option value="2">L - DNI/Libreta Electoral</option>
+                                        <option value="3">M - Carnet de Identidad Militar</option>
+                                        <option value="4">E- Carnet de Extranjería</option>
+                                        <option value="5">P - Pasaporte</option>
+                                        <option value="6">O - Otros</option>
+                                    </select>
+                                 </div>
+                              </div>
+
+                           <div class="col-md-12">
+                              <div class="form-group">
+                                 <label for="num_doc_rep_leg_3">Nro. Doc. de Identidad</label>
+                                 <input type="text" class="form-control" id="num_doc_rep_leg_3" name="num_doc_rep_leg_3" maxlength="11">
+                              </div>
+                           </div>
+
+                           <div class="col-md-12">
+                              <div class="form-group">
+                                 <label for="cargo_rep_leg_3">Cargo / Puesto</label>
+                                 <input type="text" class="form-control" id="cargo_rep_leg_3" name="cargo_rep_leg_3">
+                              </div>
+                           </div>
+
+                        </div>
+
+                        <div class="col-md-12">
+                           <div class="col-md-12 espacio-firma"></div>
+                           <div class="firma-sello">
+                              <p>Firma y Sello de Representante Legal</p>
+                           </div>
+                        </div>
+
+                     </div>
+                     <!-- /MODULO CON BORDE 3-->
+                     <!-- MODULO CON BORDE 4-->
+                     <div class="col-md-3 col-sm-3 col-xs-3 border-2 box-width-24 padding-0">
+
+                        <div class="col-md-12 border-bottom">
+
+                              <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="rep_leg_doc_4">4. Tipo de Doc. de Identidad</label>
+                                    <select class="form-control" id="rep_leg_doc_4" name="rep_leg_doc_4" onchange="toggleselect(this)">
+                                        <option value="">Elija una opción</option>
+                                        <option value="1">D - Carnet Diplomático</option>
+                                        <option value="2">L - DNI/Libreta Electoral</option>
+                                        <option value="3">M - Carnet de Identidad Militar</option>
+                                        <option value="4">E- Carnet de Extranjería</option>
+                                        <option value="5">P - Pasaporte</option>
+                                        <option value="6">O - Otros</option>
+                                    </select>
+                                 </div>
+                              </div>
+
+                           <div class="col-md-12">
+                              <div class="form-group">
+                                 <label for="num_doc_rep_leg_4">Nro. Doc. de Identidad</label>
+                                 <input type="text" class="form-control" id="num_doc_rep_leg_4" name="num_doc_rep_leg_4" maxlength="11">
+                              </div>
+                           </div>
+
+                           <div class="col-md-12">
+                              <div class="form-group">
+                                 <label for="cargo_rep_leg_4">Cargo / Puesto</label>
+                                 <input type="text" class="form-control" id="cargo_rep_leg_4" name="cargo_rep_leg_4">
+                              </div>
+                           </div>
+
+                        </div>
+
+                        <div class="col-md-12">
+                           <div class="col-md-12 espacio-firma"></div>
+                           <div class="firma-sello">
+                              <p>Firma y Sello de Representante Legal</p>
+                           </div>
+                        </div>
+
+                     </div>
+                     <!-- /MODULO CON BORDE -->
+
+                  </div>
+               </div>
+        </section>
+        <!-- /SECCION 5 -->
+
+         <!-- USO EXCLUSIVO DEL BANCO -->
+        <section class="titulo-modulo hidden-print">
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <h3>PARA USO EXCLUSIVO DEL BANCO</h3>
+            </div>
+          </div>
+        </section>
+        <section class="titulo-modulo-3 visible-print hidden-xs hidden-sm hidden-md hidden-lg">
+          <div class="row">
+            <div class="col-md-12">
+              <img src="img/imgh3.jpg" alt="img" />
+              <h3>PARA USO EXCLUSIVO DEL BANCO</h3>
+            </div>
+          </div>
+        </section>
+
+        <section class="contenido-modulo contenido-uso-exc-banco">
+               <fieldset>
+                  <div class="row">
+                     <div class="col-md-2 col-sm-3 col-xs-4">
+                        <div class="form-group">
+                           <label for="">Código Central</label>
+                           <input type="text" class="form-control" id="" name="" DISABLED />
+                        </div>
+                     </div>
+
+                     <div class="col-md-4 col-sm-6 col-xs-4">
+                        <div class="form-group">
+                           <label for="">Nombre de la Oficina</label>
+                           <input type="text" class="form-control" id="" name="" DISABLED />
+                        </div>
+                     </div>
+
+                     <div class="col-md-2 col-sm-3 col-xs-4">
+                        <div class="form-group">
+                           <label for="">Código de la Oficina</label>
+                           <input type="text" class="form-control" id="" name="" DISABLED />
+                        </div>
+                     </div>
+                  </div>
+
+                  <div class="row">
+                     <div class="col-md-4 col-sm-5 col-xs-5">
+                        <div class="form-group">
+                           <label for="">Nombre del Ejecutivo de Cuenta</label>
+                           <input type="text" class="form-control" id="" name="" DISABLED />
+                        </div>
+                     </div>
+
+                     <div class="col-md-2 col-sm-2 col-xs-2">
+                        <div class="form-group">
+                           <label for="">Registro</label>
+                           <input type="text" class="form-control" id="" name="" DISABLED />
+                        </div>
+                     </div>
+
+                     <div class="col-md-5 col-sm-5 col-xs-5">
+                        <div class="form-group">
+                           <label for="">Correo Electrónico</label>
+                           <input type="text" class="form-control" id="" name="" DISABLED />
+                        </div>
+                     </div>
+                  </div>
+
+                  <div class="row">
+                     <div class="col-md-3">
+                        <h3>V°B° de Firmas y Poderes</h3>
+                     </div>
+                  </div>
+
+                  <div class="row">
+                     <div class="col-md-4 col-sm-5 col-xs-5">
+                        <div class="form-group">
+                           <label for="">Nombre del Gerente / Sub Gerente de Oficina / JAC</label>
+                           <input type="text" class="form-control" id="" name="" DISABLED />
+                        </div>
+                     </div>
+
+                     <div class="col-md-2 col-sm-2 col-xs-2">
+                        <div class="form-group">
+                           <label for="">Registro</label>
+                           <input type="text" class="form-control" id="" name="" DISABLED />
+                        </div>
+                     </div>
+
+                     <div class="col-md-3 col-sm-4 col-xs-4 contenido-firma-sello">
+                        <p>Firma y Sello Ejecutivo de Cuenta</p>
+                     </div>
+                  </div>
+
+                  <div class="row">
+                     <div class="col-md-4 col-sm-6 col-xs-7 banca-automatica border">
+
+                        <h4>BANCA AUTOMÁTICA (No llenar)</h4>
+
+                        <div class="col-md-4 col-sm-5 col-xs-6  padding-0">
+                           <div class="form-group">
+                              <label for="">Código de Empresa</label>
+                              <input type="text" class="form-control" id="" name="" DISABLED />
+                           </div>
+                        </div>
+
+                        <div class="col-md-5 col-sm-5 col-xs-6 col-md-offset-3 col-sm-offset-2">
+                           <div class="form-group">
+                              <label for="">Fecha Ingreso al Sistema</label>
+
+                              <div class="row">
+                                 <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <input type="text" class="form-control" id="" name="" DISABLED />
+                                 </div>
+                                 <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <input type="text" class="form-control" id="" name="" DISABLED />
+                                 </div>
+                                 <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <input type="text" class="form-control" id="" name="" DISABLED />
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+
+                     </div>
+
+                     <div class="col-md-3 col-sm-4 col-xs-4 col-md-offset-2 col-sm-offset-1 contenido-firma-sello subgerente">
+                        <p>Firma y Sello del Gerente / Sub Gerente / JAC</p>
+                     </div>
+                  </div>
+
+                  <div class="row">
+                     <div class="col-md-5 col-sm-6 col-xs-8 col-md-offset-4 col-sm-offset-3 col-xs-offset-2 border text-center">
+                        <h4>LA OFICINA DEBERÁ ARCHIVAR UNA COPIA DE ESTE FORMULARIO</h4>
+                     </div>
+                  </div>
+               </fieldset>
+        </section>
+         <!-- /USO EXCLUSIVO DEL BANCO -->
+
+    </section>
+    <!-- /MAIN CONTAINER -->
+
+    <!-- BOTON IMPRIMIR -->
+     
+	 <!--[if (gte IE 9)|!(IE)]><!--> <section id="box-btn-imprimir" class="container hidden-print"> <!--<![endif]-->
+	<!--[if lt IE 9 ]> <section id="box-btn-imprimir" class="container-fluid hidden-print"> <![endif]-->
+        <div class="row">
+           <div class="col-md-4 col-md-offset-4 text-center">
+              <button type="submit" id="btn-submit" class="btn btn-default" value="Imprimir">Imprimir</button>
+           </div>
+        </div>
+     </section>
+     <!-- /BOTON IMPRIMIR -->
+  </form>
+  <!-- /FORMULARIO   -->
+
+    <!-- JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/additional-methods.min.js"></script>
+    <script src="js/jquery.SimpleMask.js"></script>
+    <script src="js/jquery.number.min.js"></script>
+    <script type="text/javascript" src="js/forms/form8.js"></script>
+    <script type="text/javascript">
+
+   function toggleselect(el) {
+        var sel = el.options[el.selectedIndex];
+
+      for(var i=0; i<el.length; i++) {
+        el.options[i].removeAttribute("selected");
+      }
+    
+          sel.setAttribute('selected','selected');
+    }
+</script>
+  </body>
+</html>

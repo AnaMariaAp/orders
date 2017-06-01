@@ -1,0 +1,3345 @@
+
+<html>
+<head><title>Formulario 3 BBVA Continental</title>
+<style type="text/css">
+#commentForm label { width: 200px; }
+#commentForm label.error, #commentForm input.submit { margin-left: 0px; }
+</style>
+<!-- @Autor: Orlando Pihue Montoya ----------------------------->
+<link rel="stylesheet" type="text/css" href="css/hoja.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="css/screen.css" />
+<link rel="stylesheet" type="text/css" href="css/jquery.autocomplete.css" />
+<style type="text/css" media="print"> 
+.nover {display:none}
+</style>
+<style type="text/css">
+<!--
+table.sample {	border-width: 0px;
+	border-spacing: 0px;
+	border-style: outset;
+	border-color: gray;
+	border-collapse: collapse;
+	background-color: black;
+}
+table.sample td {
+	border-width: 1px;
+	padding: 1px;
+	border-style: inset;
+	border-color: gray;
+	background-color: white;
+	-moz-border-radius: ;
+	vertical-align:bottom;
+	vertical-align:top;	
+}
+-->
+
+table.sample td {
+	border-width: 1px;
+	border-style: inset;
+	border-color: gray;
+	background-color: white;
+	-moz-border-radius: ;
+	vertical-align:bottom;
+	vertical-align:top;	
+}
+
+td.cuadriculado {
+	border-width: 1px;
+	border-style: inset;
+	border-color: gray;
+	background-color: white;
+	-moz-border-radius: ;
+	text-align: center;
+	
+}
+
+input.col1 {
+	width: 150;
+	font-size:9px;
+	height: 17px;
+}
+
+div.col1 {
+	width: 150;
+	align: left;
+	height: 17px;
+}
+div.col1 input {
+	width: 150;
+	maxlength: 20;	
+	height: 17px;
+}
+
+input {
+	height: 22;
+}
+
+input.normal {
+	height: 20;
+}
+input.duplicadaRAZ{
+font-weight: bold;
+font-size:8px;
+height:17px;
+width:300px;
+}
+input.duplicadaRUC{
+font-weight: bold;
+font-size:8px;
+height:17px;
+width:100px;
+}
+.sello{
+font-family:Verdana, Arial, Helvetica, sans-serif; 
+font-weight:bold; 
+font-size:7px; 
+text-align:center;
+}
+
+.bordeFinoSello{
+	border-color:black; 
+	border-width:1px; 
+	border-style:solid; 
+}
+div.tituloLinea1{
+	font-size:12px;
+	background-color:#1e398d;
+	color:white;
+	width:660;
+}
+div.tituloLinea2{
+	font-size:12px;
+	background-color:#1e398d;
+	color:white;
+	width:648;
+}
+
+div.codigoCuadro {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 8px;
+	font-weight: bold;
+	color: #000080;
+	text-decoration: none;
+	border-color:black; border-width:1px; border-style:solid;
+}
+
+</style>
+</head>
+
+<script language="JavaScript" src="js/validarFormEmpAsc.js"></script>
+<script src="js/jquery.js" type="text/javascript"></script>
+<script src="js/jquery.validate.js" type="text/javascript"></script>
+<script src="js/cmxforms.js" type="text/javascript"></script>
+
+<script type='text/javascript' src='js/complete/jquery.bgiframe.min.js'></script>
+<script type='text/javascript' src='js/complete/jquery.dimensions.js'></script>
+<script type='text/javascript' src='js/complete/jquery.autocomplete.js'></script>
+<script type='text/javascript' src='js/complete/localdata.js'></script>
+<script type='text/javascript' src='js/complete/jScript.js'></script>
+<script type='text/javascript' src='js/complete/alerta.js'></script>
+
+<script language="JavaScript"> 
+var nav4 = window.Event ? true : false;
+function verifCurrencyFormat(fld)
+{
+	var aux = ''; 
+	len = fld.value.length; 
+	if (len>0){
+		for(i=0; i < len; i++)
+				aux += fld.value.charAt(i); 
+		if(aux.substring(0,4) != '0011' )
+		{
+		//alert(aux.substring(0,4))
+		 alert('Los primeros 4 dígitos debe ser 0011.');
+		 fld.value = '';
+		}
+	}
+}
+/**/
+function habilitarDeshabilitarServicios1(){
+	var jj=0;
+	var cuentas = document.f.nnumCuentaEmp1;
+	for(jj = 0; jj<cuentas.length;jj++){
+		if(cuentas[jj].value != "" && cuentas[jj].value != "0011-"){
+			document.getElementById('checkboxTO'+(jj+1)).disabled=false;
+			deshabilitarChekPorColumna(jj+1,false);			
+		}else{
+			document.getElementById('checkboxTO'+(jj+1)).disabled=true;
+			document.getElementById('checkboxTO'+(jj+1)).checked=false;
+			deshabilitarChekPorColumna(jj+1,true);
+			checkearChekPorColumna(jj+1,false);
+		}
+		
+	}
+}
+function habilitarDeshabilitarServicios2(){
+	var jj=0;
+	var cuentas = document.f.nnumCuentaEmp2;
+	for(jj = 0; jj<cuentas.length;jj++){
+		if(cuentas[jj].value != "" && cuentas[jj].value != "0011-"){
+			document.getElementById('checkboxTO'+(jj+1+5)).disabled=false;
+			deshabilitarChekPorColumna(jj+1+5,false);
+		}else{
+			document.getElementById('checkboxTO'+(jj+1+5)).disabled=true;
+			document.getElementById('checkboxTO'+(jj+1+5)).checked=false;
+			deshabilitarChekPorColumna(jj+1+5,true);
+			checkearChekPorColumna(jj+1+5,false);
+		}
+	}
+}
+function habilitarDeshabilitarServicios3(){
+	var jj=0;
+	var cuentas = document.f.nnumCuentaEmp3;
+	for(jj = 0; jj<cuentas.length;jj++){
+		if(cuentas[jj].value != "" && cuentas[jj].value != "0011-"){
+			document.getElementById('checkboxTO'+(jj+1+10)).disabled=false;
+			deshabilitarChekPorColumna(jj+1+10,false);
+		}else{
+			document.getElementById('checkboxTO'+(jj+1+10)).disabled=true;
+			document.getElementById('checkboxTO'+(jj+1+10)).checked=false;
+			deshabilitarChekPorColumna(jj+1+10,true);
+			checkearChekPorColumna(jj+1+10,false);
+		}
+	}
+}
+/**/
+function soloDigitosApostrofePunto(sText){
+
+	var numerosApostrofe ='1234567890';
+	numerosApostrofe = numerosApostrofe + '`.';
+	var res=true;
+	var char;
+	for (i = 0; i < sText.length && res == true; i++){
+		char = sText.charAt(i); 
+		if (numerosApostrofe.indexOf(char) == -1){
+			res = false;
+			break;
+		}
+	}
+	return res;
+}
+
+function formatNumberInsc(obj){
+	var num=obj.value;
+	if(obj.value.length==4 && obj.value.indexOf(',')!=-1){
+		obj.value = obj.value.replace(',', '');
+	}else{	
+		num=num.replace(/`/g,'');
+
+		num += '';
+		if (soloDigitosApostrofePunto(num)) {
+			if(num.length>12){
+				if(num.indexOf('.') > -1)
+				{
+					num=num.substring(0,15);
+				}
+				else
+				{
+					num=num.substring(0,12) + '.00';
+				}
+			}
+		}
+		var splitStr = num.split('.');
+		var splitLeft = splitStr[0];
+		var splitRight = splitStr.length > 1 ? '.' + splitStr[1] : '';
+		var regx = /(\d+)(\d{3})/;
+		while (regx.test(splitLeft)) {
+			splitLeft = splitLeft.replace(regx, '$1' + '`' + '$2');		
+			obj.value=splitLeft + splitRight;
+			
+			var pos = obj.value.indexOf('.'); 
+			if(pos>-1){
+				var  patron = obj.value.substring(pos,obj.value.length);
+				var rsul= obj.value.replace(patron,patron.substring(0,3));
+				obj.value=rsul;
+			}
+		}
+	}
+}
+
+
+
+/*
+function formatNumberInsc_f5(obj){
+	var num=obj.value;
+	num=num.replace(/`/g,'');
+
+	num += '';
+	if (soloDigitosApostrofePunto(num)) {
+		if(num.length>12){
+			if(num.indexOf('.') > -1)
+			{
+				num=num.substring(0,15);
+			}
+			else
+			{
+				num=num.substring(0,12) + '.00';
+			}
+		}
+	
+	var splitStr = num.split('.');
+	var splitLeft = splitStr[0];
+	var splitRight = splitStr.length > 1 ? '.' + splitStr[1] : '';
+	var regx = /(\d+)(\d{3})/;
+	while (regx.test(splitLeft)) {
+		splitLeft = splitLeft.replace(regx, '$1' + '`' + '$2');		
+		obj.value=splitLeft + splitRight;
+		
+		var pos = obj.value.indexOf('.'); 
+		if(pos>-1){
+			var  patron = obj.value.substring(pos,obj.value.length);
+			var rsul= obj.value.replace(patron,patron.substring(0,3));
+			obj.value=rsul;
+		}
+	}
+	}else{
+		num=num.substring(0,num.length-1);
+		obj.value=num;
+	}
+}*/
+
+
+function formatNumberInscDecimals(obj){
+	var num=obj.value;
+	//if (num.indexOf('I') == -1) {
+	if (soloDigitosApostrofePunto(num)) {
+		if(num.indexOf('.') == -1){
+			var rsul = num;
+			obj.value = rsul + '.00'
+			var num=obj.value;
+			var num1 = parseFloat(num);
+			if(num1 < 1){
+				obj.value = num1.toFixed(2);
+			}
+			if(num1 <= 0){
+				//obj.value = '0.00';
+				obj.value = '';
+			}
+		}else{
+		
+		  var tmp;
+		  var rsul;
+          tmp=num.substring(num.indexOf('.')+1,num.length);
+          		  
+		  if(tmp.length==1){  
+			
+			rsul=num.substring(0,num.indexOf('.')+2);
+			
+			obj.value=rsul + '0'
+		   }
+		
+			var num=obj.value;
+			var num1 = parseFloat(num);
+			if(num1 < 1){
+				obj.value = num1.toFixed(2);
+			}
+			if(num1 <= 0){
+				//obj.value = '0.00';
+				obj.value = '';
+			}
+		}
+	}else {
+		obj.value = obj.value.toUpperCase();
+	}
+}
+
+/*modificado 10-04-2013*/
+   function currencyFormat(fld, decSep, e) {  
+    var key = ''; 
+    var i = 0; 
+    var len = 0;   
+    var aux = ''; 
+	var pihue = ''; 
+    var whichCode = (window.Event) ? e.which : e.keyCode;   
+	pihue = nav4 ? e.which : e.keyCode;	
+    key = String.fromCharCode(whichCode); // Get key value from key code    
+	
+	if (pihue==0 || pihue==8)
+	{		
+		return true;
+	}
+	if(pihue <= 13 || (pihue >= 48 && pihue <= 57))
+	{
+	
+	key=key;
+	}
+	else
+	{
+	
+	key='';
+	}
+	//alert(key)
+    len = fld.value.length; 
+ 
+    for(; i < len; i++)
+			aux += fld.value.charAt(i); 
+			
+			if(key!='-') 
+			{ 
+			aux += key; 
+			}
+			else
+			{
+			
+			}
+			
+			len = aux.length;	
+		   // alert('len:: '+i )
+		   
+		    if(i==8 && key=='')
+		   {}
+		   else{
+		   
+		   
+						if((i==3 & key!='-')  || i==8)
+						{
+						fld.value =  aux+'-'; 
+						}
+						else if(i==4 & key!='-')
+						{
+						
+						fld.value =  aux.substring(0,aux.length-1)+'-'+aux.substring(aux.length-1,aux.length); 			
+						}
+						else if(i==9 & key!='-')
+						{			
+						fld.value =  aux.substring(0,aux.length-1)+'-'+aux.substring(aux.length-1,aux.length); 			
+						}
+						else if(i>19)
+						{			
+						fld.value =  aux.substring(0,20);	
+						}
+						
+						else
+						{
+						fld.value =  aux; 
+						}  
+			}						
+			//alert(i+' : '+aux.substring(0,4))
+			if(i>2 && (aux.substring(0,4) != '0011' ))
+			{
+			//alert(aux.substring(0,4))
+			 alert('Los primeros 4 dígitos debe ser 0011.');
+			 fld.value = '';
+			}
+	
+		return false; 		
+	
+   } 
+   
+   //funcion tomada de jScript.js   
+function ingresoNumerosSlashK(e){
+	var sText = document.f.faxEmp;
+	var key;
+	var lAdicionalk='/';
+	var lNumerosk='1234567890';
+	var valid = '' + lAdicionalk+ lNumerosk;
+	
+	if(e.which){
+		key = String.fromCharCode(e.which);
+		if (e.which!= 8 && valid.indexOf("" + key) == -1)
+
+			e.preventDefault();
+	}
+	else if(e.keyCode){
+		key = String.fromCharCode(e.keyCode);
+		if (valid.indexOf("" + key) == -1){			
+			e.keyCode = 0;
+			}
+		if(sText.value.indexOf("/") != -1 && key.indexOf("/") != -1){
+			e.keyCode = 0;
+			}
+	}	
+}
+
+
+
+  </script> 
+<script language="javascript"> 
+function tipoCaracter(fld,evt){
+var rucEmp= document.forms[0].combRucCarnetPas.value;
+len = fld.value.length; 
+	if(rucEmp==2)
+	{	
+	 if(len<8) {return ingresoSoloNumeros(evt);}
+		 else {alert('El N° de LM ya tiene 8 dígitos')
+	 return false;
+	 }
+	}/*
+	else if(rucEmp==7 )
+	{	
+	  if(len<11) {return ingresoSoloNumeros(evt);}
+		 else {alert('El N° de RUC Ya Tiene 11 Dígitos')
+	 return false;}
+	}*/
+	else{
+	return ingresoSoloNumeros(evt);
+	}
+}
+
+
+function vmatricula(obj) 
+{ 
+var cadena=obj.value; 
+var matri="" 
+var alfa=false; 
+cadena=cadena.toUpperCase(); 
+for(var x=0;x<cadena.length;x++) 
+{ 
+if(cadena.charAt(x)!='-') 
+{ 
+if(cadena.charCodeAt(x)>63) 
+{ 
+if(matri.length>0 && !alfa) 
+matri=matri+"-"; 
+alfa=true; 
+} 
+else 
+{ 
+if(alfa) matri=matri+"-"; 
+alfa=false; 
+} 
+matri=matri+cadena.charAt(x); 
+} 
+} 
+obj.value=matri; 
+} 
+</script> 
+<script type="text/javascript">
+$().ready(function() {
+	
+	$("#limiteCuentaEmp01").autocomplete(limites, {
+		matchContains: true,
+		minChars: 0
+	});	
+		$("#limiteCuentaEmp02").autocomplete(limites, {
+		matchContains: true,
+		minChars: 0
+	});	
+			$("#limiteCuentaEmp03").autocomplete(limites, {
+		matchContains: true,
+		minChars: 0
+	});	
+			$("#limiteCuentaEmp04").autocomplete(limites, {
+		matchContains: true,
+		minChars: 0
+	});	
+			$("#limiteCuentaEmp05").autocomplete(limites, {
+		matchContains: true,
+		minChars: 0
+	});	
+			$("#limiteCuentaEmp06").autocomplete(limites, {
+		matchContains: true,
+		minChars: 0
+	});	
+			$("#limiteCuentaEmp07").autocomplete(limites, {
+		matchContains: true,
+		minChars: 0
+	});	
+			$("#limiteCuentaEmp08").autocomplete(limites, {
+		matchContains: true,
+		minChars: 0
+	});	
+			$("#limiteCuentaEmp09").autocomplete(limites, {
+		matchContains: true,
+		minChars: 0
+	});	
+			$("#limiteCuentaEmp10").autocomplete(limites, {
+		matchContains: true,
+		minChars: 0
+	});	
+	
+	
+});
+
+</script>
+
+<script language="JavaScript">
+<!--
+var nav4 = window.Event ? true : false;
+
+function acceptNumLetras(evt){
+//www.transporteselectos.com
+var key = nav4 ? evt.which : evt.keyCode;
+return (key == 95 || (key >= 48 && key <= 57) || (key >= 64 && key <= 90)|| (key >= 97 && key <= 121));
+
+}
+function acceptOnlyNumber1(importe,e){
+	var key;
+	var valid = '' + lNumeros + lExtraDecimales;
+	
+	if(e.which){
+		key = String.fromCharCode(e.which);		
+	} else if(e.keyCode){
+		key = String.fromCharCode(e.keyCode);		
+}
+	if ('ILIMITADO'.indexOf(importe.value+key)==0)
+		return true;
+else
+		return ingresoNumeros(e);
+
+}
+
+function acceptOnlyNumber(evt){	
+// NOTE: Backspace = 8, Enter = 13, '0' = 48, '9' = 57	
+key = nav4 ? evt.which : evt.keyCode;	
+
+return (key <= 13 || (key >= 48 && key <= 57));
+}
+
+function acceptNum(evt){
+
+
+// NOTE: Backspace = 8, Enter = 13, '0' = 48, '9' = 57	
+key = nav4 ? evt.which : evt.keyCode;	
+
+return (key <= 13 || (key >= 48 && key <= 57));
+
+
+}
+
+
+
+//********************************************************************************************//
+
+function validarIns(opm){
+//alert("validar")
+
+//validarndo ruc
+
+	var x;
+	var y;
+	var p=0;
+	var r=0;
+	var w;
+	var z;
+	var flags=0;
+	/*****************************************************************************************************************
+	 *****************************************************************************************************************
+	 ** HOJA 1
+	 *****************************************************************************************************************
+	 *****************************************************************************************************************/
+	
+	//razon social empresa
+	x = document.f.razSocEmp;
+	x.value = trim(x.value);
+	if (x.value.length==0){
+		alert("Ingrese la Razón Social de la Empresa.");
+		x.focus();
+		return false;
+	}
+	/*
+	if (!soloLetras(x.value)){
+		alert("La Razón Social de la Empresa no es válida.");
+		x.focus();
+		return false;
+	}*/
+	//ruc
+	x = document.f.rucEmp;
+	x.value = trim(x.value);
+	if (x.value.length==0){
+		alert("Ingrese el RUC de la Empresa Principal.");
+		x.focus();
+		return false;
+	}
+	if (!soloDigitos(x.value)){
+		alert("El RUC de la Empresa Principal no es válido.");
+		x.focus();
+		return false;
+	}
+	if (x.value.length>0 && x.value.length<11){
+		alert("Número de RUC debe contener 11 dígitos.");
+		x.focus();
+		return false;
+	}
+	
+	
+	//cta.principal cargo
+	/*
+	x = document.f.cuentaPrincipalCargo;
+		x.value = trim(x.value);
+		if (x.value.length==0){
+			alert('yaaa:: '+x.value)
+			alert("Ingrese el número de Cuenta Principal de Cargo.");
+			x.focus();
+			return false;
+		}
+	if (x.value.length >0 && x.value.length <20){
+		alert("El número de Cuenta Principal de Cargo no es válido.");
+		x.focus();
+		return false;
+	}
+	*/
+	//borrado por mochadoooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+	/*
+	//telefono
+	x = document.f.telefonoEmp;
+	x.value = trim(x.value);
+	
+	if (x.value.length==0){
+		alert("Ingrese el número de Teléfono.");
+		x.focus();
+		return false;
+	}
+	
+	if(x.value.length>0)
+	{
+		if (!soloDigitos(x.value) || x.value.length<6){
+			alert("El número de Teléfono no es válido.");
+			x.focus();
+			return false;
+		}
+	}
+	//anexo		
+	if (!soloDigitos(trim(document.f.anxEmp.value))){
+		alert("El número de anexo es no es válido.");
+		document.f.anxEmp.focus();
+		return false;
+	}
+	
+	//email
+	var cade;
+	x = document.f.email.value;
+	x = trim(x);
+	
+	if (x.length==0){
+		alert("Ingrese el correo electrónico de la Empresa.");
+		document.f.email.focus();
+		return false;
+	}
+	if (x.length>0){
+		if (x.indexOf("@")==-1||x.indexOf(".")==-1){
+			alert("El correo electrónico de la Empresa no es válido.");
+			document.f.email.focus();
+			return false;
+		}	
+		if(trim(x).indexOf(" ") != -1){
+			alert("El correo electrónico de la Empresa no es válido.");
+			document.f.email.focus();
+			return false;
+		}	
+	}
+	var retorno = validarDominioEmail(document.f.email, '1');
+	if(retorno == false){
+		document.f.email.focus();
+		return false;
+	}	
+
+	*/
+	//fin borrado por mochadoooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+	
+	
+	
+	//CODIGO DE EMPRESA
+
+		x = document.f.codigoEmpresa;
+		x.value = trim(x.value);
+		if (x.value.length==0){
+			alert("Ingrese el Código de Empresa.");
+			x.focus();
+			return false;
+		}
+		else
+	    {
+	        if (x.value.length < 8 || !soloDigitos(x.value))
+	        {
+		        alert("El Código de Empresa debe de tener 8 dígitos,\ncompletar con ceros a la izquierda de ser necesario.");
+		        x.focus();
+		        return false;
+            }
+	    }
+	//fin borrado por mochadoooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+		/*
+		//fax
+	x = document.f.faxEmp;
+	x.value = trim(x.value);
+	if (x.value.length>0){
+		//if (!soloDigitosSlash(x.value) || x.value.length<6){
+		if (!soloDigitos(x.value) || x.value.length<7){
+			alert("El número de Fax no es válido.");
+			x.focus();
+			return false;
+		}
+	}	*/
+	//fin borrado por mochadoooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+	/*****************************************************************************************************************
+	 *****************************************************************************************************************
+	 ** HOJA 3
+	 *****************************************************************************************************************
+	 *****************************************************************************************************************/
+	 
+	 //almenos una empresa asociada
+	 var e1,e2,e3,r1,r2,r3;
+	 e1 = document.f.razSocEmp2;
+	 e1.value = trim(e1.value);
+	 e2 = document.f.razSocEmp3;
+	 e2.value = trim(e2.value);
+	 e3 = document.f.razSocEmp4;
+	 e3.value = trim(e3.value);
+	 r1 = document.f.rucEmp2;
+	 r1.value = trim(r1.value);
+	 r2 = document.f.rucEmp3;
+	 r2.value = trim(r2.value);
+	 r3 = document.f.rucEmp4;
+	 r3.value = trim(r3.value);
+	  
+	if (e1.value.length==0 && r1.value.length==0 && e2.value.length==0 && r2.value.length==0 && e3.value.length==0 && r3.value.length==0){
+		alert("Debe ingresar al menos una Empresa Asociada.");
+		e1.focus();
+		return false;
+	}
+		
+		if (r1.value.length!=0 && e1.value.length==0){
+			alert("Ingrese la Razón Social de la Empresa Asociada.");
+			e1.focus();
+			return false;
+		}
+		if (r1.value.length==0 && e1.value.length!=0){
+			alert("Ingrese el RUC de la Empresa Asociada.");
+			r1.focus();
+			return false;
+		}	
+		if (r1.value.length>0 && r1.value.length<11){
+			alert("Número de RUC debe contener 11 dígitos.");
+			r1.focus();
+			return false;
+		}
+		if (!soloDigitos(r1.value)){
+			alert("El RUC de la Empresa Asociada 1 no es válido.");
+			r1.focus();
+			return false;
+		}
+		if (r2.value.length!=0 && e2.value.length==0){
+			alert("Ingrese la Razón Social de la Empresa Asociada.");
+			e2.focus();
+			return false;
+		}
+		if (r2.value.length==0 && e2.value.length!=0){
+			alert("Ingrese el RUC de la Empresa Asociada.");
+			r2.focus();
+			return false;
+		}	
+		if (r2.value.length>0 && r2.value.length<11){
+			alert("Número de RUC debe contener 11 dígitos.");
+			r2.focus();
+			return false;
+		}
+		if (!soloDigitos(r2.value)){
+			alert("El RUC de la Empresa Asociada 2 no es válido.");
+			r2.focus();
+			return false;
+		}
+		if (r3.value.length!=0 && e3.value.length==0){
+			alert("Ingrese la Razón Social de la Empresa Asociada.");
+			e3.focus();
+			return false;
+		}
+		if (r3.value.length==0 && e3.value.length!=0){
+			alert("Ingrese el RUC de la Empresa Asociada.");
+			r3.focus();
+			return false;
+		}	
+		if (r3.value.length>0 && r3.value.length<11){
+			alert("Número de RUC debe contener 11 dígitos.");
+			r3.focus();
+			return false;
+		}	
+		if (!soloDigitos(r3.value)){
+			alert("El RUC de la Empresa Asociada 3 no es válido.");
+			r3.focus();
+			return false;
+		}
+		
+		//VALIDACIONES DEL PREFIJO 0011- PARA CUENTAS-------------------
+	//inicio gran if	
+	//cuentas de la empresa
+	x = document.f.nnumCuentaEmp1;;
+	//z = document.f.tipoInscripcion;
+	
+	//if(z[0].checked != false ){//inicio del gran if
+		
+		j = 0;
+			for(i=0; i < x.length; i++ ){
+											
+				//x[i].value =trim(x[i].value);  
+											
+				//if (x[i].value != ""){
+				if (x[i].value.length > 0){
+					j++;
+					if(x[i].value.length != 20 || x[i].value.substring(0,4) != "0011"){
+						if(x[i].value.length == 5 && x[i].value.substring(0,5) == "0011-"){;
+						}
+						else{
+							alert("El número de cuenta no es válido.");
+							x[i].focus();
+							return false;
+						}
+					}else{
+						if(!cuentaCorrecta(x[i].value)){
+							alert("El número de cuenta no es válido.");
+							x[i].focus();
+							return false;
+						}
+					}
+					/*
+					if(y[i].selectedIndex == 0){
+						alert("Elija una Moneda.");
+						y[i].focus();
+						return false;
+					}*/
+
+					
+				}
+				/*
+				if (i == x.length - 1){
+					if (j==0){
+						alert("Ingrese como mínimo una cuenta.");
+						x[0].focus();
+						return false;
+					}
+				}*/
+			}
+		//cuentas de la empresa
+		x = document.f.nnumCuentaEmp2;
+		
+						
+		j = 0;
+			for(i=0; i < x.length; i++ ){
+											
+				//x[i].value =trim(x[i].value);  
+											
+				//if (x[i].value != ""){
+				if (x[i].value.length > 0){
+					j++;
+					if(x[i].value.length != 20 || x[i].value.substring(0,4) != "0011"){
+						if(x[i].value.length == 5 && x[i].value.substring(0,5) == "0011-"){;
+						}
+						else{
+							alert("El número de cuenta no es válido.");
+							x[i].focus();
+							return false;
+						}
+					}else{
+						if(!cuentaCorrecta(x[i].value)){
+							alert("El número de cuenta no es válido.");
+							x[i].focus();
+							return false;
+						}
+					}
+					/*
+					if(y[i].selectedIndex == 0){
+						alert("Elija una Moneda.");
+						y[i].focus();
+						return false;
+					}*/
+
+					
+				}
+				/*
+				if (i == x.length - 1){
+					if (j==0){
+						alert("Ingrese como mínimo 1 cuenta.");
+						x[0].focus();
+						return false;
+					}
+				}*/
+			}
+			//cuentas de la empresa  bloque 3
+		x = document.f.nnumCuentaEmp3;
+
+						
+		j = 0;
+			for(i=0; i < x.length; i++ ){
+											
+				//x[i].value =trim(x[i].value);  
+											
+				//if (x[i].value != ""){
+				if (x[i].value.length > 0){
+					j++;
+					if(x[i].value.length != 20 || x[i].value.substring(0,4) != "0011"){
+						if(x[i].value.length == 5 && x[i].value.substring(0,5) == "0011-"){;
+						}
+						else{
+							alert("El número de cuenta no es válido.");
+							x[i].focus();
+							return false;
+						}
+					}else{
+						if(!cuentaCorrecta(x[i].value)){
+							alert("El número de cuenta no es válido.");
+							x[i].focus();
+							return false;
+						}
+					}
+					/*if(y[i].selectedIndex == 0){
+						alert("Elija una Moneda.");
+						y[i].focus();
+						return false;
+					}*/
+
+					
+				}
+
+				/*if (i == x.length - 1){
+					if (j==0){
+						alert("Ingrese como mínimo 1 cuenta.");
+						x[0].focus();
+						return false;
+					}
+				}*/
+			}
+	//}fin del gran if
+	
+	//VALIDACIONES DE LAS CUENTAS Y SUS CASUISTICAS CON EL LIMITE, ETC.-----------------
+	
+	
+		var limite;	
+	    var cuenta;	
+	
+	for ( var fila = 1; fila < 16; fila ++ ) {	         
+	    limite = document.getElementById('limiteDiario'+fila).value;	 
+   	    cuenta = document.getElementById('numCuentaEmp'+fila).value;	
+		
+				/*
+				if(cuenta != "" && limite == ""){
+					//alert("fila:"+fila + " Cuenta:" + cuenta + " Coloque limite " + limite);
+					alert("Cuenta sin Código de cartera");			
+					document.getElementById('limiteDiario'+fila).focus();
+					return false;				
+				  }	*/
+				  /*
+				if(cuenta == "" && limite != ""){
+					alert("Límite sin cuenta");	
+					document.getElementById('numCuentaEmp'+fila).focus();
+					return false;				
+				  }	
+			*/
+		}
+		
+	/////////////////
+	//validacion para que si se ha llenado la razon y ruc de la empresa asociada, se llene amenos una cuenta
+	var razon = document.f.razSocEmp2;
+	var ruc = document.f.rucEmp2;
+	var kk=0;
+	var flag = 0;	
+	y = document.f.nlimiteDiario1;
+	if(razon.value != "" && ruc.value != ""){	
+		for ( var i = 1; i < 6; i ++ ) {	
+			if(!validarCuentas(i)){
+				flag++;
+			}		
+		}		
+	}
+	for ( var i = 0; i < 5; i ++ ) {
+		if (y[i].value=="" || y[i].value=="0011-" ){				
+			kk++;
+		}
+	}
+	if(flag==5 && kk==5){		
+		alert("Ingrese como mínimo una Cuenta o un Código de Cartera.");
+		document.getElementById('numCuentaEmp'+1).focus();
+		return false;
+	}	/**/
+	for ( var i = 0; i < 5; i ++ ) {
+		/*if (!soloDigitos(y[i].value)){			
+			alert("El código de cartera no es valido.");
+			y[i].focus();
+			return false;
+		}*/		
+		if (y[i].value.length > 0){
+					if(y[i].value.length != 20 || y[i].value.substring(0,4) != "0011"){
+						if(y[i].value.length == 5 && y[i].value.substring(0,5) == "0011-"){;
+						}
+						else{
+							alert("El Código de Cartera no es válido.");
+							y[i].focus();
+							return false;
+						}
+					}else{
+						if(!cuentaCorrecta(y[i].value)){
+							alert("El Código de Cartera no es válido.");
+							y[i].focus();
+							return false;
+						}
+					}
+		}///////
+	}
+	razon = document.f.razSocEmp3;
+	ruc = document.f.rucEmp3;
+	flag = 0;
+	y = document.f.nlimiteDiario2;	
+	kk=0;
+	if(razon.value != "" && ruc.value != ""){
+		for ( var i = 6; i < 11; i ++ ) {	
+			if(!validarCuentas(i)){
+				flag++;
+			}			
+		}		
+	}
+	for ( var i = 0; i < 5; i ++ ) {
+		if (y[i].value=="" || y[i].value=="0011-" ){				
+			kk++;
+		}
+	}
+	if(flag==5 && kk==5){		
+		alert("Ingrese como mínimo una cuenta o un código de cartera.");
+		document.getElementById('numCuentaEmp'+6).focus();
+		return false;
+	}	/**/
+	for ( var i = 0; i < 5; i ++ ) {
+		/*if (!soloDigitos(y[i].value)){			
+			alert("El código de cartera no es valido.");
+			y[i].focus();
+			return false;
+		}*/		
+		if (y[i].value.length > 0){
+					if(y[i].value.length != 20 || y[i].value.substring(0,4) != "0011"){
+						if(y[i].value.length == 5 && y[i].value.substring(0,5) == "0011-"){;
+						}
+						else{
+							alert("El Código de Cartera no es válido.");
+							y[i].focus();
+							return false;
+						}
+					}else{
+						if(!cuentaCorrecta(y[i].value)){
+							alert("El Código de Cartera no es válido.");
+							y[i].focus();
+							return false;
+						}
+					}
+		}///////
+	}
+	razon = document.f.razSocEmp4;
+	ruc = document.f.rucEmp4;
+	flag = 0;
+	y = document.f.nlimiteDiario3;	
+	kk=0;
+	if(razon.value != "" && ruc.value != ""){
+		for ( var i = 11; i < 16; i ++ ) {	
+			if(!validarCuentas(i)){
+				flag++;
+			}		
+		}		
+	}	
+	for ( var i = 0; i < 5; i ++ ) {
+		if (y[i].value=="" || y[i].value=="0011-" ){			
+			kk++;
+		}
+	}
+	if(flag==5 && kk==5){		
+		alert("Ingrese como mínimo una cuenta o un código de cartera.");
+		document.getElementById('numCuentaEmp'+11).focus();
+		return false;
+	}	/**/
+	for ( var i = 0; i < 5; i ++ ) {
+		/*if (!soloDigitos(y[i].value)){			
+			alert("El código de cartera no es valido.");
+			y[i].focus();
+			return false;
+		}*/		
+		if (y[i].value.length > 0){
+					if(y[i].value.length != 20 || y[i].value.substring(0,4) != "0011"){
+						if(y[i].value.length == 5 && y[i].value.substring(0,5) == "0011-"){;
+						}
+						else{
+							alert("El Código de Cartera no es válido.");
+							y[i].focus();
+							return false;
+						}
+					}else{
+						if(!cuentaCorrecta(y[i].value)){
+							alert("El Código de Cartera no es válido.");
+							y[i].focus();
+							return false;
+						}
+					}
+		}///////
+	}
+	////////////////////////
+	
+	///////vlidacion de la seccion 4 //////////
+	
+	
+	var i;
+	for(i = 1 ; i < 16 ; i++){
+		if(validarCuentas(i)){
+			if(validarChecks(i,'a') || validarChecks(i,'b') || validarChecks(i,'c') || validarChecks(i,'d')){
+			;
+			}else{
+				alert("La cuenta " + i + " no tiene asociado ningún servicio. Asocie algún servicio a dicha cuenta.");
+				document.getElementById('numCuentaEmp' + i).focus();
+		 		return false;
+			}
+		}else{
+			if(validarChecks(i,'a') || validarChecks(i,'b') || validarChecks(i,'c') || validarChecks(i,'d')){
+				alert("Servicio sin cuenta asociada. Asocie la cuenta " + i + " correspondiente al servicio.");	
+				document.getElementById('numCuentaEmp' + i).focus();
+		 		return false;
+				}	
+		}
+	}
+	
+		
+		
+		
+	//razon social empresa2
+	/*x = document.f.razSocEmp2;
+	x.value = trim(x.value);
+	if (x.value.length==0){
+		alert("Ingrese la Razón Social de la Empresa.");
+		x.focus();
+		return false;
+	}
+	
+	//ruc2
+	x = document.f.rucEmp2;
+	x.value = trim(x.value);
+	if (x.value.length==0){
+		alert("Ingrese el RUC de la Empresa.");
+		x.focus();
+		return false;
+	}
+	if (!soloDigitos(x.value)){
+		alert("El RUC de la Empresa no es válido.");
+		x.focus();
+		return false;
+	}*/
+	
+	
+	
+	
+	//N° de la cuenta 2
+	/*
+	x = document.f.numCuentaEmp12;
+	x.value = trim(x.value);
+	if (x.value.length==0){
+		alert("Ingrese el N° de la cuenta.");
+		x.focus();
+		return false;
+	}*/
+	
+
+	
+	
+	
+	
+		
+
+	
+	//tipo de inscripcion
+	var flag = 0;
+	//alert("tipo de inscripcion");
+	x = document.f.tipoInscripcion;
+
+	//alert(": "+ x.length);
+
+	for( k = 0; k < x.length; k++ ){
+	if(x[k].checked == true )
+		break;
+	}
+	//alert(": "+k);
+	if (k == x.length){
+	alert("Seleccione un Tipo de Modificación.");
+	
+	
+		x[1].focus();
+	return true;
+	}
+	if (k == 1){
+
+		//codigo empresa
+		x = document.f.codigoEmpresa;
+		x.value = trim(x.value);
+		if (x.value.length==0){
+			alert("Ingrese el Código de Empresa.");
+			x.focus();
+			return false;
+		}
+		else
+	    {
+	        if (x.value.length < 8 || !soloDigitos(x.value))
+	        {
+		        alert("El Código de Empresa debe de tener 8 dígitos,\ncompletar con ceros a la izquierda de ser necesario.");
+		        x.focus();
+		        return false;
+            }
+	    }
+		
+	}			
+	if (k == 2){
+		//codigo empresa
+		x = document.f.codigoEmpresa;
+		x.value = trim(x.value);
+		if (x.value.length==0){
+			alert("Ingrese el Código de Empresa.");
+			x.focus();
+			return false;
+		}
+		else
+	    {
+	        if (x.value.length < 8 || !soloDigitos(x.value))
+	        {
+		        alert("El Código de Empresa debe de tener 8 dígitos,\ncompletar con ceros a la izquierda de ser necesario.");
+		        x.focus();
+		        return false;
+            }
+	    }
+
+	}
+	
+	
+	/*
+	for ( var fila = 1; fila < 16; fila ++ ) {
+	   
+	   if(document.getElementById('limiteDiario'+fila).value != ""){
+			texto= document.getElementById('limiteDiario'+fila).value;
+			
+			if (soloLetras(texto)){
+				if(texto != "ILIMITADO"){
+					alert("El texto ingresado en Limite Diario debe ser ILIMITADO");
+					document.getElementById('limiteDiario'+fila).focus();
+					return false;
+				}
+			}else{
+				if (!soloDigitosApostrofePunto(texto)){
+					if(texto != "ILIMITADO"){
+						alert("El texto ingresado en Limite Diario debe ser ILIMITADO");
+						document.getElementById('limiteDiario'+fila).focus();
+						return false;
+					}
+				}			
+			}
+		}	
+    }
+	*/
+
+	/*****************************************************************************************************************
+	 *****************************************************************************************************************
+	 ** seccion 5
+	 *****************************************************************************************************************
+	 *****************************************************************************************************************/
+	 
+	
+	 		
+	//nomEmprePricipal5
+	x = document.f.nomEmprePricipal5;
+	x.value = trim(x.value);
+	if (!x.value.length>0){
+			alert("En la Sección 4: Ingrese el Razon Social de la Empresa Principal.");
+			x.focus();
+			return false;
+	}
+	//rucEmprePricipal5
+	x = document.f.rucEmprePricipal5;
+	x.value = trim(x.value);
+	if (!x.value.length>0){
+			alert("En la Sección 4: Ingrese el RUC de la Empresa Principal.");
+			x.focus();
+			return false;
+	}
+	
+	
+	rucprinc=document.getElementById('rucEmp').value;
+	if(document.getElementById('rucEmprePricipal5').value != rucprinc){
+	alert("En la Sección 4: RUC de Empresa Principal no coincide con el ingresado en la Sección 1 del formulario.");
+	document.getElementById('rucEmprePricipal5').focus();
+		 return false;
+	}
+	
+	
+	
+	if(document.getElementById('razSocEmp2').value != "" && document.getElementById('rucEmp2').value != ""){
+	if(document.getElementById('nomEmprePricipal51').value==""||document.getElementById('rucEmprePricipal51').value==""||
+	   document.getElementById('nomEmprePricipal510').value==""||document.getElementById('rucEmprePricipal510').value==""){
+	   if(document.getElementById('nomEmprePricipal51').value==""){
+	    alert("En la Sección 4: Ingrese la Razón Social de la Empresa Asociada 1.");
+		document.getElementById('nomEmprePricipal51').focus();
+		 return false;
+	   }
+	   if(document.getElementById('rucEmprePricipal51').value==""){
+	    alert("En la Sección 4: Ingrese RUC de la Empresa Asociada 1.");
+		document.getElementById('rucEmprePricipal51').focus();
+		 return false;
+	   }
+	   if(document.getElementById('nomEmprePricipal510').value==""){
+	    alert("En la Sección 4: Ingrese la Razón Social de la Empresa Principal.");
+		document.getElementById('nomEmprePricipal510').focus();
+		 return false;
+	   }
+	   if(document.getElementById('rucEmprePricipal510').value==""){
+	    alert("En la Sección 4: Ingrese RUC de la Empresa Principal.");
+		document.getElementById('rucEmprePricipal510').focus();
+		 return false;
+	   }
+	   
+	   
+	 }
+	ruc0=document.getElementById('rucEmp').value;
+	ruc2=document.getElementById('rucEmp2').value;
+      if(document.getElementById('rucEmprePricipal510').value != ruc0 || document.getElementById('rucEmprePricipal51').value != ruc2){
+	     
+		 if(document.getElementById('rucEmprePricipal51').value != ruc2){
+		 alert("En la Sección 4: RUC de la Empresa Asociada 1 no coincide con el RUC ingresado en la Sección 3 del formulario.");		 
+		 document.getElementById('rucEmprePricipal51').focus();
+		 return false;
+		 }
+		 if(document.getElementById('rucEmprePricipal510').value != ruc0){	     
+		 alert("En la Sección 4: RUC de Empresa Principal no coincide con el ingresado en la Sección 1 del formulario.");
+		 document.getElementById('rucEmprePricipal510').focus();
+		 return false;
+		 }
+	  } 
+	}
+	
+	if(document.getElementById('razSocEmp3').value != "" && document.getElementById('rucEmp3').value != ""){
+	if(document.getElementById('nomEmprePricipal52').value==""||document.getElementById('rucEmprePricipal52').value==""||
+	   document.getElementById('nomEmprePricipal520').value==""||document.getElementById('rucEmprePricipal520').value==""){
+	   if(document.getElementById('nomEmprePricipal52').value==""){
+	    alert("En la Sección 4: Ingrese la Razón Social de la Empresa Asociada 2.");
+		document.getElementById('nomEmprePricipal52').focus();
+		 return false;
+	   }
+	   if(document.getElementById('rucEmprePricipal52').value==""){
+	    alert("En la Sección 4: Ingrese la RUC de la Empresa Asociada 2.");
+		document.getElementById('rucEmprePricipal52').focus();
+		 return false;
+	   }
+	   if(document.getElementById('nomEmprePricipal520').value==""){
+	    alert("En la Sección 4: Ingrese la Razón Social de la Empresa Principal.");
+		document.getElementById('nomEmprePricipal520').focus();
+		 return false;
+	   }
+	   if(document.getElementById('rucEmprePricipal520').value==""){
+	    alert("En la Sección 4: Ingrese la RUC de la Empresa Principal.");
+		document.getElementById('rucEmprePricipal520').focus();
+		 return false;
+	   }   
+	 }
+	ruc0=document.getElementById('rucEmp').value;
+	ruc2=document.getElementById('rucEmp3').value;
+      if(document.getElementById('rucEmprePricipal520').value != ruc0 || document.getElementById('rucEmprePricipal52').value != ruc2){
+	     
+		 if(document.getElementById('rucEmprePricipal52').value != ruc2){
+		 alert("En la Sección 4: RUC de la Empresa Asociada 2 no coincide con el RUC ingresado en la Sección 3 del formulario.");
+		 document.getElementById('rucEmprePricipal52').focus();
+		 return false;
+		 }
+		 if(document.getElementById('rucEmprePricipal520').value != ruc0){
+		 alert("En la Sección 4: RUC de Empresa Principal no coincide con el ingresado en la Sección 1 del formulario");
+		 document.getElementById('rucEmprePricipal520').focus();
+		 return false;
+		 }
+	  } 
+	}
+	
+	  if(document.getElementById('razSocEmp4').value != "" && document.getElementById('rucEmp4').value != ""){
+		if(document.getElementById('nomEmprePricipal53').value==""||document.getElementById('rucEmprePricipal53').value==""||
+	   document.getElementById('nomEmprePricipal530').value==""||document.getElementById('rucEmprePricipal530').value==""){
+	   if(document.getElementById('nomEmprePricipal53').value==""){	    
+		alert("En la Sección 4: Ingrese la Razón Social de la Empresa Asociada 3.");
+		document.getElementById('nomEmprePricipal53').focus();
+		 return false;
+	   }
+	   if(document.getElementById('rucEmprePricipal53').value==""){
+	    alert("En la Sección 4: Ingrese la RUC de la Empresa Asociada 3.");
+		document.getElementById('rucEmprePricipal53').focus();
+		 return false;
+	   }
+	   if(document.getElementById('nomEmprePricipal530').value==""){
+	    alert("En la Sección 4: Ingrese la Razón Social de la Empresa Principal.");
+		document.getElementById('nomEmprePricipal530').focus();
+		 return false;
+	   }
+	   if(document.getElementById('rucEmprePricipal530').value==""){
+	    alert("En la Sección 4: Ingrese la RUC de la Empresa Principal.");
+		document.getElementById('rucEmprePricipal530').focus();
+		 return false;
+	   }   
+	 }
+		
+		ruc0=document.getElementById('rucEmp').value;
+		ruc2=document.getElementById('rucEmp4').value;
+		if(document.getElementById('rucEmprePricipal530').value != ruc0 || document.getElementById('rucEmprePricipal53').value != ruc2){
+	     
+		 if(document.getElementById('rucEmprePricipal53').value != ruc2){
+		 alert("En la Sección 4: RUC de la Empresa Asociada 3 no coincide con el RUC ingresado en la Sección 3 del formulario.");
+		 document.getElementById('rucEmprePricipal53').focus();
+		 return false;
+		 }
+		 if(document.getElementById('rucEmprePricipal530').value != ruc0){
+		 alert("En la Sección 4: RUC de Empresa Principal no coincide con el ingresado en la Sección 1 del formulario.");
+		 document.getElementById('rucEmprePricipal530').focus();
+		 return false;
+		 }
+	  } 
+	}
+	
+	if(!validarTamanioRuc('rucEmprePricipal5')){return false;}
+	if(!validarTamanioRuc('rucEmprePricipal51')){return false;}
+	if(!validarTamanioRuc('rucEmprePricipal510')){return false;}
+	if(!validarTamanioRuc('rucEmprePricipal52')){return false;}
+	if(!validarTamanioRuc('rucEmprePricipal520')){return false;}
+	if(!validarTamanioRuc('rucEmprePricipal53')){return false;}
+	if(!validarTamanioRuc('rucEmprePricipal530')){return false;}
+	
+	if((document.f.rucEmp2.value == document.f.rucEmp.value) && (document.f.rucEmp2.value!=""&&document.f.rucEmp.value!="")){
+		alert("El RUC de la Empresa Asociada 1 no debe ser igual al RUC de la Empresa Principal.");
+		document.getElementById('rucEmp2').focus();
+		return false;
+	}else if((document.f.rucEmp3.value == document.f.rucEmp.value) && (document.f.rucEmp3.value!=""&&document.f.rucEmp.value!="")){
+		alert("El RUC de la Empresa Asociada 2 no debe ser igual al RUC de la Empresa Principal.");
+		document.getElementById('rucEmp3').focus();
+		return false;
+	}else if((document.f.rucEmp4.value == document.f.rucEmp.value) && (document.f.rucEmp4.value!=""&&document.f.rucEmp.value!="")){
+		alert("El RUC de la Empresa Asociada 3 no debe ser igual al RUC de la Empresa Principal.");
+		document.getElementById('rucEmp4').focus();
+		return false;
+	}else if((document.f.rucEmp3.value == document.f.rucEmp2.value) && (document.f.rucEmp3.value!=""&&document.f.rucEmp2.value!="")){
+		alert("El RUC de la Empresa Asociada 2 no debe ser igual al RUC de la Empresa Asociada 1.");
+		document.getElementById('rucEmp3').focus();
+		return false;
+	}else if((document.f.rucEmp4.value == document.f.rucEmp2.value) && (document.f.rucEmp4.value!=""&&document.f.rucEmp2.value!="")){
+		alert("El RUC de la Empresa Asociada 3 no debe ser igual al RUC de la Empresa Asociada 1.");
+		document.getElementById('rucEmp4').focus();
+		return false;
+	}else if((document.f.rucEmp4.value == document.f.rucEmp3.value) && (document.f.rucEmp4.value!=""&&document.f.rucEmp3.value!="")){
+		alert("El RUC de la Empresa Asociada 3 no debe ser igual al RUC de la Empresa Asociada 2.");
+		document.getElementById('rucEmp4').focus();
+		return false;
+	}
+	
+	imprimirK();
+	
+}
+function imprimirK(){			
+	print();	
+}
+
+
+
+
+  /** nuevo: 06/08/2013**/
+function activarCheckTO(ide){
+	var a,b,c,d;
+	if(ide=='1') {a = document.f.checkboxa1; b = document.f.checkboxb1; c = document.f.checkboxc1; d = document.f.checkboxd1;}
+	if(ide=='2') {a = document.f.checkboxa2; b = document.f.checkboxb2; c = document.f.checkboxc2; d = document.f.checkboxd2;}
+	if(ide=='3') {a = document.f.checkboxa3; b = document.f.checkboxb3; c = document.f.checkboxc3; d = document.f.checkboxd3;}
+	if(ide=='4') {a = document.f.checkboxa4; b = document.f.checkboxb4; c = document.f.checkboxc4; d = document.f.checkboxd4;}
+	if(ide=='5') {a = document.f.checkboxa5; b = document.f.checkboxb5; c = document.f.checkboxc5; d = document.f.checkboxd5;}
+	if(ide=='6') {a = document.f.checkboxa6; b = document.f.checkboxb6; c = document.f.checkboxc6; d = document.f.checkboxd6;}
+	if(ide=='7') {a = document.f.checkboxa7; b = document.f.checkboxb7; c = document.f.checkboxc7; d = document.f.checkboxd7;}
+	if(ide=='8') {a = document.f.checkboxa8; b = document.f.checkboxb8; c = document.f.checkboxc8; d = document.f.checkboxd8;}
+	if(ide=='9') {a = document.f.checkboxa9; b = document.f.checkboxb9; c = document.f.checkboxc9; d = document.f.checkboxd9;}
+	if(ide=='10') {a = document.f.checkboxa10; b = document.f.checkboxb10; c = document.f.checkboxc10; d = document.f.checkboxd10;}
+	if(ide=='11') {a = document.f.checkboxa11; b = document.f.checkboxb11; c = document.f.checkboxc11; d = document.f.checkboxd11;}
+	if(ide=='12') {a = document.f.checkboxa12; b = document.f.checkboxb12; c = document.f.checkboxc12; d = document.f.checkboxd12;}
+	if(ide=='13') {a = document.f.checkboxa13; b = document.f.checkboxb13; c = document.f.checkboxc13; d = document.f.checkboxd13;}
+	if(ide=='14') {a = document.f.checkboxa14; b = document.f.checkboxb14; c = document.f.checkboxc14; d = document.f.checkboxd14;}
+	if(ide=='15') {a = document.f.checkboxa15; b = document.f.checkboxb15; c = document.f.checkboxc15; d = document.f.checkboxd15;}
+
+		
+	var chek = document.getElementById("checkboxTO" + ide);
+	var bandera;
+	
+   	if(chek.checked)	bandera=true;   		
+   	else				bandera=false; 	
+	
+		for(var i=0;i<12;i++){
+			if(true){
+				a[i].disabled=bandera;
+				a[i].checked=bandera;
+			}
+		}
+		for(var i=0;i<8;i++){
+			if(true){
+				b[i].disabled=bandera;
+				b[i].checked=bandera;
+			}
+		}
+		for(var i=0;i<3;i++){
+			if(true){
+				c[i].disabled=bandera;
+				c[i].checked=bandera;
+			}
+		}
+		for(var i=0;i<7;i++){
+			if(true){
+				d[i].disabled=bandera;
+				d[i].checked=bandera;
+			}
+		}
+		
+}
+	
+	
+  /** Ocultar Mostrar**/
+  function ocultarMostrar()
+   {
+  var rucEmp= document.forms[0].combRucCarnetPas.value;
+   if(rucEmp<0) { 
+   document.f.dniContacto.disabled = true;
+   document.f.dniContacto.value = "";
+   	}
+
+   else if (rucEmp==2)
+   { 
+   document.f.dniContacto.disabled = false; 
+   document.f.dniContacto.value = ""; 
+   document.f.dniContacto.maxLength = 8; 
+   document.f.dniContacto.focus();
+   } else
+   { 
+   document.f.dniContacto.disabled = false; 
+   document.f.dniContacto.value = ""; 
+   document.f.dniContacto.maxLength = 30; 
+   document.f.dniContacto.focus();
+   }
+  
+   }
+   /*
+function SoloLetras()
+{
+   
+   //Descripcion	:	Permite el ingreso de unicamente de Letras y Espacios.
+   
+
+   if(window.event.keyCode!=13)
+   {
+      var Tecla;
+      Tecla = String.fromCharCode(window.event.keyCode);
+	  //var Tecla = nav4 ? evt.which : evt.keyCode;	
+      if ( !( (Tecla>="A" && Tecla<="Z")||(Tecla>="a" && Tecla<="z") || 
+              (Tecla=="?") || (Tecla=="?") || (Tecla=="?") || (Tecla=="?") || (Tecla=="?") ||
+              (Tecla=="?") || (Tecla=="?") || (Tecla=="?") || (Tecla=="?") || (Tecla=="?") ||
+              (Tecla==" ") || (Tecla=="?") || (Tecla=="?") ) )
+     {
+         window.event.keyCode = 0;
+      }
+   }	
+   
+}*/
+
+function solocaracteresvalidosemail(sText){
+    var letrasemail='' + 'ABCDEFGHIJKLMNÑOPQRSTUVWXYZabcdefghijklmnñopqrstuvwxyz1234567890@-_.';
+	var res=true;
+	var char;
+	for (i = 0; i < sText.length && res == true; i++){
+		char = sText.charAt(i); 
+		if (letrasemail.indexOf(char) == -1){
+			res = false;
+			break;
+		}
+	}
+	return res;
+}
+
+	/*****************************************************************************************************************
+	 *****************************************************************************************************************
+	 ** FUNCIONES PARA EL MANEJO DEL GRUPO DE CHECKS Y OTROS
+	 *****************************************************************************************************************
+	 *****************************************************************************************************************/
+
+function validarCuentas(nCuenta)
+{
+	var b;
+	var k;
+	if(nCuenta == 1) b = document.f.numCuentaEmp1;
+	if(nCuenta == 2) b = document.f.numCuentaEmp2;
+	if(nCuenta == 3) b = document.f.numCuentaEmp3;
+	if(nCuenta == 4) b = document.f.numCuentaEmp4;
+	if(nCuenta == 5) b = document.f.numCuentaEmp5;
+	if(nCuenta == 6) b = document.f.numCuentaEmp6;
+	if(nCuenta == 7) b = document.f.numCuentaEmp7;
+	if(nCuenta == 8) b = document.f.numCuentaEmp8;
+	if(nCuenta == 9) b = document.f.numCuentaEmp9;
+	if(nCuenta == 10) b = document.f.numCuentaEmp10;
+	if(nCuenta == 11) b = document.f.numCuentaEmp11;
+	if(nCuenta == 12) b = document.f.numCuentaEmp12;
+	if(nCuenta == 13) b = document.f.numCuentaEmp13;
+	if(nCuenta == 14) b = document.f.numCuentaEmp14;
+	if(nCuenta == 15) b = document.f.numCuentaEmp15;
+	
+	if (b.value == "" || b.value == "0011-")
+		return false;
+	else
+		return true;
+}
+/*
+function validarCuentasdeEmpresaAsociada(nEmpresa)
+{
+	var b;
+	var k;
+	if(nEmpresa == 1) b = document.f.nnumCuentaEmp1;
+	if(nEmpresa == 2) b = document.f.nnumCuentaEmp2;
+	if(nEmpresa == 3) b = document.f.nnumCuentaEmp3;
+	
+	for(k = 0; k < b.length; k++ ){
+		if(b[k].value != "")
+			break;
+	}
+	if (k == b.length)
+		return false;
+	else
+		return true;
+}
+	 */
+function validarChecks(nCta, ver)
+{
+
+	var k;  
+	var i;
+	if(ver == 'a'){
+				if(nCta == 1) {k = document.f.checkboxa1; }
+				if(nCta == 2) {k = document.f.checkboxa2; }
+				if(nCta == 3) {k = document.f.checkboxa3; }
+				if(nCta == 4) {k = document.f.checkboxa4; }
+				if(nCta == 5) {k = document.f.checkboxa5; }
+				if(nCta == 6) {k = document.f.checkboxa6; }
+				if(nCta == 7) {k = document.f.checkboxa7; }
+				if(nCta == 8) {k = document.f.checkboxa8;}
+				if(nCta == 9) {k = document.f.checkboxa9; }
+				if(nCta == 10) {k = document.f.checkboxa10;}
+				if(nCta == 11) {k = document.f.checkboxa11;}
+				if(nCta == 12) {k = document.f.checkboxa12; }
+				if(nCta == 13) {k = document.f.checkboxa13;}
+				if(nCta == 14) {k = document.f.checkboxa14; }
+				if(nCta == 15) {k = document.f.checkboxa15; }
+			}
+		if(ver == 'b'){
+				if(nCta == 1) {k = document.f.checkboxb1; }
+				if(nCta == 2) {k = document.f.checkboxb2; }
+				if(nCta == 3) {k = document.f.checkboxb3; }
+				if(nCta == 4) {k = document.f.checkboxb4; }
+				if(nCta == 5) {k = document.f.checkboxb5; }
+				if(nCta == 6) {k = document.f.checkboxb6; }
+				if(nCta == 7) {k = document.f.checkboxb7; }
+				if(nCta == 8) {k = document.f.checkboxb8; }
+				if(nCta == 9) {k = document.f.checkboxb9; }
+				if(nCta == 10) {k = document.f.checkboxb10; }
+				if(nCta == 11) {k = document.f.checkboxb11; }
+				if(nCta == 12) {k = document.f.checkboxb12; }
+				if(nCta == 13) {k = document.f.checkboxb13; }
+				if(nCta == 14) {k = document.f.checkboxb14; }
+				if(nCta == 15) {k = document.f.checkboxb15; }
+			}
+		if(ver == 'c'){
+				if(nCta == 1) {k = document.f.checkboxc1; }
+				if(nCta == 2) {k = document.f.checkboxc2; }
+				if(nCta == 3) {k = document.f.checkboxc3; }
+				if(nCta == 4) {k = document.f.checkboxc4; }
+				if(nCta == 5) {k = document.f.checkboxc5; }
+				if(nCta == 6) {k = document.f.checkboxc6; }
+				if(nCta == 7) {k = document.f.checkboxc7; }
+				if(nCta == 8) {k = document.f.checkboxc8; }
+				if(nCta == 9) {k = document.f.checkboxc9; }
+				if(nCta == 10) {k = document.f.checkboxc10; }
+				if(nCta == 11) {k = document.f.checkboxc11; }
+				if(nCta == 12) {k = document.f.checkboxc12; }
+				if(nCta == 13) {k = document.f.checkboxc13; }
+				if(nCta == 14) {k = document.f.checkboxc14; }
+				if(nCta == 15) {k = document.f.checkboxc15; }
+			}
+		if(ver == 'd'){
+				if(nCta == 1) {k = document.f.checkboxd1; }
+				if(nCta == 2) {k = document.f.checkboxd2; }
+				if(nCta == 3) {k = document.f.checkboxd3; }
+				if(nCta == 4) {k = document.f.checkboxd4; }
+				if(nCta == 5) {k = document.f.checkboxd5; }
+				if(nCta == 6) {k = document.f.checkboxd6; }
+				if(nCta == 7) {k = document.f.checkboxd7; }
+				if(nCta == 8) {k = document.f.checkboxd8; }
+				if(nCta == 9) {k = document.f.checkboxd9; }
+				if(nCta == 10) {k = document.f.checkboxd10; }
+				if(nCta == 11) {k = document.f.checkboxd11; }
+				if(nCta == 12) {k = document.f.checkboxd12; }
+				if(nCta == 13) {k = document.f.checkboxd13; }
+				if(nCta == 14) {k = document.f.checkboxd14; }
+				if(nCta == 15) {k = document.f.checkboxd15; }
+			}
+	
+	for(i=0; i < k.length; i++){
+		if(k[i].checked == true )
+			break;
+	}	
+	if (i == k.length)
+		return false;
+	else
+		return true;		
+} 
+
+function deshabilitarChekPorColumna(Columna, boleano){
+	var a,b,c,d;
+	var i;
+	if(Columna == 1) {a = document.f.checkboxa1;b = document.f.checkboxb1;c = document.f.checkboxc1;d = document.f.checkboxd1;}
+	if(Columna == 2) {a = document.f.checkboxa2;b = document.f.checkboxb2;c = document.f.checkboxc2;d = document.f.checkboxd2;}
+	if(Columna == 3) {a = document.f.checkboxa3;b = document.f.checkboxb3;c = document.f.checkboxc3;d = document.f.checkboxd3;}
+	if(Columna == 4) {a = document.f.checkboxa4;b = document.f.checkboxb4;c = document.f.checkboxc4;d = document.f.checkboxd4;}
+	if(Columna == 5) {a = document.f.checkboxa5;b = document.f.checkboxb5;c = document.f.checkboxc5;d = document.f.checkboxd5;}
+	if(Columna == 6) {a = document.f.checkboxa6;b = document.f.checkboxb6;c = document.f.checkboxc6;d = document.f.checkboxd6;}
+	if(Columna == 7) {a = document.f.checkboxa7;b = document.f.checkboxb7;c = document.f.checkboxc7;d = document.f.checkboxd7;}
+	if(Columna == 8) {a = document.f.checkboxa8;b = document.f.checkboxb8;c = document.f.checkboxc8;d = document.f.checkboxd8;}
+	if(Columna == 9) {a = document.f.checkboxa9;b = document.f.checkboxb9;c = document.f.checkboxc9;d = document.f.checkboxd9;}
+	if(Columna == 10) {a = document.f.checkboxa10;b = document.f.checkboxb10;c = document.f.checkboxc10;d = document.f.checkboxd10;}
+	if(Columna == 11) {a = document.f.checkboxa11;b = document.f.checkboxb11;c = document.f.checkboxc11;d = document.f.checkboxd11;}
+	if(Columna == 12) {a = document.f.checkboxa12;b = document.f.checkboxb12;c = document.f.checkboxc12;d = document.f.checkboxd12;}
+	if(Columna == 13) {a = document.f.checkboxa13;b = document.f.checkboxb13;c = document.f.checkboxc13;d = document.f.checkboxd13;}
+	if(Columna == 14) {a = document.f.checkboxa14;b = document.f.checkboxb14;c = document.f.checkboxc14;d = document.f.checkboxd14;}
+	if(Columna == 15) {a = document.f.checkboxa15;b = document.f.checkboxb15;c = document.f.checkboxc15;d = document.f.checkboxd15;}
+	
+	if(Columna > 0 && Columna < 16 ){	
+		for(i=0; i < a.length; i++)	{
+			a[i].disabled = boleano;
+		}
+		for(i=0; i < b.length; i++)	{
+			b[i].disabled = boleano;
+		}
+		for(i=0; i < c.length; i++)	{
+			c[i].disabled = boleano;
+		}
+		for(i=0; i < d.length; i++)	{
+			d[i].disabled = boleano;
+		}
+	}	
+}
+
+
+function checkearChekPorColumna(Columna, boleano){
+	var a,b,c,d;
+	var i;
+	if(Columna == 1) {a = document.f.checkboxa1;b = document.f.checkboxb1;c = document.f.checkboxc1;d = document.f.checkboxd1;}
+	if(Columna == 2) {a = document.f.checkboxa2;b = document.f.checkboxb2;c = document.f.checkboxc2;d = document.f.checkboxd2;}
+	if(Columna == 3) {a = document.f.checkboxa3;b = document.f.checkboxb3;c = document.f.checkboxc3;d = document.f.checkboxd3;}
+	if(Columna == 4) {a = document.f.checkboxa4;b = document.f.checkboxb4;c = document.f.checkboxc4;d = document.f.checkboxd4;}
+	if(Columna == 5) {a = document.f.checkboxa5;b = document.f.checkboxb5;c = document.f.checkboxc5;d = document.f.checkboxd5;}
+	if(Columna == 6) {a = document.f.checkboxa6;b = document.f.checkboxb6;c = document.f.checkboxc6;d = document.f.checkboxd6;}
+	if(Columna == 7) {a = document.f.checkboxa7;b = document.f.checkboxb7;c = document.f.checkboxc7;d = document.f.checkboxd7;}
+	if(Columna == 8) {a = document.f.checkboxa8;b = document.f.checkboxb8;c = document.f.checkboxc8;d = document.f.checkboxd8;}
+	if(Columna == 9) {a = document.f.checkboxa9;b = document.f.checkboxb9;c = document.f.checkboxc9;d = document.f.checkboxd9;}
+	if(Columna == 10) {a = document.f.checkboxa10;b = document.f.checkboxb10;c = document.f.checkboxc10;d = document.f.checkboxd10;}
+	if(Columna == 11) {a = document.f.checkboxa11;b = document.f.checkboxb11;c = document.f.checkboxc11;d = document.f.checkboxd11;}
+	if(Columna == 12) {a = document.f.checkboxa12;b = document.f.checkboxb12;c = document.f.checkboxc12;d = document.f.checkboxd12;}
+	if(Columna == 13) {a = document.f.checkboxa13;b = document.f.checkboxb13;c = document.f.checkboxc13;d = document.f.checkboxd13;}
+	if(Columna == 14) {a = document.f.checkboxa14;b = document.f.checkboxb14;c = document.f.checkboxc14;d = document.f.checkboxd14;}
+	if(Columna == 15) {a = document.f.checkboxa15;b = document.f.checkboxb15;c = document.f.checkboxc15;d = document.f.checkboxd15;}
+	
+	if(Columna > 0 && Columna < 16 ){	
+		for(i=0; i < a.length; i++)	{
+			a[i].checked = boleano;
+		}
+		for(i=0; i < b.length; i++)	{
+			b[i].checked = boleano;
+		}
+		for(i=0; i < c.length; i++)	{
+			c[i].checked = boleano;
+		}
+		for(i=0; i < d.length; i++)	{
+			d[i].checked = boleano;
+		}
+	}	
+}
+
+
+function escribirDatos(){
+
+	var razonpri = document.f.razSocEmp.value;
+	var rucpri = document.f.rucEmp.value;
+	var razon1 = document.f.razSocEmp2.value;
+	var ruc1 = document.f.rucEmp2.value;
+	var razon2 = document.f.razSocEmp3.value;
+	var ruc2 = document.f.rucEmp3.value;
+    var razon3 = document.f.razSocEmp4.value;
+	var ruc3 = document.f.rucEmp4.value;
+    
+	document.getElementById('nomEmprePricipal5').value=razonpri;
+	document.getElementById('rucEmprePricipal5').value=rucpri;
+    	
+	 if(razon1!="" && ruc1!=""){
+	  document.getElementById('nomEmprePricipal51').value=razon1;
+	  document.getElementById('rucEmprePricipal51').value=ruc1;
+	  document.getElementById('nomEmprePricipal510').value=razonpri;
+	  document.getElementById('rucEmprePricipal510').value=rucpri;
+	 
+	 }else{	 
+	  document.getElementById('nomEmprePricipal51').value='';
+	  document.getElementById('rucEmprePricipal51').value='';	
+	  document.getElementById('nomEmprePricipal510').value='';
+	  document.getElementById('rucEmprePricipal510').value='';	  
+	 }
+	 
+	 
+	 if(razon2!="" && ruc2!=""){
+	  document.getElementById('nomEmprePricipal52').value=razon2;
+	  document.getElementById('rucEmprePricipal52').value=ruc2;
+	  document.getElementById('nomEmprePricipal520').value=razonpri;
+	  document.getElementById('rucEmprePricipal520').value=rucpri;
+	 
+	 }else{	 
+	  document.getElementById('nomEmprePricipal52').value='';
+	  document.getElementById('rucEmprePricipal52').value='';	
+	  document.getElementById('nomEmprePricipal520').value='';
+	  document.getElementById('rucEmprePricipal520').value='';	 
+	 }
+	 
+	 if(razon3!="" && ruc3!=""){
+	  document.getElementById('nomEmprePricipal53').value=razon3;
+	  document.getElementById('rucEmprePricipal53').value=ruc3;
+	  document.getElementById('nomEmprePricipal530').value=razonpri;
+	  document.getElementById('rucEmprePricipal530').value=rucpri;
+	 
+	 }else{	 
+	  document.getElementById('nomEmprePricipal53').value='';
+	  document.getElementById('rucEmprePricipal53').value='';	
+	  document.getElementById('nomEmprePricipal530').value='';
+	  document.getElementById('rucEmprePricipal530').value='';	 
+	 }
+} 
+
+
+function habilitarCuentas(){
+    var razonpri = document.f.razSocEmp;
+	var rucpri = document.f.rucEmp;
+	var razon = document.f.razSocEmp2;
+	var ruc = document.f.rucEmp2;
+	if(razon.value != "" && ruc.value != ""){
+		for ( var fila = 1; fila < 6; fila ++ ) {			
+			document.getElementById('limiteDiario'+fila).disabled=false;
+			document.getElementById('numCuentaEmp'+fila).disabled=false;
+			//deshabilitarChekPorColumna(fila, false);			
+		}
+      document.getElementById('nomEmprePricipal51').value=razon.value;
+	  document.getElementById('rucEmprePricipal51').value=ruc.value;
+	  document.getElementById('nomEmprePricipal510').value=razonpri.value;
+	  document.getElementById('rucEmprePricipal510').value=rucpri.value;
+        	  
+	}else{
+		for ( var fila = 1; fila < 6; fila ++ ) {			
+			document.getElementById('limiteDiario'+fila).disabled=true;
+			document.getElementById('numCuentaEmp'+fila).disabled=true;
+			deshabilitarChekPorColumna(fila, true);
+			document.getElementById('limiteDiario'+fila).value="0011-";
+			document.getElementById('numCuentaEmp'+fila).value="0011-";
+			checkearChekPorColumna(fila, false);	
+		}
+	  document.getElementById('nomEmprePricipal51').value="";
+	  document.getElementById('rucEmprePricipal51').value="";
+	  document.getElementById('nomEmprePricipal510').value="";
+	  document.getElementById('rucEmprePricipal510').value="";	
+	}
+	
+	razon = document.f.razSocEmp3;
+	ruc = document.f.rucEmp3;
+	if(razon.value != "" && ruc.value != ""){
+		for ( var fila = 6; fila < 11; fila ++ ) {			
+			document.getElementById('limiteDiario'+fila).disabled=false;
+			document.getElementById('numCuentaEmp'+fila).disabled=false;
+			//deshabilitarChekPorColumna(fila, false);
+		}
+      document.getElementById('nomEmprePricipal52').value=razon.value;
+	  document.getElementById('rucEmprePricipal52').value=ruc.value;
+	  document.getElementById('nomEmprePricipal520').value=razonpri.value;
+	  document.getElementById('rucEmprePricipal520').value=rucpri.value;
+        	  		
+	}else{
+		for ( var fila = 6; fila < 11; fila ++ ) {			
+			document.getElementById('limiteDiario'+fila).disabled=true;
+			document.getElementById('numCuentaEmp'+fila).disabled=true;
+			deshabilitarChekPorColumna(fila, true);			
+			document.getElementById('limiteDiario'+fila).value="0011-";
+			document.getElementById('numCuentaEmp'+fila).value="0011-";
+			checkearChekPorColumna(fila, false);	
+		}
+	  document.getElementById('nomEmprePricipal52').value="";
+	  document.getElementById('rucEmprePricipal52').value="";
+	  document.getElementById('nomEmprePricipal520').value="";
+	  document.getElementById('rucEmprePricipal520').value="";	
+	}
+	razon = document.f.razSocEmp4;
+	ruc = document.f.rucEmp4;
+	if(razon.value != "" && ruc.value != ""){
+		for ( var fila = 11; fila < 16; fila ++ ) {			
+			document.getElementById('limiteDiario'+fila).disabled=false;
+			document.getElementById('numCuentaEmp'+fila).disabled=false;
+			//deshabilitarChekPorColumna(fila, false);
+		}
+      document.getElementById('nomEmprePricipal53').value=razon.value;
+	  document.getElementById('rucEmprePricipal53').value=ruc.value;
+	  document.getElementById('nomEmprePricipal530').value=razonpri.value;
+	  document.getElementById('rucEmprePricipal530').value=rucpri.value;		
+	}else{
+		for ( var fila = 11; fila < 16; fila ++ ) {			
+			document.getElementById('limiteDiario'+fila).disabled=true;
+			document.getElementById('numCuentaEmp'+fila).disabled=true;
+			deshabilitarChekPorColumna(fila, true);
+			document.getElementById('limiteDiario'+fila).value="0011-";
+			document.getElementById('numCuentaEmp'+fila).value="0011-";
+			checkearChekPorColumna(fila, false);	
+		}
+	  document.getElementById('nomEmprePricipal53').value="";
+	  document.getElementById('rucEmprePricipal53').value="";
+	  document.getElementById('nomEmprePricipal530').value="";
+	  document.getElementById('rucEmprePricipal530').value="";	
+	}
+}
+
+
+function validarTamanioRuc(ruc){
+	var ruck = document.getElementById(ruc);	
+	if (ruck.value != "" && ruck.value.length>0 && ruck.value.length<11){
+		alert("Número de RUC debe contener 11 dígitos.");
+		ruck.focus();
+		return false;
+	}else
+	 return true;
+}
+
+	 
+//-->
+</script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#commentForm").validate();		
+});
+</script>
+
+
+<body onLoad="onloadDesactivarLimiteOperaciones();">
+<form class="cmxform" id="commentForm" method="post" action="" name="f">
+  <div class="break_after_this">
+    <table width="664" height="870" align="center"  cellspacing="0" class="bordeFino">
+      <tr>
+        <td width="658" height="40"  style="vertical-align:top;">
+		<table width="100%" height="40" border="0" cellpadding="0">
+            <tr>
+              <td><img src="etc/logo_new.jpg" border="0"></td>
+              <td align="right" class="tituloHoja"><div align="left">INSCRIPCI&OacuteN CONTINENTAL NET CASH - MULTIEMPRESA PREMIUM CASH<br>
+                FORMULARIO Nro. 3 : Inscripci&oacute;n de las empresas asociadas<br>
+                P&aacute;gina 1 de 3 </div></td>
+            </tr>
+        </table></td>
+      </tr>
+      <tr>
+        <td style="vertical-align:top;" >
+		<div class="tituloLinea1">Secci&oacuten 1: Datos de la Empresa Principal (Datos Obligatorios)</div>
+            
+			
+			<table border="0" width="640" cellpadding="0">
+                  <tr>
+                    <td colspan="2" id="orderitems">Raz&oacute;n Social de la Empresa<br />
+                        <input name="razSocEmp" id="razSocEmp" type="text" maxlength="40" class="quantity required" style="width:350px;font-size:10px;height:21px;" onKeyUp="escribirDatos()" />                    </td>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+					<td width="300" id="orderitems2">Nro. de RUC o Documento<br />
+				    <input name="rucEmp" id="rucEmp" type="text" class="required quantity" maxlength="11" 
+             style="width:220px;height:21px;font-size:13px;"  onKeyPress="return ingresoSoloNumeros(event)" onKeyUp="escribirDatos()" /></td>
+                  </tr>
+                  <tr>
+<!--                    <td width="199" class='quantity'>Tel&eacute;fono<br />
+                        <input name="telefonoEmp" id="telefonoEmp"  class="required " type="text" maxlength="15" 
+       style="width:150px;font-size:13px;" onKeyPress="return ingresoSoloNumeros(event)" />
+                    &nbsp;&nbsp;- </td> -->
+<!--                    <td width="143">Anexo<br />
+                    <input name="anxEmp" id="anxEmp" type="text" onKeyPress="return ingresoSoloNumeros(event)" maxlength="10" style="width:100px;font-size:13px;" />                    </td> -->
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<!--					<td width="300" id="orderitems2">Fax / M&oacute;vil de empresa<br />
+                    <input name="faxEmp" id="faxEmp" type="text" maxlength="10" 
+             style="width:150px;height:18px;font-size:13px;"  onKeyPress="return ingresoSoloNumeros(event)"/></td> -->
+                  </tr>
+                  <tr>
+                    <td colspan="2"></td>
+					<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td width="300">
+					<div class="codigoCuadro" height="100%">
+                        <table width="280" border="0">
+                          <tr>
+                            <td colspan="2"><div align="center">C&oacute;digo de Empresa Principal</div></td>
+                          </tr>
+                          <tr>
+                            <td width="280" align="center"><input name="cuentaPrincipalCargo2" id="codigoEmpresa" align="middle"  maxlength="8" type="text" style="width:240px;height:40px;padding-top:9px;font-size:16px;" onKeyPress="return ingresoSoloNumeros(event)" /></td>
+                          </tr>
+                      </table>
+                    </div>					</td>
+                  </tr>
+          </table>
+		  
+        </td>
+      </tr>
+      <tr>
+        <td style="vertical-align:top;" height="10">
+
+            &nbsp;&nbsp;<input disabled="true" name="versionSistema5" type="hidden" class="radio" id="tipoInscripcion" checked>
+
+        </td>
+      </tr>
+      <tr>
+        <td height="17"  style="vertical-align:top;">
+		<div class="tituloLinea1">Secci&oacuten 2: Datos de las Empresas Asociadas (Datos Obligatorios)</div>
+		</td>
+      </tr>
+      <tr>
+        <td height="200" style="vertical-align:top;" ><!--Datos Empresa 2 (Datos Obligatorios)-->
+            <table border="0" width="93%" cellpadding="0">
+              <tr>
+                <td width="313" height="32"><strong>Raz&oacute;n Social de la Empresa Asociada 1</strong><br>
+                    <input name="razSocEmp2" id="razSocEmp2" type="text" maxlength="40" class="quantity required" style="width:330px;font-size:10px;height:21px;" onKeyUp="habilitarCuentas(); escribirDatos()"/></td>
+                <td width="334"><strong>Nro. de RUC de la Empresa Asociada 1</strong><br>
+                    <input name="rucEmp2" id="rucEmp2" type="text" class="required quantity" maxlength="11" 
+             style="width:220px;height:18px;"  onKeyPress="return ingresoSoloNumeros(event)" onKeyUp="habilitarCuentas(); escribirDatos()"/></td>
+                <!--<td width="90">Eliminar
+            <input type="checkbox" name="versionSistema" id="versionSistema3" class="radio" onClick="desactivarVersionSistema1()" disabled="true"></td>-->
+              </tr>
+            </table>
+            <strong>Cuentas de la Empresa asociada 1 (Datos Obligatorios)</strong><br>
+Indique las cuentas de la empresa a inscribir en Continental net cash.<br>
+Tambi&eacute;n debe inscribirse las cuentas de Fondos Mutuos, Cuentas Valor (Continental Bolsa) y Contratos de Tarjetas Empresariales.
+<table width="653" height="134" border="0" cellpadding="0">
+  <tr>
+    <td width="14" height="20" align="center">&nbsp;</td>
+    <td width="209" align="center"><div align="center">N&uacute;mero de Cuenta/Contrato de Tarjeta</div></td>
+    <td width="221" align="center"><div align="center">C&oacute;digo de Cartera</div></td>	
+    <td width="217" align="center"></td>
+  </tr>
+  <tr>
+    <td height="20" align="center">1</td>
+    <td align="left"><div class="col1">
+      <input type="text" name="nnumCuentaEmp1" class="col1" id="numCuentaEmp1"  disabled="true"  style="width:190px;"  maxlength="20" value="0011-" onKeyPress="return(currencyFormat(this,'-',event))"  onBlur="habilitarDeshabilitarServicios1()"/>
+    </div></td>
+    <td align="left"><div class="col1">	  
+	  <input type="text" name="nlimiteDiario1" class="col1" id="limiteDiario1"  disabled="true" minlength="1" style="width:190px;"  maxlength="20" value="0011-" onKeyPress="return(currencyFormat(this,'-',event))"/>
+    </div></td>
+    <td rowspan="5" align="center"> </td>
+  </tr>
+  <tr>
+    <td height="20" align="center">2</td>
+    <td align="left"><div class="col1">
+      <input type="text" name="nnumCuentaEmp1" class="col1" id="numCuentaEmp2"  disabled="true" style="width:190px;"  maxlength="20" value="0011-" onKeyPress="return(currencyFormat(this,'-',event))"  onBlur="habilitarDeshabilitarServicios1()"/>
+    </div></td>
+    <td align="left"><div class="col1">
+      <input type="text" name="nlimiteDiario1" class="col1" id="limiteDiario2"  disabled="true" minlength="1" style="width:190px;"  maxlength="20" value="0011-" onKeyPress="return(currencyFormat(this,'-',event))"/>
+    </div></td>
+    <!--<td><input disabled ="true" type="checkbox" name="modlimiteCuentaEmp12" id="modlimiteCuentaEmp22" onClick="desactivarEliminar(0)"></td>-->
+  </tr>
+  <tr>
+    <td height="20" align="center">3</td>
+    <td align="left"><div class="col1">
+      <input type="text" name="nnumCuentaEmp1" class="col1" id="numCuentaEmp3"  disabled="true" style="width:190px;"  maxlength="20" value="0011-" onKeyPress="return(currencyFormat(this,'-',event))"  onBlur="habilitarDeshabilitarServicios1()"/>
+    </div></td>
+    <td align="left"><div class="col1">
+      <input type="text" name="nlimiteDiario1" class="col1" id="limiteDiario3"  disabled="true" minlength="1" style="width:190px;"  maxlength="20" value="0011-" onKeyPress="return(currencyFormat(this,'-',event))"/>
+    </div></td>
+    <!--<td><input disabled ="true" type="checkbox" name="modlimiteCuentaEmp12" id="modlimiteCuentaEmp23" onClick="desactivarEliminar(0)"></td>-->
+  </tr>
+  <tr>
+    <td height="20" align="center">4</td>
+    <td align="left"><div class="col1">
+      <input type="text" name="nnumCuentaEmp1" class="col1" id="numCuentaEmp4" disabled="true" style="width:190px;"  maxlength="20" value="0011-" onKeyPress="return(currencyFormat(this,'-',event))"  onBlur="habilitarDeshabilitarServicios1()"/>
+    </div></td>
+    <td align="left"><div class="col1">
+      <input type="text" name="nlimiteDiario1" class="col1" id="limiteDiario4" disabled="true" minlength="1" style="width:190px;"  maxlength="20" value="0011-" onKeyPress="return(currencyFormat(this,'-',event))"/>
+    </div></td>
+    <!--<td><input disabled ="true" type="checkbox" name="modlimiteCuentaEmp12" id="modlimiteCuentaEmp24" onClick="desactivarEliminar(0)"></td>-->
+  </tr>
+  <tr>
+    <td height="20" align="center">5</td>
+    <td align="left"><div class="col1">
+      <input type="text" name="nnumCuentaEmp1" class="col1" id="numCuentaEmp5" disabled="true"style="width:190px;"  maxlength="20" value="0011-" onKeyPress="return(currencyFormat(this,'-',event))"  onBlur="habilitarDeshabilitarServicios1()"/>
+    </div></td>
+    <td align="left"><div class="col1">
+      <input type="text" name="nlimiteDiario1" class="col1" id="limiteDiario5" disabled="true" minlength="1" style="width:190px;"  maxlength="20" value="0011-" onKeyPress="return(currencyFormat(this,'-',event))"/>
+    </div></td>
+  </tr>
+</table>
+</td>
+</tr>
+<tr><td><center><span style="color: black;">------------------------------------------------------------------------------------------------------------------------</span></center></td></tr>
+<tr>
+<td>
+<table height="30" border="0" width="94%" cellpadding="0">
+              <tr>
+                <td width="313" height="30"><strong>Raz&oacute;n Social de la Empresa Asociada 2</strong><br>
+                <input name="razSocEmp3" id="razSocEmp3" type="text" maxlength="40" class="quantity required" style="width:330px;font-size:10px;height:21px;" onKeyUp="habilitarCuentas(); escribirDatos()"/></td>
+                <td width="336"><strong>Nro. de RUC de la Empresa Asociada 2 </strong><br>
+                    <input name="rucEmp3" id="rucEmp3" type="text" class="required quantity" maxlength="11" 
+             style="width:220px;height:18px;"  onKeyPress="return ingresoSoloNumeros(event)" onKeyUp="habilitarCuentas(); escribirDatos()"/></td>
+                <!--<td width="90">Eliminar
+            <input type="checkbox" name="versionSistema2" id="versionSistema9" class="radio" onClick="desactivarVersionSistema1()" disabled="true"></td>-->
+              </tr>
+          </table>
+          <strong>Cuentas de la Empresa asociada 2 (Datos Obligatorios)</strong><br>
+            Indique las cuentas de la empresa a inscribir en Continental net cash.<br>
+            Tambi&eacute;n debe inscribirse las cuentas de Fondos Mutuos, Cuentas Valor (Continental Bolsa) y Contratos de Tarjetas Empresariales.
+          <table width="656" height="134" border="0" cellpadding="0">
+              <tr>
+                <td width="20" height="20" align="center">&nbsp;</td>
+                <td width="206" align="center"><div align="center">N&uacute;mero de Cuenta/Contrato de Tarjeta</div></td>
+                <td width="221" align="center"><div align="center">C&oacute;digo de Cartera</div></td>
+                <td width="250" align="center"></td>
+              </tr>
+              <tr>
+                <td height="20" align="center">6</td>
+                <td align="left"><div class="col1">
+                  <input type="text" name="nnumCuentaEmp2" class="col1" id="numCuentaEmp6"  disabled="true"style="width:190px;"  maxlength="20" value="0011-"onKeyPress="return(currencyFormat(this,'-',event))"   onBlur="habilitarDeshabilitarServicios2()"/>
+                </div></td>
+                <td align="left"><div class="col1">
+                    <input type="text" name="nlimiteDiario2" class="col1" id="limiteDiario6" disabled="true" minlength="1" style="width:190px;"  maxlength="20" value="0011-"onKeyPress="return(currencyFormat(this,'-',event))"/>
+                </div></td>
+           	<td rowspan="5" align="center" class="cuadriculado">  </tr>
+              <tr>
+                <td height="20" align="center">7</td>
+                <td align="left"><div class="col1">
+                    <input type="text" name="nnumCuentaEmp2" class="col1" id="numCuentaEmp7" disabled="true" style="width:190px;"  maxlength="20" value="0011-" onKeyPress="return(currencyFormat(this,'-',event))"   onBlur="habilitarDeshabilitarServicios2()"/>
+                </div></td>
+                <td align="left"><div class="col1">
+                    <input type="text" name="nlimiteDiario2" class="col1" id="limiteDiario7" disabled="true" minlength="1" style="width:190px;"  maxlength="20" value="0011-" onKeyPress="return(currencyFormat(this,'-',event))"/>
+                </div></td>
+                <!--<td><input disabled ="true" type="checkbox" name="modlimiteCuentaEmp12" id="modlimiteCuentaEmp22" onClick="desactivarEliminar(0)"></td>-->
+              </tr>
+              <tr>
+                <td height="20" align="center">8</td>
+                <td align="left"><div class="col1">
+                    <input type="text" name="nnumCuentaEmp2" class="col1" id="numCuentaEmp8" disabled="true" style="width:190px;"  maxlength="20" value="0011-" onKeyPress="return(currencyFormat(this,'-',event))"    onBlur="habilitarDeshabilitarServicios2()"/>
+                </div></td>
+                <td align="left"><div class="col1">
+                    <input type="text" name="nlimiteDiario2" class="col1" id="limiteDiario8" disabled="true" minlength="1" style="width:190px;"  maxlength="20" value="0011-" onKeyPress="return(currencyFormat(this,'-',event))"/>
+                </div></td>
+                <!--<td><input disabled ="true" type="checkbox" name="modlimiteCuentaEmp12" id="modlimiteCuentaEmp23" onClick="desactivarEliminar(0)"></td>-->
+              </tr>
+              <tr>
+                <td height="20" align="center">9</td>
+                <td align="left"><div class="col1">
+                    <input type="text" name="nnumCuentaEmp2" class="col1" id="numCuentaEmp9" disabled="true" style="width:190px;"  maxlength="20" value="0011-" onKeyPress="return(currencyFormat(this,'-',event))"   onBlur="habilitarDeshabilitarServicios2()"/>
+                </div></td>
+                <td align="left"><div class="col1">
+                    <input type="text" name="nlimiteDiario2" class="col1" id="limiteDiario9" disabled="true" minlength="1" style="width:190px;"  maxlength="20" value="0011-" onKeyPress="return(currencyFormat(this,'-',event))"/>
+                </div></td>
+                <!--<td><input disabled ="true" type="checkbox" name="modlimiteCuentaEmp12" id="modlimiteCuentaEmp24" onClick="desactivarEliminar(0)"></td>-->
+              </tr>
+              <tr>
+                <td height="20" align="center">10</td>
+                <td align="left"><div class="col1">
+                    <input type="text" name="nnumCuentaEmp2" class="col1" id="numCuentaEmp10" disabled="true" style="width:190px;"  maxlength="20" value="0011-" onKeyPress="return(currencyFormat(this,'-',event))"  onBlur="habilitarDeshabilitarServicios2()"/>
+                </div></td>
+                <td align="left"><div class="col1">
+                    <input type="text" name="nlimiteDiario2" class="col1" id="limiteDiario10" disabled="true" minlength="1"style="width:190px;"  maxlength="20" value="0011-" onKeyPress="return(currencyFormat(this,'-',event))"/>
+                </div></td>
+                <!--<td><input disabled ="true" type="checkbox" name="modlimiteCuentaEmp12" id="modlimiteCuentaEmp25" onClick="desactivarEliminar(0)"></td>-->
+              </tr>
+          </table>
+		  
+		</td>
+	  </tr>
+			<tr><td><center><span style="color: black;">------------------------------------------------------------------------------------------------------------------------</span></center></td></tr>
+			<tr>
+			<td>
+			
+		  <table border="0" width="94%" cellpadding="0">
+              <tr>
+                <td width="313" height="32"><strong>Raz&oacute;n Social de la Empresa Asociada 3</strong> <br>
+                    <input name="razSocEmp4" id="razSocEmp4" type="text" maxlength="40" class="quantity required" style="width:330px;font-size:10px;height:21px;" onKeyUp="habilitarCuentas(); escribirDatos()"/></td>
+                <td width="333"><strong>Nro. de RUC de la Empresa Asociada 3</strong> <br>
+                    <input name="rucEmp4" id="rucEmp4" type="text" class="required quantity" maxlength="11" 
+             style="width:220px;height:18px;"  onKeyPress="return ingresoSoloNumeros(event)"  onKeyUp="habilitarCuentas(); escribirDatos()"/></td>
+                <!--<td width="90">Eliminar
+            <input type="checkbox" name="versionSistema3" id="versionSistema12" class="radio" onClick="desactivarVersionSistema1()" disabled="true"></td>-->
+              </tr>
+          </table>
+          <strong>Cuentas de la Empresa asociada 3 (Datos Obligatorios)</strong><br>
+            Indique las cuentas de la empresa a inscribir en Continental net cash.<br>
+            Tambi&eacute;n debe inscribirse las cuentas de Fondos Mutuos, Cuentas Valor (Continental Bolsa) y Contratos de Tarjetas Empresariales.
+          <table width="657" height="120" border="0" cellpadding="0">
+              <tr>
+                <td width="19" height="20" align="center">&nbsp;</td>
+                <td width="206" align="center"><div align="center">N&uacute;mero de Cuenta/Contrato de Tarjeta</div></td>
+                <td width="220" align="center"><div align="center">C&oacute;digo de Cartera</div></td>
+                <td width="222" align="center"></td>
+              </tr>
+              <tr>
+                <td height="20" align="center">11</td>
+                <td align="left"><div class="col1">
+                    <input type="text" name="nnumCuentaEmp3" class="col1" id="numCuentaEmp11"  disabled="true"  style="width:190px;"  maxlength="20" value="0011-" onKeyPress="return(currencyFormat(this,'-',event))"    onBlur="habilitarDeshabilitarServicios3()"/>
+                </div></td>
+                <td align="left"><div class="col1">
+                    <input type="text" name="nlimiteDiario3" class="col1" id="limiteDiario11" disabled="true" minlength="1" style="width:190px;"  maxlength="20" value="0011-" onKeyPress="return(currencyFormat(this,'-',event))"/>
+                </div></td>
+            <td rowspan="5" align="center" class="cuadriculado"> </tr>
+              <tr>
+                <td height="20" align="center">12</td>
+                <td align="left"><div class="col1">
+                    <input type="text" name="nnumCuentaEmp3" class="col1" id="numCuentaEmp12" disabled="true" style="width:190px;"  maxlength="20" value="0011-" onKeyPress="return(currencyFormat(this,'-',event))"    onBlur="habilitarDeshabilitarServicios3()"/>
+                </div></td>
+                <td align="left"><div class="col1">
+                    <input type="text" name="nlimiteDiario3" class="col1" id="limiteDiario12" disabled="true" minlength="1" style="width:190px;"  maxlength="20" value="0011-"  onKeyPress="return(currencyFormat(this,'-',event))"/>
+                </div></td>
+                <!--<td><input disabled ="true" type="checkbox" name="modlimiteCuentaEmp12" id="modlimiteCuentaEmp22" onClick="desactivarEliminar(0)"></td>-->
+              </tr>
+              <tr>
+                <td height="20" align="center">13</td>
+                <td align="left"><div class="col1">
+                    <input type="text" name="nnumCuentaEmp3" class="col1" id="numCuentaEmp13" disabled="true" style="width:190px;"  maxlength="20" value="0011-" onKeyPress="return(currencyFormat(this,'-',event))"    onBlur="habilitarDeshabilitarServicios3()"/>
+                </div></td>
+                <td align="left"><div class="col1">
+                    <input type="text" name="nlimiteDiario3" class="col1" id="limiteDiario13" disabled="true" minlength="1" style="width:190px;"  maxlength="20" value="0011-" onKeyPress="return(currencyFormat(this,'-',event))"/>
+                </div></td>
+                <!--<td><input disabled ="true" type="checkbox" name="modlimiteCuentaEmp12" id="modlimiteCuentaEmp23" onClick="desactivarEliminar(0)"></td>-->
+              </tr>
+              <tr>
+                <td height="20" align="center">14</td>
+                <td align="left"><div class="col1">
+                    <input type="text" name="nnumCuentaEmp3" class="col1" id="numCuentaEmp14" disabled="true" style="width:190px;"  maxlength="20" value="0011-" onKeyPress="return(currencyFormat(this,'-',event))"    onBlur="habilitarDeshabilitarServicios3()"/>
+                </div></td>
+                <td align="left"><div class="col1">
+                    <input type="text" name="nlimiteDiario3" class="col1" id="limiteDiario14" disabled="true" minlength="1" style="width:190px;"  maxlength="20" value="0011-" onKeyPress="return(currencyFormat(this,'-',event))"/>
+                </div></td>
+                <!--<td><input disabled ="true" type="checkbox" name="modlimiteCuentaEmp12" id="modlimiteCuentaEmp24" onClick="desactivarEliminar(0)"></td>-->
+              </tr>
+              <tr>
+                <td height="22" align="center">15</td>
+                <td align="left"><div class="col1">
+                    <input type="text" name="nnumCuentaEmp3" class="col1" id="numCuentaEmp15" disabled="true" style="width:190px;"  maxlength="20" value="0011-" onKeyPress="return(currencyFormat(this,'-',event))"   onBlur="habilitarDeshabilitarServicios3()"/>
+                </div></td>
+                <td align="left"><div class="col1">
+                    <input type="text" name="nlimiteDiario3" class="col1" id="limiteDiario15" disabled="true" minlength="1" style="width:190px;"  maxlength="20" value="0011-" onKeyPress="return(currencyFormat(this,'-',event))"/>
+                </div></td>
+                <!--<td><input disabled ="true" type="checkbox" name="modlimiteCuentaEmp12" id="modlimiteCuentaEmp25" onClick="desactivarEliminar(0)"></td>-->
+              </tr>
+        </table></td>
+      </tr>
+    </table>
+  </div>
+  <div class="break_after_this">
+    <table align="center" width="664" class="bordeFino"  cellspacing="0">
+      <tr>
+        <td width="660"  style="vertical-align:top;"><table width="100%" height="40" border="0" cellpadding="0">
+          <tr>
+            <td><img src="etc/logo_new.jpg" border="0"></td>
+            <td align="right" class="tituloHoja"><div align="left">INSCRIPCI&OacuteN CONTINENTAL NET CASH - MULTIEMPRESA PREMIUM CASH<br>
+              FORMULARIO Nro. 3 : Inscripci&oacute;n de las empresas asociadas<br>
+              P&aacute;gina 2 de 3 </div></td>
+          </tr>
+        </table></td>
+      </tr>
+
+      <tr>
+        <td style="vertical-align:top;" ><!--<p><strong>Indique el tipo de solicitud que se est&aacute;  presentando para esta empresa:</strong></p>
+        <p><strong>Nota: Deber&aacute; adjuntar una carta de  autorizaci&oacute;n por cada empresa que desee&nbsp;  inscribir o modificar firmada por los representantes legales  correspondientes.</strong></p>
+      <p></p>--></td>
+      </tr>
+      <tr>
+        <td height="466"  style="vertical-align:top;">
+		
+		<div class="tituloLinea1">Secci&oacute;n 3: L&iacute;mites de Servicios (Datos Obligatorios)</div>
+         
+          Indique los servicios que desea asociar seg&uacute;n el n&uacute;mero de cuenta que ingres&oacute; en la secci&oacute;n 3 del formulario, seg&uacute;n la versi&oacute;n contratada.
+         
+		 		   <!--ini-->
+				  
+				  
+				  
+		 <table height="116" width="660" border="0" cellpadding="0">
+              <tr>
+                <td height="10" width="30" align="center">&nbsp;</td>
+                <td height="10" width="480" align="center">&nbsp;</td>
+                <td height="10" width="150" colspan="15" align="center"> &nbsp;&nbsp;&nbsp; Cuentas contratadas&nbsp;&nbsp;
+                </td></tr>
+              <tr>
+                <td height="10" width="30" align="center">&nbsp;</td>
+                <td height="10" width="480" align="center">&nbsp;</td>
+				<td height="10" width="10" align="center" class="cuadriculado"><span align="center">&nbsp;Cta &nbsp;&nbsp;1 </span></td>
+                <td height="10" width="10" align="center" class="cuadriculado"><span align="center">&nbsp;Cta &nbsp;&nbsp;2 </span></td>
+                <td height="10" width="10" align="center" class="cuadriculado"><span align="center">&nbsp;Cta &nbsp;&nbsp;3 </span></td>
+                <td height="10" width="10" align="center" class="cuadriculado"><span align="center">&nbsp;Cta &nbsp;&nbsp;4 </span></td>
+                <td height="10" width="10" align="center" class="cuadriculado"><span align="center">&nbsp;Cta &nbsp;&nbsp;5 </span></td>
+                <td height="10" width="10" align="center" class="cuadriculado"><span align="center">&nbsp;Cta &nbsp;&nbsp;6 </span></td>
+                <td height="10" width="10" align="center" class="cuadriculado"><span align="center">&nbsp;Cta &nbsp;&nbsp;7 </span></td>
+                <td height="10" width="10" align="center" class="cuadriculado"><span align="center">&nbsp;Cta &nbsp;&nbsp;8 </span></td>
+                <td height="10" width="10" align="center" class="cuadriculado"><span align="center">&nbsp;Cta &nbsp;&nbsp;9 </span></td>
+                <td height="10" width="10" align="center" class="cuadriculado"><span align="center">&nbsp;Cta &nbsp;10 </span></td>
+                <td height="10" width="10" align="center" class="cuadriculado"><span align="center">&nbsp;Cta &nbsp;11 </span></td>
+                <td height="10" width="10" align="center" class="cuadriculado"><span align="center">&nbsp;Cta &nbsp;12 </span></td>
+                <td height="10" width="10" align="center" class="cuadriculado"><span align="center">&nbsp;Cta &nbsp;13 </span></td>
+                <td height="10" width="10" align="center" class="cuadriculado"><span align="center">&nbsp;Cta &nbsp;14 </span></td>
+                <td height="10" width="10" align="center" class="cuadriculado"><span align="center">&nbsp;Cta &nbsp;15 </span></td>
+              </tr>
+			  
+			    <tr>
+                
+                <td height="3" width="552" colspan="2">TODAS LAS OPERACIONES</td>
+                <td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     id="checkboxTO1" type="checkbox" onClick="activarCheckTO('1')"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     id="checkboxTO2" type="checkbox" onClick="activarCheckTO('2')"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     id="checkboxTO3" type="checkbox" onClick="activarCheckTO('3')"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     id="checkboxTO4" type="checkbox" onClick="activarCheckTO('4')"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     id="checkboxTO5" type="checkbox" onClick="activarCheckTO('5')"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     id="checkboxTO6" type="checkbox" onClick="activarCheckTO('6')"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     id="checkboxTO7" type="checkbox" onClick="activarCheckTO('7')"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     id="checkboxTO8" type="checkbox" onClick="activarCheckTO('8')"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     id="checkboxTO9" type="checkbox" onClick="activarCheckTO('9')"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     id="checkboxTO10" type="checkbox" onClick="activarCheckTO('10')"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     id="checkboxTO11" type="checkbox" onClick="activarCheckTO('11')"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     id="checkboxTO12" type="checkbox" onClick="activarCheckTO('12')"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     id="checkboxTO13" type="checkbox" onClick="activarCheckTO('13')"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     id="checkboxTO14" type="checkbox" onClick="activarCheckTO('14')"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     id="checkboxTO15" type="checkbox" onClick="activarCheckTO('15')"></td>
+
+              </tr>
+			  
+<tr>
+                
+                <td height="3" width="552" colspan="2">Estado de Cuenta de Tarjetas Empresariales</td>
+                <td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa1" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa2" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa3" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa4" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa5" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa6" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa7" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa8" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa9" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa10" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa11" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa12" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa13" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa14" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa15" type="checkbox"></td>
+
+              </tr>
+			  
+              <tr>
+                
+                <td height="3" width="552" colspan="2">Transf. a Ctas. Propias</td>
+                <td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa1" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa2" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa3" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa4" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa5" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa6" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa7" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa8" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa9" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa10" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa11" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa12" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa13" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa14" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa15" type="checkbox"></td>
+
+              </tr>
+              <tr>
+                <td height="3" width="480" colspan="2">Transf. a Ctas. Pre-inscritas</td>
+               <td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa1" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa2" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa3" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa4" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa5" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa6" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa7" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa8" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa9" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa10" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa11" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa12" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa13" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa14" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa15" type="checkbox"></td>
+
+              </tr>
+              <tr>
+                <td height="3" width="480" colspan="2">Transferencias a Terceros</td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa1" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa2" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa3" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa4" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa5" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa6" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa7" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa8" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa9" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa10" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa11" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa12" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa13" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa14" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa15" type="checkbox"></td>
+ </tr>
+<tr>
+                
+                <td height="3" width="552" colspan="2">Transferencias al Exterior</td>
+        <td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxc1"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxc2"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxc3"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxc4"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxc5"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxc6"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxc7"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxc8"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxc9"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxc10"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxc11"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxc12"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxc13"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxc14"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxc15"type="checkbox"></td>
+
+            </tr>
+              <tr>
+                <td height="3" width="480" colspan="2">Transferencias a Otros Bancos</td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa1" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa2" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa3" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa4" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa5" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa6" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa7" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa8" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa9" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa10" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa11" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa12" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa13" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa14" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa15" type="checkbox"></td>
+
+              </tr>
+              <tr>
+                <td height="3" width="480" colspan="2">Pago a Instituciones (AFPNET Ticket, arbitrios, clubes, etc)</td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa1" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa2" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa3" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa4" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa5" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa6" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa7" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa8" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa9" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa10" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa11" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa12" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa13" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa14" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa15" type="checkbox"></td>
+
+              </tr>
+              <tr>
+                <td height="3" width="480" colspan="2">Pago de Servicios P&uacute;blicos (Luz, agua, tel&eacute;fono)</td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa1" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa2" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa3" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa4" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa5" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa6" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa7" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa8" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa9" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa10" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa11" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa12" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa13" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa14" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa15" type="checkbox"></td>
+
+              </tr>
+              <tr>
+                <td height="3" width="480" colspan="2">Pago de Letras y Facturas (Pago de Documentos)</td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa1" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa2" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa3" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa4" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa5" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa6" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa7" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa8" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa9" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa10" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa11" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa12" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa13" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa14" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa15" type="checkbox"></td>
+
+              </tr>
+              <tr>
+                <td height="3" width="480" colspan="2">Apertura y Abono de CTS</td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa1" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa2" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa3" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa4" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa5" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa6" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa7" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa8" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa9" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa10" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa11" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa12" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa13" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa14" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa15" type="checkbox"></td>
+
+              </tr>
+              <tr>
+                <td height="3" width="480" colspan="2">Solicitud de Chequeras</td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa1" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa2" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa3" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa4" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa5" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa6" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa7" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa8" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa9" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa10" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa11" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa12" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa13" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa14" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa15" type="checkbox"></td>
+
+              </tr>
+              <tr>
+                <td height="3" width="480" colspan="2">Fondos Mutuos por importe (Suscripci&oacute;n y Rescate)</td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa1" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa2" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa3" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa4" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa5" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa6" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa7" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa8" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa9" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa10" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa11" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa12" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa13" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa14" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa15" type="checkbox"></td>
+
+              </tr>
+              <tr>
+                <td height="3" width="480" colspan="2">Fondos Mutuos por cuota (Suscripci&oacute;n y Rescate)</td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa1" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa2" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa3" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa4" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa5" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa6" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa7" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa8" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa9" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa10" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa11" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa12" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa13" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa14" type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxa15" type="checkbox"></td>
+
+              </tr>
+              <!---->
+              <tr style="display:none;">
+                
+                <td height="3" width="552" colspan="2">Pago Haberes 4ta Cat. Planilla Manual</td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb1"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb2"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb3"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb4"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb5"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb6"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb7"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb8"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb9"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb10"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb11"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb12"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb13"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb14"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb15"type="checkbox"></td>
+
+              </tr>
+              <tr style="display:none;">
+                <td height="3" width="480" colspan="2">Pago Haberes 5ta Cat. Planilla Manual</td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb1"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb2"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb3"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb4"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb5"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb6"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb7"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb8"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb9"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb10"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb11"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb12"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb13"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb14"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb15"type="checkbox"></td>
+
+              </tr>
+             <tr style="display:none;">
+                <td height="3" width="480" colspan="2">Pago a Proveedores Planilla Manual</td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb1"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb2"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb3"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb4"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb5"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb6"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb7"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb8"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb9"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb10"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb11"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb12"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb13"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb14"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb15"type="checkbox"></td>
+
+            <tr style="display:none;">
+                <td height="3" width="480" colspan="2">Pago de Transferencias Masivas Planilla Manual</td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb1"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb2"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb3"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb4"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb5"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb6"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb7"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb8"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb9"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb10"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb11"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb12"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb13"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb14"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb15"type="checkbox"></td>
+
+            </tr>
+             
+              
+              <tr>
+                <td height="3" width="480" colspan="2">Cr&eacute;dito L&iacute;quido-Disposici&oacute;n de L&iacute;nea de Cr&eacute;dito</td>
+                <td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb1"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb2"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb3"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb4"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb5"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb6"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb7"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb8"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb9"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb10"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb11"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb12"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb13"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb14"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb15"type="checkbox"></td>
+
+              </tr>
+              
+              <!---->
+                           
+			  
+			  <tr>
+                <td height="3" width="480" colspan="2">Factoring Electr&oacute;nico Proveedor </td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb1"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb2"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb3"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb4"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb5"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb6"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb7"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb8"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb9"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb10"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb11"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb12"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb13"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb14"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb15"type="checkbox"></td>
+
+              </tr>
+              <tr>
+                <td height="3" width="480" colspan="2">Factoring Electr&oacute;nico</td>
+          <td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxc1"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxc2"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxc3"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxc4"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxc5"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxc6"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxc7"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxc8"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxc9"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxc10"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxc11"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxc12"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxc13"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxc14"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxc15"type="checkbox"></td>
+
+              </tr>
+              
+			  <tr>
+                <td height="3" width="480" colspan="2">Comercio Exterior</td>
+              <td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxc1"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxc2"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxc3"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxc4"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxc5"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxc6"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxc7"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxc8"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxc9"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxc10"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxc11"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxc12"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxc13"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxc14"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxc15"type="checkbox"></td>
+
+              </tr>
+			   <tr>
+                <td height="3" width="480" colspan="2">Información de Cuentas</td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb1"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb2"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb3"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb4"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb5"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb6"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb7"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb8"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb9"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb10"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb11"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb12"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb13"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb14"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb15"type="checkbox"></td>
+
+              </tr>
+              <tr>
+                
+                <td height="3" width="552" colspan="2">Pago de Haberes Masivos (Propio Banco e Interbancarias)</td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd1"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd2"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd3"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd4"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd5"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd6"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd7"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd8"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd9"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd10"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd11"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd12"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd13"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd14"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd15"type="checkbox"></td>
+
+              </tr>
+              <tr>
+                <td height="3" width="480" colspan="2">Transferencias Masivas (Propio Banco e Interbancarias)</td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd1"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd2"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd3"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd4"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd5"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd6"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd7"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd8"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd9"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd10"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd11"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd12"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd13"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd14"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd15"type="checkbox"></td>
+
+              </tr>
+              <tr>
+                <td height="3" width="480" colspan="2">Transferencias Internacionales Masivas</td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd1"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd2"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd3"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd4"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd5"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd6"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd7"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd8"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd9"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd10"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd11"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd12"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd13"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd14"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd15"type="checkbox"></td>
+
+              <tr>
+                <td height="3" width="480" colspan="2">Pago a Proveedores Masivos (Propio Banco,<br> Interbancarias y Órdenes de Pago)</td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd1"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd2"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd3"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd4"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd5"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd6"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd7"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd8"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd9"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd10"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd11"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd12"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd13"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd14"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd15"type="checkbox"></td>
+
+              </tr>
+              
+		      <tr>
+                <td height="3" width="480" colspan="2">Pago a Proveedores por Documento</td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd1"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd2"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd3"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd4"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd5"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd6"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd7"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd8"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd9"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd10"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd11"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd12"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd13"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd14"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd15"type="checkbox"></td>
+
+              </tr>              
+              
+              <tr>
+                <td height="3" width="480" colspan="2">Pago de CTS Masivo (Propio Banco)</td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd1"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd2"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd3"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd4"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd5"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd6"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd7"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd8"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd9"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd10"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd11"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd12"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd13"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd14"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd15"type="checkbox"></td>
+
+              </tr>
+              <tr>
+                <td height="3" width="480" colspan="2">Informe de Remuneración Masivo CTS</td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd1"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd2"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd3"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd4"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd5"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd6"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd7"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd8"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd9"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd10"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd11"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd12"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd13"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd14"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxd15"type="checkbox"></td>
+
+              </tr>
+			  <tr>
+                <td height="3" width="480" colspan="2">Recibos Domiciliados Masivos</td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb1"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb2"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb3"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb4"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb5"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb6"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb7"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb8"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb9"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb10"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb11"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb12"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb13"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb14"type="checkbox"></td>
+<td height="3" width="10" class="cuadriculado" ><input height="3"  disabled="true"  class="radio"     name="checkboxb15"type="checkbox"></td>
+
+              </tr>
+			  
+			   
+          </table>
+
+		  <table>
+		  <tr>
+		    <td colspan="2">La opci&oacute;n Información de Cuentas incluye los siguientes servicios:</td>
+		  </tr>
+		  <tr><td>- Consolidación Global</td><td>- Informes (Reportes)</td><td>- Histórico de Movimientos</td></tr>
+		  <tr><td>- Saldos Contables</td><td>- Detalle de Movimientos</td></tr>		  
+		  </table>
+		  <!--fin-->
+		  
+		  
+		  
+	    </td>
+      </tr>
+    </table>
+    
+				
+<table width="664" height="200" align="center" cellpadding="0" class="bordeFino" >
+ 
+  <tr>
+    <td width="685" height="200" style="vertical-align:top;">
+	<div class="tituloLinea1">Secci&oacute;n 4: Autorizaci&oacute;n de los Representantes Legales de la Empresa Principal y Asociadas</div>
+	<table width="100%" height="50" cellpadding="0" >
+	  <tr><td colspan="4">
+	  <div class="tituloLinea2">Autorizaci&oacute;n de los Representantes Legales de la Empresa Principal</div>
+	  </td></tr>
+	  <tr>
+	  	<td colspan="4">
+		
+		<table width="100%"><tr>		  
+		  <td width="25%">Nosotros como empresa principal</td>
+		  <td width="47%"><input type="text" id="nomEmprePricipal5" maxlength="40" class="duplicadaRAZ" disabled="true"/></td>
+		  <td width="12%">con N&deg; de RUC</td>
+		  <td width="16%"><input type="text" id="rucEmprePricipal5" onKeyPress="return ingresoSoloNumeros(event)" maxlength="11" class="duplicadaRUC" disabled="true"/></td>
+		  </tr><tr>	  
+		  <td colspan="4">indicamos que contamos con la autorización de las empresas asociadas indicadas en este formulario para utilizar nuestra Banca Electrónica Continental net cash a fin de poder hacer uso de sus cuentas para realizar consultas y operaciones monetarias indicadas en la sección 3 y 4 del presente formulario.</td>
+		  </tr></table>
+		  
+		</td>
+
+		</tr>
+       <tr>
+            <td class="bordeFinoSello" >
+			1 <br> <br> <br> <br> <br> <br> <br> <br> <br> 
+			<div  class="sello">
+			Firma y Sello de Representante Legal
+			</div>
+			</td>
+            <td class="bordeFinoSello" >
+			2 <br> <br> <br> <br> <br> <br> <br> <br> <br> 
+			<div  class="sello">
+			Firma y Sello de Representante Legal
+			</div></td>
+            <td class="bordeFinoSello" >
+			3 <br> <br> <br> <br> <br> <br> <br> <br> <br> 
+			<div  class="sello">
+			Firma y Sello de Representante Legal
+			</div></td>
+            <td class="bordeFinoSello" >
+			4 <br> <br> <br> <br> <br> <br> <br> <br> <br> 
+			<div  class="sello">
+			Firma y Sello de Representante Legal
+			</div></td>
+          </tr>
+    </table>
+	  
+      
+      </td>
+  </tr>
+  </table> 
+  
+
+  </div>
+  <table width="664" height="830" align="center" cellpadding="0" class="bordeFino" >
+ 
+ 
+  <tr>
+    <td width="659" height="39" style="vertical-align:top;"><table width="100%" height="40" border="0" cellpadding="0">
+      <tr>
+        <td><img src="etc/logo_new.jpg" border="0"></td>
+        <td align="right" class="tituloHoja"><div align="left">INSCRIPCI&OacuteN CONTINENTAL NET CASH - MULTIEMPRESA PREMIUM CASH<br>
+          FORMULARIO Nro. 3 : Inscripci&oacute;n de las empresas asociadas<br>
+          P&aacute;gina 3 de 3 </div></td>
+      </tr>
+    </table></td>
+  </tr>
+ 
+  <tr>
+    <td height="783" style="vertical-align:top;">
+	
+	
+	<table width="100%" height="50" cellpadding="0" >
+        <tr>
+          <td colspan="4"><div class="tituloLinea2">Autorizaci&oacute;n de los Representantes Legales de la Empresa asociada 1</div></td>
+        </tr>
+        <tr>
+          <td colspan="4">
+		  <table width="100%"><tr>		  
+		  <td width="26%">Nosotros como empresa asociada</td>
+		  <td width="47%"><input type="text" id="nomEmprePricipal51" maxlength="40"  class="duplicadaRAZ" disabled="true"/></td>
+		  <td width="12%">con N&deg; de RUC</td>
+		  <td width="15%"><input type="text" id="rucEmprePricipal51" onKeyPress="return ingresoSoloNumeros(event)"  maxlength="11"  class="duplicadaRUC" disabled="true"/></td>
+		  </tr><tr>
+		  <td>autorizamos a la empresa principal</td>
+		  <td><input type="text" id="nomEmprePricipal510" maxlength="40"  class="duplicadaRAZ" disabled="true"/></td>
+		  <td>con N&deg; de RUC</td>
+		  <td><input type="text" id="rucEmprePricipal510" onKeyPress="return ingresoSoloNumeros(event)" maxlength="11"  class="duplicadaRUC" disabled="true"/></td>
+		  </tr><tr>		  
+		  <td colspan="4">al uso de nuestras cuentas inscritas en la secci&oacute;n 3 para que realicen consultas y operaciones monetarias en Continental net cash seg&uacute;n lo establecido en la secci&oacute;n 4 del presente formulario.
+		  				<br>Asimismo, liberamos al Banco de cualquier responsabilidad por las consultas y/o operaciones que se realicen.
+		  </td>
+		  </tr></table>
+		</td>
+		
+        </tr>
+        <tr>
+          <td class="bordeFinoSello" > 1 <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <div  class="sello"> Firma y Sello de Representante Legal </div></td>
+          <td class="bordeFinoSello" > 2 <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <div  class="sello"> Firma y Sello de Representante Legal </div></td>
+          <td class="bordeFinoSello" > 3 <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <div  class="sello"> Firma y Sello de Representante Legal </div></td>
+          <td class="bordeFinoSello" > 4 <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <div  class="sello"> Firma y Sello de Representante Legal </div></td>
+        </tr>
+      </table> 
+	  
+	  
+	<table width="100%" height="50" cellpadding="0" >
+      <tr>
+        <td colspan="4"><div class="tituloLinea2">Autorizaci&oacute;n de los Representantes Legales de la Empresa asociada 2 </div></td>
+      </tr>
+      <tr>
+        
+		<td colspan="4">
+		  <table width="100%"><tr>		  
+		  <td width="26%">Nosotros como empresa asociada</td>
+		  <td width="47%"><input type="text" id="nomEmprePricipal52" maxlength="40"  class="duplicadaRAZ" disabled="true"/></td>
+		  <td width="12%">con N&deg; de RUC</td>
+		  <td width="15%"><input type="text" id="rucEmprePricipal52" onKeyPress="return ingresoSoloNumeros(event)"  maxlength="11"  class="duplicadaRUC" disabled="true"/></td>
+		  </tr><tr>
+		  <td>autorizamos a la empresa principal</td>
+		  <td><input type="text" id="nomEmprePricipal520" maxlength="40"  class="duplicadaRAZ" disabled="true"/></td>
+		  <td>con N&deg; de RUC</td>
+		  <td><input type="text" id="rucEmprePricipal520" onKeyPress="return ingresoSoloNumeros(event)" maxlength="11"  class="duplicadaRUC" disabled="true"/></td>
+		  </tr><tr>		  
+		  <td colspan="4">al uso de nuestras cuentas inscritas en la secci&oacute;n 3 para que realicen consultas y operaciones monetarias en Continental net cash seg&uacute;n lo establecido en la secci&oacute;n 4 del presente formulario.
+		  				<br>Asimismo, liberamos al Banco de cualquier responsabilidad por las consultas y/o operaciones que se realicen.
+		  </td>
+		  </tr></table>
+		</td>
+		
+		
+      </tr>
+      <tr>
+        <td class="bordeFinoSello" > 1 <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div  class="sello"> Firma y Sello de Representante Legal </div></td>
+        <td class="bordeFinoSello" > 2 <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div  class="sello"> Firma y Sello de Representante Legal </div></td>
+        <td class="bordeFinoSello" > 3 <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div  class="sello"> Firma y Sello de Representante Legal </div></td>
+        <td class="bordeFinoSello" > 4 <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div  class="sello"> Firma y Sello de Representante Legal </div></td>
+      </tr>
+    </table>
+	<table width="100%" height="50" cellpadding="0" >
+      <tr>
+        <td colspan="4"><div class="tituloLinea2">Autorizaci&oacute;n de los Representantes Legales de la Empresa asociada 3 </div></td>
+      </tr>
+      <tr>
+	  
+	  <td colspan="4">
+		  <table width="100%"><tr>		  
+		  <td width="26%">Nosotros como empresa asociada</td>
+		  <td width="47%"><input type="text" id="nomEmprePricipal53" maxlength="40"  class="duplicadaRAZ" disabled="true"/></td>
+		  <td width="12%">con N&deg; de RUC</td>
+		  <td width="15%"><input type="text" id="rucEmprePricipal53" onKeyPress="return ingresoSoloNumeros(event)"  maxlength="11"  class="duplicadaRUC" disabled="true"/></td>
+		  </tr><tr>
+		  <td>autorizamos a la empresa principal</td>
+		  <td><input type="text" id="nomEmprePricipal530" maxlength="40" class="duplicadaRAZ" disabled="true"/></td>
+		  <td>con N&deg; de RUC</td>
+		  <td><input type="text" id="rucEmprePricipal530" onKeyPress="return ingresoSoloNumeros(event)" maxlength="11"  class="duplicadaRUC" disabled="true"/></td>
+		  </tr><tr>		  
+		  <td colspan="4">al uso de nuestras cuentas inscritas en la secci&oacute;n 3 para que realicen consultas y operaciones monetarias en Continental net cash seg&uacute;n lo establecido en la secci&oacute;n 4 del presente formulario.
+		  				<br>Asimismo, liberamos al Banco de cualquier responsabilidad por las consultas y/o operaciones que se realicen.
+		  </td>
+		  </tr></table>
+		</td>
+        
+      </tr>
+      <tr>
+        <td class="bordeFinoSello" > 1 <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div  class="sello"> Firma y Sello de Representante Legal </div></td>
+        <td class="bordeFinoSello" > 2 <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div  class="sello"> Firma y Sello de Representante Legal </div></td>
+        <td class="bordeFinoSello" > 3 <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div  class="sello"> Firma y Sello de Representante Legal </div></td>
+        <td class="bordeFinoSello" > 4 <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div  class="sello"> Firma y Sello de Representante Legal </div></td>
+      </tr>
+    </table>
+	<center>
+	  <div class="tituloLinea1">PARA USO EXCLUSIVO DEL BANCO</div>	</center>
+      <table border="0" width="656" cellpadding="0" >
+        <tr>
+          <td width="230" height="24">Cod. Central<br>
+              <input type="text" class="exclusivo" disabled style="width:120px;height:19px;"></td>
+          <td width="197">C&oacute;digo Emisora<br>
+              <input type="text" class="exclusivo" disabled style="width:100px;height:19px;">
+              <br></td>
+          <td width="221">(<strong>Sólo para Pago de Haberes </strong>)</td>
+        </tr>
+      </table>
+      <table border="0" width="659" cellpadding="0" >
+        <tr>
+          <td width="254">Nombre  del Ejecutivo de Cuenta <br>
+            <input type="text" class="exclusivo" disabled style="width:250px;height:19px;"></td>
+          <td width="60">Registro<br>
+            <input type="text" class="exclusivo" disabled style="width:60px;height:19px;"></td>
+          <td width="170">Oficina<br>
+            <input type="text" class="exclusivo" disabled style="height:19px;"></td>
+          <td width="165">Cod. Oficina<br>
+            <input type="text" class="exclusivo" disabled style="height:19px;"></td>
+        </tr>
+      </table>
+      V  &deg;B&deg; de Firmas y Poderes
+      <table width="653" border="0" cellpadding="0" >
+        <tr>
+          <td width="280" height="58"><font style="font-size:7px;">Nombre del Gerente/Sub Gerente de Oficina / JAC</font><br>
+            <input type="text" class="exclusivo" disabled style="width:280px;height:20px;"></td>
+          <td width="6">&nbsp;&nbsp;</td>
+          <td width="60">Registro<br>
+            <input type="text" class="exclusivo" disabled style="width:60px;height:20px;"></td>
+          <td width="297"  align="left" style="vertical-align:bottom">
+			  
+			  <div style="text-align:center;vertical-align:bottom;width:300px;">    
+			   _______________________________________<br>
+            Firma y Sello Ejecutivo de Cuenta </div></td>
+        </tr>
+      </table>
+      <table width="655" height="65" border="0" cellpadding="0" >
+        <tr>
+          <td width="311" height="61"><div class="bordeFino" style="width:310px"> <strong>BANCA AUTOM&Aacute;TICA</strong> (No llenar)<br>
+                  <table width="286" border="0" cellpadding="1" cellspacing="0">
+                    <tr>
+                      <td width="138">C&oacute;digo de Empresa<br>
+                          <input name="text" type="text" disabled class="exclusivo" style="width:100px;height:20px;"></td>
+                      <td width="144">Fecha Ingreso al Sistema<br>
+                          <input name="text" type="text" disabled class="exclusivo" style="width:120px;height:20px;">
+                      </td>
+                    </tr>
+                  </table>
+          </div></td>
+          <td width="36">&nbsp;&nbsp;</td>
+          <td width="300" align="left"  style="vertical-align:bottom;">
+		  <div  style="text-align:center;vertical-align:bottom;width:300px;"> _______________________________________<br>
+            Firma y Sello del Gerente / Sub Gerente /JAC<br>
+          </div></td>
+        </tr>
+        
+      </table>
+      <table border="0" height="12" cellpadding="0" >
+        
+        <tr>
+          <td width="661" height="8"><div  style="float:right; width:300px; font-size: 7px;text-align:right">LA OFICINA DEBER&Aacute; ARCHIVAR UNA COPIA DE ESTE FORMULARIO</div></td>
+        </tr>
+    </table></td>
+  </tr>
+  </table>  
+
+ 
+  <div align="center">
+    <input id="botonImprimir"  class="nover" name="botonImprimir" type="button" onClick="validarIns('opm');" value="Imprimir" >
+  </div>
+  
+<!--  <input type="hidden" name="tipoFormulario" value="inscripcion">-->
+  
+</form>
+</body>
+</html>

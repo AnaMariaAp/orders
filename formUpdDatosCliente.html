@@ -1,0 +1,339 @@
+<html>
+<head><title>BBVA Continental - SOLICITUD DE ACTUALIZACIÓN DE DATOS DE USUARIOS CONTINENTAL NET CASH</title>
+    <style type="text/css">
+    #commentForm label { width: 200px; }
+    #commentForm label.error, #commentForm input.submit { margin-left: 0px; }
+        .style3
+        {
+            width: 246px;
+        }
+        .style4
+        {
+            width: 142px;
+        }
+        .style5
+        {
+            width: 717px;
+            text-align:justify;
+            line-height:150%;
+        }
+        .style6
+        {
+            width: 290px;
+        }
+        .style7
+        {
+            width: 270px;
+        }
+        .style8
+        {
+            width: 167px;
+        }
+        .style9
+        {
+            width: 339px;
+            height: 47px;
+        }
+        .style10
+        {
+            height: 47px;
+        }
+        .style11
+        {
+            width: 605px;
+            height: 1008px;
+        }
+        .style12
+        {
+            width: 58px;
+        }
+        .style13
+        {
+            width: 280px;
+        }
+        .style14
+        {
+            width: 53px;
+            height: 47px;
+        }
+        .styleEncabezadoSec
+        {
+            color: white;
+            background-color:navy;
+            font-size:11px;
+            text-align:justify;
+            line-height:150%;
+        }
+        .styleEncabezadoPag
+        {
+            font-size:12px;
+            font-family:"Arial";
+            text-align:center;
+            line-height:150%;
+            width:350px;
+        }
+        .styleEncabezadoSecFinal
+        {
+            color: white;
+            background-color:navy;
+            font-size:11px;
+            text-align:justify;
+            line-height:150%;
+            text-align:center;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/hoja.css"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="css/screen.css"/>
+    <link rel="stylesheet" type="text/css" href="css/jquery.autocomplete.css"/>
+</head>
+<script type="text/javascript" src="js/validarFormSolUpdDatosCliente.js"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.validate.js"></script>
+<script type="text/javascript" src="js/cmxforms.js"></script>
+<script type="text/javascript" src="js/complete/jquery.bgiframe.min.js"></script>
+<script type="text/javascript" src="js/complete/jquery.dimensions.js"></script>
+<script type="text/javascript" src="js/complete/jquery.autocomplete.js"></script>
+<script type="text/javascript" src="js/complete/localdata.js"></script>
+<script type="text/javascript" src="js/complete/jScript.js"></script>
+<script type="text/javascript" src="js/complete/alerta.js"></script>
+<script type="text/javascript">
+    /** Ocultar Mostrar**/
+    function ocultarMostrar()
+    {
+        var x=document.forms[0].combTipoDNIUpdCli.value;
+        if(x<0)
+        { 
+            document.f.dniUpdCli.disabled = true;
+            document.f.dniUpdCli.value = "";
+        }
+        else if ((x == 2) || (x == 3))
+        { 
+            document.f.dniUpdCli.disabled = false; 
+            document.f.dniUpdCli.value = ""; 
+            document.f.dniUpdCli.maxLength = 8; 
+            document.f.dniUpdCli.focus();
+        }
+        else
+        { 
+           document.f.dniUpdCli.disabled = false; 
+           document.f.dniUpdCli.value = ""; 
+           document.f.dniUpdCli.maxLength = 11; 
+           document.f.dniUpdCli.focus();
+        }
+    }
+    
+    function onloadUpdDatosCliente()
+    {
+        document.f.chkTipoSol01.checked = false
+        document.f.chkTipoSol02.checked = false
+    }
+</script>
+<body onLoad="onloadUpdDatosCliente();">
+<form class="cmxform" id="commentForm" method="post" action="" name="f">
+    <table align="center" class="bordeFino"  cellspacing="0" style="width: 732px">
+        <tr>
+            <td style="vertical-align:top;">        
+                <table border="0">
+                    <tr>
+                        <td colspan="1" align="center" style="width: 259px">
+                            <img src="etc/logo_new.jpg" border="0">
+                        </td>
+                        <td class="styleEncabezadoPag" colspan="3">SOLICITUD DE ACTUALIZACIÓN DE DATOS DE USUARIOS <br>
+						(NO ADMINISTRADORES) CONTINENTAL NET CASH
+                      </td>
+                    </tr>
+                    <tr>
+                        <td class="styleEncabezadoSec" colspan="4">Sección 1: Consideración General
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="style5" colspan="4">Importante: La presente solicitud tiene por objetivo actualizar su dirección de correo electrónico y teléfono de contacto y a su vez generar una clave de acceso en caso de olvido y que no exista un usuario administrador en su empresa.<br /><br />Si Ud. desea generar una nueva clave de acceso a Continental Net Cash y tiene una dirección de correo electrónico, comuníquese con nuestra Banca por Teléfono de Empresas a los teléfonos: 595-1200 (Lima) o 0-800-12668 (Provincias). Si no cuenta con una dirección de correo electrónico registrada, proceda a llenar la presente solicitud y entréguela a su ejecutivo de cuenta.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="styleEncabezadoSec" colspan="4">Sección 2: Tipo de Solicitud (Dato Obligatorio)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="style5" colspan="4">Indique el tipo de solicitud según su necesidad (marque más de una opción si es necesario):
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="style3" colspan="2" align="right">
+                            <input type="checkbox" id="chkTipoSol01"/>Cambio de Clave de Acceso
+                        </td>
+                        <td class="style3" colspan="2">
+                            <input type="checkbox" id="chkTipoSol02"/>Actualizaci&oacute;n de Datos
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" class="styleEncabezadoSec" style="width: 709px">Sección 3: Datos de la Empresa (Datos Obligatorios)
+                        </td>
+                    </tr>
+                    <tr>
+	                    <td  id="orderitems" style="width: 259px" align="center">Raz&oacute;n Social de la Empresa<br><input name="razSocEmp" id="razSocEmp" type="text" maxlength="40" class="quantity required" style="width:254px; height:19px;">
+	                    </td>
+	                    <td id="orderitems2" class="style3" style="width: 173px" align="center">Nro. de RUC o Documento<input name="rucEmp" id="rucEmp" type="text" class="required quantity"  maxlength="11" style="width:188px;height:19px;" onKeyPress="return ingresoSoloNumeros(event)"/></td>
+	                    <td align="center" style="width: 144px">C&oacute;digo de Empresa<br><input name="codigoEmpresa" id="codigoEmpresa"   maxlength="8" type="text" style="width:120px;height:19px;" onKeyPress="return ingresoSoloNumeros(event)"></td>
+	                    <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" class="styleEncabezadoSec" style="width: 709px">Sección 4: Datos del Cliente (Datos Obligatorios)
+                        </td>
+                    </tr>
+                    <tr>
+                      <td colspan="2" align="center">Nombre Completo del Cliente<br />
+                              <input name="nombCliente" id="nombCliente" type="text" maxlength="40" onKeyPress="return ingresoLetrasNumerosGuion(event)" 
+                            class="quantity required" style="width:397px; height:19px;"></td>
+                      <td colspan="2" align="center">Dirección de correo electrónico<br />
+                          <input id="emailCliente" name="emailCliente" class="email" maxlength="30" 
+                              style="width:297px;height:19px;"/></td>
+                    </tr>
+                    <tr>
+                      <td class="style3" style="width: 259px" align="center">
+                          C&oacute;digo de usuario&nbsp;<br/>
+                          <input name="codUserUpdCli" type="text" class="required" id="txtCodUserUpdCli" style="width:160px;text-transform: uppercase;" onKeyPress="return ingresoCaracteresCodUsuario(event)" maxlength="8">
+                      </td>
+                      <td class="style3" style="width: 173px" align="center">Tipo de Doc. de Identidad<br/>
+                          <select name="combTipoDNIUpdCli"  id="combTipoDNIUpdCli" style="width:197px; height:19px;" onChange="ocultarMostrar();">
+                            <option value="-1" style="display:none;visibility:hidden;" ></option>
+			                <option style="text-align:left" value="1">D - Carnet Diplom&aacute;tico</option>
+			                <option style="text-align:left" value="2">L - DNI/Libreta Electoral</option>
+			                <option style="text-align:left" value="3">M - Carnet de Identidad Militar</option>
+			                <option style="text-align:left" value="4">E - Carnet de Extranjer&iacute;a</option>
+			                <option style="text-align:left" value="5">P - Pasaporte</option>
+			                <option style="text-align:left" value="6">O - Otros</option>
+                          </select>
+                      </td>
+                      <td align="center" style="width: 144px">
+                          Nro. Doc. de Identidad
+                          <input name="dniUpdCli" type="text" class="required" id="dniUpdCli" style="width:120px;height:19px;" onKeyPress="var sTipoDoc = document.forms[0].combTipoDNIUpdCli.value; return eligeValidacion(sTipoDoc, event);" maxlength="11" >
+                      </td>
+                      <td align="center">Teléfono de Contacto<br />
+                          <input name="telfUpdCli" type="text" 
+                      class="required" id="telfUserAdm" style="width:120px;height:19px;" 
+                              onKeyPress="return ingresoSoloNumeros(event);" maxlength="10" >
+                      </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" class="styleEncabezadoSec">Sección 5: Autorizaci&oacute;n de los Representantes de la Empresa (Obligatorio)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">El presente formulario debe ser autorizado por representantes legales facultados para ello (L&iacute;mites, Tipo de Forma)
+                            <table cellpadding="3" cellspacing="5" style="width: 100%" align="center">
+                              <tr>
+                                <td class="bordeFino" style="vertical-align:top; height:90px;">
+			                    1 <br> <br> <br> <br> <br> <br><br> <br>
+			                    <div  style="font-family:Verdana, Arial, Helvetica, sans-serif; font-weight:bold; font-size:7px; text-align:center">
+			                    Firma y Sello de Representante Legal
+			                    </div>
+			                    </td>
+                                <td class="bordeFino" style="vertical-align:top; height:90px;">
+			                    2 <br> <br> <br> <br> <br> <br><br> <br>
+			                    <div  style="font-family:Verdana, Arial, Helvetica, sans-serif; font-weight:bold; font-size:7px; text-align:center">
+			                    Firma y Sello de Representante Legal
+			                    </div></td>
+                                <td class="bordeFino" style="vertical-align:top; height:90px;">
+			                    3 <br> <br> <br> <br> <br> <br><br> <br>
+			                    <div  style="font-family:Verdana, Arial, Helvetica, sans-serif; font-weight:bold; font-size:7px; text-align:center">
+			                    Firma y Sello de Representante Legal
+			                    </div></td>
+                                <td class="bordeFino" style="vertical-align:top; height:90px;">
+			                    4 <br> <br> <br> <br> <br> <br><br> <br>
+			                    <div  style="font-family:Verdana, Arial, Helvetica, sans-serif; font-weight:bold; font-size:7px; text-align:center">
+			                    Firma y Sello de Representante Legal
+			                    </div></td>
+                              </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" class="styleEncabezadoSecFinal">PARA USO EXCLUSIVO DEL BANCO</td>
+                    </tr>
+                </table>
+                  <div>&nbsp;</div>
+                    <table border="0" cellpadding="0" style="width: 753px" >
+                      <tr>
+                        <td colspan="4">
+                            Este formulario es de uso exclusivo para empresas que han migrado de Banca por Internet Empresas o BBVA Cash a la nueva Banca Electrónica Continental net cash.
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="width: 137px">Código Central<br>
+                          <input type="text" class="exclusivo" disabled style="width:120px;height:19px;"></td>
+                        <td class="style7">Nombre de Oficina<br />
+                          <input type="text" class="exclusivo" disabled style="height:19px; width: 494px;"></td>
+                        <td>&nbsp;</td>
+                        <td>Cod. Oficina<br />
+                          <input type="text" class="exclusivo" disabled style="height:19px;"></td>
+                      </tr>
+                    </table>
+                    <table border="0" width="620" cellpadding="0" >
+                      <tr>
+                        <td class="style6" style="width: 285px">Nombre del Ejecutivo de la Cuenta<br>
+                          <input type="text" class="exclusivo" disabled style="width:274px;height:18px;"></td>
+                        <td class="style12" style="width: 58px">Registro<br>
+                          <input type="text" class="exclusivo" disabled style="width:106px;height:18px;"></td>
+                        <td><br>
+                          &nbsp;<br>
+                          </td>
+                      </tr>
+                    </table>
+                    V&deg;B&deg; de Firmas y Poderes<br />
+            &nbsp;<table border="0" cellpadding="0" >
+                      <tr>
+                        <td class="style13"><font style="font-size:7px;">Nombre del Gerente/Sub Gerente de Oficina</font><br>
+                          <input type="text" class="exclusivo" disabled style="width:274px;height:18px;"></td>
+                        <td>&nbsp;</td>
+                        <td>Registro<br>
+                          <input type="text" class="exclusivo" disabled style="width:106px;height:18px;"></td>
+			              <td width="320"  align="center" style="vertical-align:bottom">
+            			  
+			              <div style="text-align:center;vertical-align:bottom;width:200px;">    &nbsp;&nbsp; &nbsp;______________________________________________<br>
+                              &nbsp;&nbsp;
+                            Firma y Sello Ejecutivo de Cuenta </div></td>
+            			  
+                      </tr>
+                    </table>
+                    <table border="0" cellpadding="0" >
+                      <tr>
+                        <td class="style9" >
+                      <div class="bordeFino" style="width:391px">
+                         <strong>Equipo de Servicios</strong> (No llenar)<br>
+                              <table width="300" border="0" cellpadding="1" cellspacing="0">
+                                <tr>
+                                 <td class="style8" style="width: 179px">Código de Empresa<input type="text" class="exclusivo" disabled style="width:161px; height:19px;" maxlength="11"></td>
+                                  <td style="width: 120px">Fecha Ingreso al Sistema<br>
+                                    <input type="text" class="exclusivo" disabled style="width:30px;height:18px;" maxlength="2">
+                                    <input type="text" class="exclusivo" disabled style="width:30px;height:18px;" maxlength="2">
+                                    <input type="text" class="exclusivo" disabled style="width:45px; height:18px;" maxlength="4"></td>
+                                </tr>
+                              </table>
+			              </div>
+                       </td>
+                        <td class="style14" >&nbsp;
+                            
+                       </td>
+                        <td class="style10">
+                         <div  style="text-align:center;vertical-align:bottom;width:212px; margin-left: 0px; height: 21px;">
+                             &nbsp; &nbsp; &nbsp;
+                         ______________________________________________<br />
+                             &nbsp; &nbsp;&nbsp;
+                          Firma y Sello del Gerente / Sub Gerente /JAC</div>
+		                </td>
+                      </tr>		  
+		              <tr>
+			              <td colspan="3">
+			              </td>
+		              </tr>
+                    </table>
+            </td>
+        </tr>
+    </table>
+    <div align="center">
+        <input id="botonImprimir" name="botonImprimir" type="button" onClick="validar('opm');" value="Imprimir">  
+    </div>
+</form>
+</body>
+</html>

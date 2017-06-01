@@ -1,0 +1,200 @@
+/* Welcome to Compass. Use this file to define print styles. Import this file using the following HTML or equivalent: <link href="/stylesheets/print.css" media="print" rel="stylesheet" type="text/css" /> */
+@page {
+  margin: 8px 20px;
+  size: A4 portrait;
+}
+
+#Header, #Footer { display: none !important; }
+body { -webkit-print-color-adjust: exact; print-color-adjust:exact; }
+
+h1, h2 { font-size: 14px; font-size: 17px\9; font-size: 17px\0; _font-size: 17px; margin: 1px 0; }
+.ie9 h1, .ie9 h2 { font-size: 14px; }
+
+h3 { font-size: 13px; font-size: 14px\9; font-size: 14px\0; _font-size: 14px; }
+.ie9 h3 { font-size: 11px; }
+
+label { margin:0; }
+label, p, li {
+  font-size: 9px;
+  font-size: 14px\9;
+  font-size: 14px\0;
+  _font-size: 14px;
+}
+.ie9 label, .ie9 p, .ie9 li { font-size: 10px; }
+
+.radio label, .checkbox label { min-height:12px; margin-top: 0; margin-bottom: 0; }
+
+.checkbox {
+  margin-top:0;
+  margin-bottom:0;
+}
+
+.form-group {
+  margin-bottom: 4px;
+}
+
+.ie9 .disabled-2 { font-weight:0px; box-shadow:0px; }
+
+
+/**TITULO MODULO**/
+/*.titulo-modulo { background-color: #1E398D !important; }
+.titulo-modulo h3 { color: #FFF !important; padding: 1px 2px; }*/
+
+.titulo-modulo-2, .titulo-modulo-3 { position: relative; width:100%; height:20px; overflow:hidden; margin:5px 0px\9; margin:5px 0px\0; _margin:5px 0px; }
+.titulo-modulo-2 h3 { position:absolute; left: 10px; right: 0; top:0; color: #000 !important; }
+.titulo-modulo-3 h3 { position:absolute; left: 35%; top:0; color: #000 !important; }
+/** FIN TITULO MODULO**/
+
+/*input[type=checkbox], input[type=radio] { background:transparent;border:0;border:none; }*/
+
+#main-container-bottom { page-break-before: always; }
+
+/*  INI: Especificas */
+.form41-table td, .form42-table td {
+  padding: 1px 0 !important;
+}
+
+.texto-negro ol { margin: 0; }
+.header h3 { margin-top:0; margin-top: 12px\9; margin-top: 12px\0; _margin-top: 12px; }
+.margin-top-10 { margin-top:0; margin-top:10px\9; margin-top:10px\0; _margin-top:10px; }
+.texto-header {
+  margin:0;
+  margin-top: 6px\9;
+  margin-bottom: 4px\9;
+  margin-top: 6px\0;
+  margin-bottom: 4px\0;
+  _margin-top: 6px;
+  _margin-bottom: 4px;
+}
+
+.ie9 .texto-header {
+margin-top: 4px;
+margin-bottom: 2px;
+}
+
+.form-control, input, select {
+  height: 16px;
+  font-size: 8px;
+  height: 24px\9;
+  font-size: 14px\9;
+  height: 24px\0;
+  font-size: 14px\0;
+  _height: 24px;
+  _font-size: 14px;
+}
+
+.ie9 .form-control { height: 17px; font-size: 9px; }
+.ie9 input { height: 17px; font-size: 9px; }
+.ie9 select { height: 17px; font-size: 8px; border: 1px solid #000; background-color: #FFF; }
+.ie9 input[type="text"] { border: 1px solid #000; background-color: #FFF; }
+
+.form3-sec-3 .radio, .form2-sec4 .radio, .form1-sec3 .radio { margin-bottom:4px; margin-top:-6px; margin-top:0px\9; margin-top:0px\0; _margin-top:0px; }
+.ie9 .form3-sec-3 .radio, .ie9 .form2-sec4 .radio, .ie9 .form1-sec3 .radio { margin-bottom:0px; }
+
+/*  FIN: Especificas */
+
+tr { margin: 2px 0\9; margin: 2px 0\0; _margin: 2px 0; }
+
+.contenido-modulo { padding: 2px 0 2px 0; }
+.contenido-modulo p {
+  margin: 2px 0;
+  font-size: 9px;
+  font-size: 14px\9;
+  font-size: 14px\0;
+  _font-size: 14px;
+}
+
+.ie9 .contenido-modulo p { font-size: 9px; }
+
+.texto-negro p, .texto-negro li {
+  font-size: 9px;
+  font-size: 14px\9;
+  font-size: 14px\0;
+  _font-size: 14px;
+  font-weight: normal;
+}
+
+.ie9 .texto-negro p, .ie9 .texto-negro li { font-size: 9px; }
+
+.espacio-firma { height: 100px;  height:150px\9; height:150px\0; _height:150px;}
+.ie9 .espacio-firma { height: 110px; }
+
+.form2-sec1-box-codigo { padding: 4px 0px 0px 0px; }
+
+.border { margin-top: 4px; margin-bottom: 2px; border: 1px solid #000; }
+
+.contenido-firma-sello { margin-top: 35px; }
+
+.subgerente { margin-top: 48px; }
+
+/*.border { margin-top: 6px; margin-bottom: 7px; }*/
+
+.contenido-uso-exc-banco .form-group { margin-bottom: 1px !important; }
+
+.form6 .form-group { margin-bottom: 1px !important; }
+
+/*.box-leyenda { width: 180px; height: 40px; margin-left: 58.6% !important; text-align: center; }
+.box-leyenda p { font-size: 10px; }*/
+
+/*  ini: modificacion firmas conjuntas */
+.ie-mflex-1 {
+  height: 230px\9;
+  padding-top: 85px\9;
+  height: 230px\0;
+  padding-top: 85px\0;
+}
+.ie-mflex-2 {
+  height: 165px\9;
+  padding-top: 60px\9;
+  height: 165px\0;
+  padding-top: 60px\0;
+}
+.ie-mflex-4 {
+  height: 36px\9;
+  padding-top: 2px\9;
+  height: 36px\0;
+  padding-top: 2px\0;
+}
+.ie-mflex-5 {
+  height: 60px\9;
+  padding-top: 10px\9;
+  height: 60px\0;
+  padding-top: 10px\0;
+}
+.ie-mflex-6 {
+  height: 185px\9;
+  padding-top: 65px\9;
+  height: 185px\0;
+  padding-top: 65px\0;
+}
+.ie-mflex-7 {
+  height: 140px\9;
+  padding-top: 55px\9;
+  height: 140px\0;
+  padding-top: 55px\0;
+}
+/*  fin: modificacion firmas conjuntas */
+
+.margin-top-15 { margin-top: -2px; margin-bottom: -5px; }
+
+.box-leyenda-form7-1, .box-leyenda-form7-2, .box-leyenda-form7-3 { height: 40px; }
+.box-leyenda-form7-1 p, .box-leyenda-form7-2 p, .box-leyenda-form7-3 p { font-size:7px; }
+
+.form6 .radio, .form6 .checkbox { margin-top: -2px; margin-bottom: -4px; }
+
+.form6-sec2 .form-group { margin-bottom: -6px !important; }
+.form6-sec2 .form-group label { margin-bottom: 0 !important; }
+
+/*.form2 .disabled-5 .radio, .form2 .disabled-5 .radio label {
+	margin-top: 0 !important;
+	margin-bottom: 0 !important;
+}*/
+
+
+.padding-top-firm-conj { padding-top: 4px; }
+
+
+/*FIX PRINT*/
+.print-next-form2-1{
+	margin-top: 50px;
+}

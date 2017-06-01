@@ -1,0 +1,128 @@
+/* Welcome to Compass. Use this file to define print styles. Import this file using the following HTML or equivalent: <link href="/stylesheets/print.css" media="print" rel="stylesheet" type="text/css" /> */
+@page { margin: 8px 20px; }
+body { -webkit-print-color-adjust: exact; }
+
+h1, h2 { font-size: 2em; margin: 2px 0; }
+
+h3 { font-size: 1.8em; }
+
+label, li { font-size: 1.4em !important; }
+input[type=checkbox], input[type=radio] { background:transparent;border:0;border:none; }
+
+p { font-size: 1.3em !important; line-height: 1.5em; }
+.radio label { margin-bottom: 5px; }
+
+#main-container-bottom { page-break-before: always; }
+
+input { height: 28px !important; font-size: 1.5em !important; }
+
+.contenido-modulo { padding: 2px 0 2px 0; }
+.contenido-modulo p { margin: 2px 0; }
+
+.espacio-firma { height: 60px; }
+
+.form2-sec1-box-codigo { padding: 4px 0px 0px 0px; }
+
+.border { margin-top: 4px; margin-bottom: 0px; border: 1px solid #000; }
+
+.contenido-firma-sello { margin-top: 34px; }
+
+.subgerente { margin-top: 48px; }
+
+.border { margin-top: 6px; margin-bottom: 7px; }
+
+.contenido-uso-exc-banco .form-group { margin-bottom: 1px !important; }
+
+.form6 .form-group { margin-bottom: 1px !important; }
+
+.box-leyenda { width: 180px; height: 40px; margin-left: 58.6% !important; text-align: center; }
+.box-leyenda p { font-size: 10px; }
+
+/*  ini: modificacion firmas conjuntas */
+.ie-mflex-1 {
+  height: 230px\9;
+  padding-top: 85px\9;
+  height: 230px\0;
+  padding-top: 85px\0;
+}
+.ie-mflex-2 {
+  height: 165px\9;
+  padding-top: 60px\9;
+  height: 165px\0;
+  padding-top: 60px\0;
+}
+.ie-mflex-4 {
+  height: 36px\9;
+  padding-top: 2px\9;
+  height: 36px\0;
+  padding-top: 2px\0;
+}
+.ie-mflex-5 {
+  height: 60px\9;
+  padding-top: 10px\9;
+  height: 60px\0;
+  padding-top: 10px\0;
+}
+.ie-mflex-6 {
+  height: 185px\9;
+  padding-top: 65px\9;
+  height: 185px\0;
+  padding-top: 65px\0;
+}
+.ie-mflex-7 {
+  height: 140px\9;
+  padding-top: 55px\9;
+  height: 140px\0;
+  padding-top: 55px\0;
+}
+/*  fin: modificacion firmas conjuntas */
+
+.margin-top-15 { margin-top: -2px; margin-bottom: -5px; }
+
+
+.box-leyenda-form7-1 p, .box-leyenda-form7-2 p, .box-leyenda-form7-3 p { font-size:8px; }
+
+.form6 .radio, .form6 .checkbox { margin-top: -2px; margin-bottom: -4px; }
+
+.form6-sec2 .form-group { margin-bottom: -6px !important; }
+.form6-sec2 .form-group label { margin-bottom: 0 !important; }
+
+/**TITULO MODULO**/
+.titulo-modulo { background-color: #1E398D !important; }
+.titulo-modulo h3 { color: #FFF !important; }
+
+/** FIN TITULO MODULO**/
+p.color-blanco { color: #FFF !important; }
+
+.form3 p, .form3-down p { line-height: 16px; margin: 10px 0; }
+.form3 .espacio-firma, .form3-down .espacio-firma { height: 200px; }
+
+.form3-down .form-group { margin: 20px 0; }
+.form3-down .contenido-firma-sello { margin-top: 45px; }
+
+.form2-down p { line-height: 16px; margin: 10px 0; }
+.form2-down .espacio-firma { height: 120px; }
+.form2-down .form-group { margin: 10px 0; }
+.form2-down .contenido-firma-sello { margin-top: 45px; }
+
+.form2 .disabled-5 .radio, .form2 .disabled-5 .radio label {
+	margin-top: 0 !important;
+	margin-bottom: 0 !important;
+}
+
+.form1 input, .form1 select { margin: 10px 0; }
+.form1 p { margin: 10px 0; }
+
+.form1-down p {  margin: 10px 0; }
+.form1-down .espacio-firma { height: 120px; }
+.form1-down .form-group { margin: 10px 0; }
+.form1-down .contenido-firma-sello { margin-top: 45px; }
+/*.form1, .form1-down { font-size: 1em !important; }*/
+
+.padding-top-firm-conj { padding-top: 4px; }
+
+
+/*FIX PRINT*/
+.print-next-form2-1{
+	margin-top: 50px;
+}

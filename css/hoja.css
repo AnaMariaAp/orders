@@ -1,0 +1,238 @@
+
+td {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	font-weight: bold;
+	color: #000080;
+	text-decoration: none;
+}
+.a {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: normal;
+	color: 000080;
+	text-decoration: underline;
+}
+.a_a {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: normal;
+	text-align:center;
+	color: 000080;
+	text-decoration: none;
+}
+.tituloHoja {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #000080;
+	text-decoration: none;
+}
+.rubro {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	color: white;
+	text-decoration: none;
+	background-color: darkblue;
+	width:60%;
+	
+}
+.nota {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 8px;
+	font-weight: bold;
+	color: #000080;
+	text-decoration: none;
+}
+.bordeFino{
+	border-color:black; border-width:1px; border-style:solid;
+}
+.bordeFinoSupIzq{
+	border-color:black; border-width:1px; border-style:solid; border-right:0px; border-bottom:0px;
+}
+.bordeFinoSupIzqInf{
+	border-color:black; border-width:1px; border-style:solid; border-right:0px;
+}
+.bordeFinoSupIzqDer{
+	border-color:black; border-width:1px; border-style:solid; border-bottom:0px;
+}
+.break_after_this {
+	margin:0px 0px 0px 0px;
+	border-width:0px;
+	page-break-after: always;
+}
+
+.margen_cero {
+	margin:0px 0px 0px 0px;
+	border-width:0px;
+	page-break-after: auto;
+}
+
+Input { 
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size=10px;
+	color: darkblue; 
+	font-weight:none; 
+	text-align: center;
+}
+
+Input[disabled] {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size=10px;
+	color: darkblue; 
+	background-color: white;
+	font-weight:none; 
+	text-align: center; 
+}
+
+.radio {
+	height:14px;
+}
+
+/*Select {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size=10px;
+	color: darkblue; 
+	font-weight:none; 
+	text-align: center;
+}*/
+
+
+.letra_blanca
+{
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: normal;
+	color: #FFFFFF;
+	text-decoration: underline;
+	text-align:center;
+	text-decoration:none;
+
+}
+
+.td {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #000080;
+	text-decoration: none;
+}
+.style1 {color: #FFFFFF}
+.style2 {font-weight: bold}
+
+.Tazulnegr {  
+
+	font-family: Verdana, Arial, Helvetica, sans-serif; 
+	font-size: 10px; 
+	font-weight: bold; 
+	color: 000080; 
+	text-transform: uppercase;
+	text-decoration:none;
+	
+	}
+	
+.bold {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	color: #FF0000;
+	text-decoration: underline;
+}
+.borde_tabla {
+	border: thin solid #000080;
+}
+.borde_tabla1 {
+	border: thin solid #C9C4C4;
+}
+/*.combo	 {
+		 font-family: Verdana, Arial, Helvetica, sans-serif;
+		 font-size:10px;
+		 color: #000000;
+		 text-decoration: none;
+		 background-color: #FFFFFF;
+		 border: 1px solid #7F9DB9;
+  	     width: 150;
+		 }*/
+.cmb200 { 
+font-size: 11px; 
+font-family: Verdana, Arial, Helvetica; 
+color: #000000;
+padding-left: 2px;
+padding-right: 2px; 
+padding-top: 2px; 
+padding-bottom: 2px; 
+width: 100px; 
+background-color: #ffffff;
+
+}
+
+.v3 { 
+     color: #000000; 
+	 font-size: 11px; 
+	 font-family: verdana, arial, sans-serif; 
+	 font-weight: none; 
+	 text-decoration: none;
+	
+	 }
+.a1 { color: #FFFFFF; font-size: 16px; font-family: arial, verdana, sans-serif; font-weight: none; text-decoration: none;}
+.a2 { color: #6699CC; font-size: 13px; font-family: arial, verdana, sans-serif; font-weight: bold; text-decoration: none;}
+.a3 { color: #6699CC; font-size: 13px; font-family: arial, verdana, sans-serif; font-weight: none; text-decoration: none;}
+.a4 { color: #FFFFFF; font-size: 13px; font-family: arial, verdana, sans-serif; font-weight: none; text-decoration: none;}
+.a5 { color: #6699CC; font-size: 36px; font-family: arial, verdana, sans-serif; font-weight: bold; text-decoration: none;}
+.a6 { color: #000000; font-size: 13px; font-family: arial, verdana, sans-serif; font-weight: bold; text-decoration: none;}
+.a7 { color: #6699CC; font-size: 22px; font-family: arial, verdana, sans-serif; font-weight: bold; text-decoration: none;}
+.a8 { color: #000000; font-size: 15px; font-family: arial, verdana, sans-serif; font-weight: bold; text-decoration: none;}
+.a9 { color: #000000; font-size: 14px; font-family: arial, verdana, sans-serif; font-weight: bold; text-decoration: none;}
+.cmb200 { font-size: 11px; font-family: Verdana, Arial, Helvetica; color: #000000; padding-left: 2; padding-right: 2; padding-top: 2; padding-bottom: 2; width: 200; background-color: #ffffff;}
+
+.capa
+{
+scrollbar-face-color: #FFFFFF;
+scrollbar-highlight-color: #B3B3B3;
+scrollbar-3dlight-color: #B3B3B3;
+scrollbar-darkshadow-color:#B3B3B3 ;
+scrollbar-shadow-color:#B3B3B3;
+scrollbar-arrow-color:#B3B3B3;
+scrollbar-track-color: #FFFFFF;
+}
+.td1 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #777778;
+	text-decoration: none;
+}
+
+.td2 {
+	font-family: Cooper,Times new roman,Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: bold;
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.button1 {
+
+    BACKGROUND-POSITION: center center;
+    FONT-SIZE: 11px;
+   	background-image:url(restablecer.gif);
+    WIDTH: 126px;
+    CURSOR: hand;
+    COLOR: #33568C;
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+    HEIGHT: 25px;
+	}
+.button2 {
+
+    BACKGROUND-POSITION: center center;
+    FONT-SIZE: 11px;
+   	background-image:url(envia.gif);	
+    WIDTH: 91px;
+    CURSOR: hand;
+    COLOR: #33568C;
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+    HEIGHT: 25px;
+	}
+.enlace{cursor:default;}
+
+.exclusivo { height:14px; }

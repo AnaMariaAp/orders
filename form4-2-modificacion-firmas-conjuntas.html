@@ -1,0 +1,1861 @@
+﻿<!--[if lt IE 7 ]> <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd"> <![endif]-->
+<!--[if IE 7 ]> <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd"> <![endif]-->
+<!--[if IE 8 ]> <!DOCTYPE html> <![endif]-->
+<!--[if IE 9 ]> <!DOCTYPE html> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <!DOCTYPE html> <!--<![endif]-->
+<!--[if lt IE 7 ]> <html lang="en" class="ie6"> <![endif]-->
+<!--[if IE 7 ]> <html lang="en" class="ie7"> <![endif]-->
+<!--[if IE 8 ]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9 ]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
+   <head>
+   <!--[if lt IE 8 ]><meta http-equiv="X-UA-Compatible" content="IE=8" ><![endif]-->
+    <title>Formulario 4 : Modificación de Firmas Conjuntas</title>
+    <script src="js/pollyfills.js"></script>
+    <meta charset="UTF-8">
+    <!--[if IE 8]>
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <link href="css/pie.css" type="text/css"  rel="stylesheet">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSS -->
+    <link href="css/bootstrap.css" type="text/css" rel="stylesheet">
+    <!--[if lt IE 8]>
+    <link href="css/bootstrap-fix.css" type="text/css"  rel="stylesheet">
+   <script src="js/boxmodel.js" type="text/javascript"></script>
+    <![endif]-->
+    <link href="css/style.css" type="text/css"  rel="stylesheet">
+    <link href="css/print.css" type="text/css"  rel="stylesheet" media="print">
+    <!-- FILES -->
+
+    <!--[if lt IE 9]>
+    <script src="js/respond.js" type="text/javascript"></script>
+    <script src="js/html5shiv-printshiv.js" type="text/javascript"></script>
+    <![endif]-->
+   </head>
+   <body>
+      <!-- FORMULARIO   -->
+      <form role="form" id="form">
+            <!-- MAIN CONTAINER -->
+            
+			<!--[if (gte IE 9)|!(IE)]><!--> <section id="main-container" class="container form6"> <!--<![endif]-->
+			<!--[if lt IE 9 ]> <section id="main-container" class="container-fluid form6"> <![endif]-->
+               <!-- HEADER -->
+               <header class="header">
+                  <div class="row">
+                     <div class="col-md-4 col-sm-5 col-xs-6 logo"><img src="img/logo.jpg"></div>
+                        <div class="col-md-8 col-sm-7 col-xs-6 texto-header">
+                           <div><h1>Formulario 4: Modificación de Firmas Conjuntas</h1></div>
+                        <div><p>Página 1 de 2</p></div>
+                     </div>
+                  </div>
+               </header>
+               <!-- /HEADER -->
+
+               <!-- SECCION 1 -->
+               <section class="titulo-modulo hidden-print">
+                  <div class="row">
+                     <div class="col-md-12">
+                       <h3>Sección 1: Datos de la Empresa y del Usuario (Campos Obligatorios)</h3>
+                     </div>
+                  </div>
+               </section>
+               <section class="titulo-modulo-2 visible-print hidden-xs hidden-sm hidden-md hidden-lg">
+               <div class="row">
+                  <div class="col-md-12">
+                     <img src="img/imgh3.jpg" alt="img" />
+                     <h3>Sección 1: Datos de la Empresa y del Usuario (Campos Obligatorios)</h3>
+                  </div>
+               </div>
+            </section> 
+
+               <section class="contenido-modulo">
+                  <div class="row">
+                     <div class="col-md-4 col-xs-4">
+                       <div class="form-group">
+                         <label for="razon_social_empresa">Razón Social de la Empresa</label>
+                         <input type="text" class="form-control" id="razon_social_empresa" name="razon_social_empresa">
+                       </div>
+                     </div>
+
+
+
+                     <div class="col-md-3 col-xs-3">
+                       <div class="form-group">
+                         <label for="num_ruc">Nro. de RUC o Documento</label>
+                         <input type="text" class="form-control" id="num_ruc" name="num_ruc" maxlength="11">
+                       </div>
+                     </div>
+
+                     <div class="col-md-3 col-xs-3">
+                       <div class="form-group">
+                         <label for="cod_empresa">Código de la Empresa</label>
+                         <input type="text" class="form-control" id="cod_empresa" name="cod_empresa" maxlength="8">
+                       </div>
+                     </div>
+                  </div>
+
+                  <div class="row">
+                     <div class="col-md-10 col-xs-12">
+
+                        <div class="col-md-3 col-xs-3">
+                           <div class="col-md-1 col-xs-1">
+                              <p>1</p>
+                           </div>
+                           <div class="col-md-11 col-xs-11">
+                             <div class="form-group">
+                                 <label for="tipo_doc_ident_1">Tipo de Documento</label>
+                                 <select class="form-control" id="tipo_doc_ident_1" name="tipo_doc_ident_1" onchange="toggleselect(this)" required>
+                                    <option value="">Elija una opción</option>
+                                    <option value="1">D - Carnet Diplomático</option>
+                                    <option value="2">L - DNI/Libreta Electoral</option>
+                                    <option value="3">M - Carnet de Identidad Militar</option>
+                                    <option value="4">E- Carnet de Extranjería</option>
+                                    <option value="5">P - Pasaporte</option>
+                                    <option value="6">O - Otros</option>
+                                 </select>
+                             </div>
+                           </div>
+                        </div>
+
+                        <div class="col-md-9 col-xs-9">
+                           <div class="col-md-12">
+                              <div class="col-md-4 col-xs-4">
+                                   <div class="form-group">
+                                     <label for="num_doc_admin_1">Nro. de DNI o Documento</label>
+                                     <input type="text" class="form-control" id="num_doc_admin_1" name="num_doc_admin_1" maxlength="11">
+                                   </div>
+                              </div>
+                              <div class="col-md-6 col-xs-6">
+                                 <div class="form-group">
+                                   <label for="nom_usuario_mancomunado_1">Nombre del Usuario Mancomunado</label>
+                                   <input type="text" class="form-control" id="nom_usuario_mancomunado_1" name="nom_usuario_mancomunado_1">
+                                 </div>
+                              </div>
+
+                              <div class="col-md-2 col-xs-2">
+                                <div class="checkbox checkbox-vertical">
+                                  <label>
+                                   Eliminar
+                                  </label>
+                                   <input type="checkbox" onclick="toggle(this)"  value=""z>
+                                </div>
+                             </div>
+                           </div>
+                           <div class="col-md-12">
+                              <div class="col-md-8 col-xs-8">
+                                 <div class="form-group">
+                                   <label for="email_usuario_mancomunado_1">Correo Electrónico</label>
+                                   <input type="text" class="form-control" id="email_usuario_mancomunado_1" name="email_usuario_mancomunado_1">
+                                 </div>
+                              </div>
+                              <div class="col-md-4 col-xs-4">
+                                 <div class="form-group">
+                                   <label for="cod_usuario_mancomunado_1">Código de Usuario</label>
+                                   <input type="text" class="form-control" id="cod_usuario_mancomunado_1" name="cod_usuario_mancomunado_1" maxlength="8">
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+
+                     </div>
+                  </div>
+
+                  <div class="row">
+                     <div class="col-md-10 col-xs-12 margin-top-15">
+                        <div class="col-md-3 col-xs-3">
+                           <div class="col-md-1 col-xs-1">
+                              <p>2</p>
+                           </div>
+                           <div class="col-md-11 col-xs-11">
+                               <div class="form-group">
+                                   <label for="tipo_doc_ident_2">Tipo de Documento</label>
+                                   <select class="form-control" id="tipo_doc_ident_2" name="tipo_doc_ident_2" onchange="toggleselect(this)" required>
+                                       <option value="">Elija una opción</option>
+                                       <option value="1">D - Carnet Diplomático</option>
+                                       <option value="2">L - DNI/Libreta Electoral</option>
+                                       <option value="3">M - Carnet de Identidad Militar</option>
+                                       <option value="4">E- Carnet de Extranjería</option>
+                                       <option value="5">P - Pasaporte</option>
+                                       <option value="6">O - Otros</option>
+                                   </select>
+                               </div>
+                           </div>
+                        </div>
+
+                        <div class="col-md-9 col-xs-9">
+                           <div class="col-md-12">
+                              <div class="col-md-4 col-xs-4">
+                                 <div class="form-group">
+                                   <label for="num_doc_admin_2">Nro. de DNI o Documento</label>
+                                   <input type="text" class="form-control" id="num_doc_admin_2" name="num_doc_admin_2" maxlength="11">
+                                 </div>
+                              </div>
+                              <div class="col-md-6 col-xs-6">
+                                 <div class="form-group">
+                                   <label for="nom_usuario_mancomunado_2">Nombre del Usuario Mancomunado</label>
+                                    <input type="text" class="form-control" id="nom_usuario_mancomunado_2" name="nom_usuario_mancomunado_2">
+                                 </div>
+                              </div>
+                              <div class="col-md-2 col-xs-2">
+                                <div class="checkbox checkbox-vertical">
+                                  <label>
+                                   Eliminar
+                                  </label>
+                                   <input type="checkbox" onclick="toggle(this)"  value="">
+                                </div>
+                             </div>
+                           </div>
+                           <div class="col-md-12">
+                              <div class="col-md-8 col-xs-8">
+                                 <div class="form-group">
+                                   <label for="email_usuario_mancomunado_2">Correo Electrónico</label>
+                                   <input type="text" class="form-control" id="email_usuario_mancomunado_2" name="email_usuario_mancomunado_2">
+                                 </div>
+                              </div>
+                              <div class="col-md-4 col-xs-4">
+                                 <div class="form-group">
+                                   <label for="cod_usuario_mancomunado_2">Código de Usuario</label>
+                                    <input type="text" class="form-control" id="cod_usuario_mancomunado_2" name="cod_usuario_mancomunado_2" maxlength="8">
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+
+                     </div>
+                  </div>
+
+                  <div class="row">
+                     <div class="col-md-12">
+                       <p>Nota: Esta funcionalidad aplica sólo para usuarios apoderados con firma solidaria para operaciones.</p>
+                     </div>
+                  </div>
+               </section>
+               <!-- /SECCION 1 -->
+
+              <!-- SECCION 2 -->
+              <section class="titulo-modulo hidden-print">
+                 <div class="row">
+                    <div class="col-md-12">
+                       <h3>Sección 2: Tipo de Modificación (Campos Obligatorios)</h3>
+                    </div>
+                 </div>
+              </section>
+              <section class="titulo-modulo-2 visible-print hidden-xs hidden-sm hidden-md hidden-lg">
+               <div class="row">
+                  <div class="col-md-12">
+                     <img src="img/imgh3.jpg" alt="img" />
+                     <h3>Sección 2: Tipo de Modificación (Campos Obligatorios)</h3>
+                  </div>
+               </div>
+            </section>
+
+              <section class="contenido-modulo form2-sec2">
+                <div class="row">
+                  <div class="col-md-12">
+                    <p>Indique el tipo de solicitud que está presentando para estos usuarios:</p>
+                  </div>
+                </div>
+                 <div class="row">
+                    <div class="col-md-8  col-md-offset-2 form2-sec2-inline-checkbox">
+
+                       <div class="col-md-6 col-sm-6 col-xs-6">
+                          <div class="radio">
+                             <label>
+                                <input type="radio" onclick="toggleRadio(this)" name="tipos_modif" class="sec2_tipo_modificacion" id="mod_datos_empresa" value="" required>
+                                Modificación de Firma Conjunta Existente
+                             </label>
+                          </div>
+                       </div>
+
+                       <div class="col-md-6 col-sm-6 col-xs-6">
+                          <div class="radio">
+                             <label>
+                             <input type="radio" onclick="toggleRadio(this)" name="tipos_modif" class="sec2_tipo_modificacion" id="baja_empresa_existente" value="">
+                             Baja de Firma Conjunta Existente
+                             </label>
+                          </div>
+                       </div>
+
+                    </div>
+                 </div>
+
+               <div class="row">
+                  <div class="col-md-12 text-center">
+                     <div id="box_error_2" class="error"></div>
+                  </div>
+               </div>
+              </section>
+              <!-- /SECCION 2 -->
+
+               <!-- SECCION 3 -->
+               <section class="titulo-modulo hidden-print">
+                  <div class="row">
+                     <div class="col-md-12">
+                       <h3>Sección 3: Límites de Firma Conjunta de Servicios</h3>
+                     </div>
+                  </div>
+               </section>
+               <section class="titulo-modulo-2 visible-print hidden-xs hidden-sm hidden-md hidden-lg">
+               <div class="row">
+                  <div class="col-md-12">
+                     <img src="img/imgh3.jpg" alt="img" />
+                     <h3>Sección 3: Límites de Firma Conjunta de Servicios</h3>
+                  </div>
+               </div>
+            </section>
+
+               <section class="contenido-modulo form2-sec2 form6-sec2">
+                <fieldset class="baja_empresa_total" disabled>
+                  <div class="row">
+                     <div class="col-md-12 margin-top-15">
+                        <h4 class="underline">NOTA:</h4>
+                        <p>Límites expresados en Soles.</p>
+                        <p>Si se desea indicar límite cero: Ingresar el dígito 0.</p>
+                        <p>Si se desea indicar Ilimitado: Ingresar la palabra ILIMITADO.</p>
+                     </div>
+                  </div>
+
+                  <table class="form42-table">
+                    <tr>
+                    	<td colspan="2"></td>
+                    	<td>
+                        <div class="box-leyenda-form7-1">
+                          <p>Mancomunado por<br> Operación<br> en Soles</p>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="box-leyenda-form7-2">
+                          <p>Modificar</p>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="box-leyenda-form7-3">
+                          <p>Eliminar</p>
+                      	</div>
+                      </td>
+                    </tr>
+                    <tr>
+                    	<td colspan="5">
+		                  	<!-- ERROR -->
+    		              	<div class="row">
+        	            		<div class="col-xs-12 text-center">
+	                       		<div id="box_error_form6_sec2" class="error"></div>
+  	        	          	</div>
+    	              		</div>
+      	            		<!-- ERROR -->
+      	            	</td>
+                  	</tr>
+                  	<!-- MODULO 1 -->
+                  	<tr>
+                  		<td rowspan="1" class="form42-col1 text-center" valign="center">
+                        <p>Según Versión</p>
+                      </td>
+                      <td class="form42-col2">
+                        <div class="checkbox">
+                          <label>
+                            <input type="checkbox" onclick="toggle(this)"  id="item_checkbox_lim_1" class="todas_operaciones" name="check_lim_firm_conjunta" value="" required minlength="1" />TODAS LAS OPERACIONES
+                          </label>
+                        </div>
+                      </td>
+                      <td class="form42-col3">
+												<div class="form-group">
+                          <input type="text" class="text-center form-control lim-firm-conjunta" id="lim_firm_conjunta_1" name="lim_firm_conjunta_1" />
+												</div>
+                        <div class="row">
+                          <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="error_1"></div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="form42-col4 text-center">
+                      	<div class="radio">
+                          <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_1" id="modificar_item_1" name="checkbox_item_1" value="" required disabled /></label>
+                        </div>
+                      </td>
+                      <td class="form42-col5 text-center">
+                      	<div class="radio">
+                          <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_1" id="eliminar_item_1" name="checkbox_item_1" value="" required disabled /></label>
+                        </div>
+                      </td>
+                    </tr>
+                    <!-- /MODULO 1 -->
+                    <!--  MODULO 2 -->
+                    <tr class="otras_operaciones">
+                      <td rowspan="10" class="form42-col1 text-center">
+                           <p>Para Versiones Premium Cash, Premium Avanzada, Comercios y Estándar</p>
+                      </td>
+                      <td>
+                        <div class="checkbox">
+                          <label><input class="demas_operaciones" type="checkbox" onclick="toggle(this)"  id="item_checkbox_lim_2" name="check_lim_firm_conjunta" value="" />Transf. a Ctas. Propias</label>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="form-group">
+                          <input type="text" class="text-center form-control lim-firm-conjunta" id="lim_firm_conjunta_2" name="lim_firm_conjunta_2" />
+                        </div>
+                        <div class="row">
+                          <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="error_2"></div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <div class="radio">
+                          <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_2 valid" "modificar_item_2" name="checkbox_item_2" value="" required disabled /></label>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <div class="radio">
+                          <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_2 valid" id="eliminar_item_2" name="checkbox_item_2" value="" required disabled /></label>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="otras_operaciones">
+                      <td>
+                        <div class="checkbox">
+                          <label><input class="demas_operaciones" type="checkbox" onclick="toggle(this)"  id="item_checkbox_lim_3" name="check_lim_firm_conjunta" value="" />Transf. a Cuentas Pre-inscritas</label>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="form-group">
+                          <input type="text" class="text-center form-control lim-firm-conjunta" id="lim_firm_conjunta_3" name="lim_firm_conjunta_3" />
+                        </div>
+                        <div class="row">
+                          <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="error_3"></div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <div class="radio">
+                          <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_3" id="modificar_item_3" name="checkbox_item_3" value="" required disabled /></label>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <div class="radio">
+                          <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_3" id="eliminar_item_3" name="checkbox_item_3" value="" required disabled /></label>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="otras_operaciones">
+                      <td>
+                        <div class="checkbox">
+                          <label><input class="demas_operaciones" type="checkbox" onclick="toggle(this)"  id="item_checkbox_lim_4" name="check_lim_firm_conjunta" value="" />Transferencias a Terceros</label>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="form-group">
+                          <input type="text" class="text-center form-control lim-firm-conjunta" id="lim_firm_conjunta_4"  name="lim_firm_conjunta_4" />
+                        </div>
+                        <div class="row">
+                          <div class="col-md-6 col-md-offset-6 col-sm-5 col-sm-offset-7 col-xs-5 col-xs-offset-7">
+                            <div class="error_4"></div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <div class="radio">
+                          <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_4" id="modificar_item_4" name="checkbox_item_4" value="" required disabled /></label>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <div class="radio">
+                          <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_4" id="eliminar_item_4" name="checkbox_item_4" value="" required disabled /></label>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="otras_operaciones">
+                      <td>
+                        <div class="checkbox">
+                          <label><input class="demas_operaciones" type="checkbox" onclick="toggle(this)"  id="item_checkbox_lim_5" name="check_lim_firm_conjunta" value="" />Transferencias a Otros Bancos</label>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="form-group">
+                          <input type="text" class="text-center form-control lim-firm-conjunta" id="lim_firm_conjunta_5"  name="lim_firm_conjunta_5" />
+                        </div>
+                        <div class="row">
+                          <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="error_5"></div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <div class="radio">
+                          <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_5" id="modificar_item_5" name="checkbox_item_5" value="" required disabled></label>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <div class="radio">
+                          <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_5" id="eliminar_item_5" name="checkbox_item_5" value="" required disabled></label>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="otras_operaciones">
+                      <td>
+                        <div class="checkbox">
+                          <label><input class="demas_operaciones" type="checkbox" onclick="toggle(this)"  id="item_checkbox_lim_6" name="check_lim_firm_conjunta" value="" />Pago a Instituciones (AFPNET Ticket, arbitrios, predios, luz, etc.)</label>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="form-group">
+                          <input type="text" class="text-center form-control lim-firm-conjunta" id="lim_firm_conjunta_6"  name="lim_firm_conjunta_6" />
+                        </div>
+                        <div class="row">
+                          <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="error_6"></div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <div class="radio">
+                          <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_6" id="modificar_item_6" name="checkbox_item_6" value=""required disabled /></label>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <div class="radio">
+                          <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_6" id="eliminar_item_6" name="checkbox_item_6" value=""required disabled /></label>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="otras_operaciones">
+                      <td>
+                        <div class="checkbox">
+                          <label><input class="demas_operaciones" type="checkbox" onclick="toggle(this)"  id="item_checkbox_lim_7" name="check_lim_firm_conjunta" value="">Pago a Servicios Públicos (Luz, agua, teléfono)</label>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="form-group">
+                          <input type="text" class="text-center form-control lim-firm-conjunta" id="lim_firm_conjunta_7"  name="lim_firm_conjunta_7" />
+                        </div>
+                        <div class="row">
+                          <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="error_7"></div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <div class="radio">
+                          <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_7" id="modificar_item_7" name="checkbox_item_7" value="" required disabled /></label>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <div class="radio">
+                          <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_7" id="eliminar_item_7" name="checkbox_item_7" value="" required disabled /></label>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="otras_operaciones">
+                      <td>
+                        <div class="checkbox">
+                          <label><input class="demas_operaciones" type="checkbox" onclick="toggle(this)"  id="item_checkbox_lim_8" name="check_lim_firm_conjunta" value="" />Pago de Letras y Facturas (Pago de Documentos)</label>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="form-group">
+                          <input type="text" class="text-center form-control lim-firm-conjunta" id="lim_firm_conjunta_8"  name="lim_firm_conjunta_8" />
+                        </div>
+                        <div class="row">
+                          <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="error_8"></div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <div class="radio">
+                          <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_8" id="modificar_item_8" name="checkbox_item_8" value="" required disabled></label>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <div class="radio">
+                          <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_8" id="eliminar_item_8" name="checkbox_item_8" value="" required disabled /></label>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="otras_operaciones">
+                      <td>
+                        <div class="checkbox">
+                          <label><input class="demas_operaciones" type="checkbox" onclick="toggle(this)"  id="item_checkbox_lim_9" name="check_lim_firm_conjunta" value="" />Solicitud de Chequeras</label>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="form-group">
+                          <input type="text" class="text-center form-control lim-firm-conjunta" id="lim_firm_conjunta_9"  name="lim_firm_conjunta_9" />
+                        </div>
+                        <div class="col-md-12">
+                          <div class="col-md-6 col-md-offset-6 col-sm-5 col-sm-offset-7 col-xs-5 col-xs-offset-7">
+                            <div class="error_9"></div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <div class="radio">
+                          <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_9" id="modificar_item_9" name="checkbox_item_9" value="" required disabled /></label>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <div class="radio">
+                          <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_9" id="eliminar_item_9" name="checkbox_item_9" value="" required disabled /></label>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="otras_operaciones">
+                      <td>
+                        <div class="checkbox">
+                          <label><input class="demas_operaciones" type="checkbox" onclick="toggle(this)"  id="item_checkbox_lim_10" name="check_lim_firm_conjunta" value="" />Fondos Mutuos por importe (Suscripción y Rescate)</label>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="form-group">
+                          <input type="text" class="text-center form-control lim-firm-conjunta" id="lim_firm_conjunta_10"  name="lim_firm_conjunta_10" />
+                        </div>
+                        <div class="row">
+                          <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="error_10"></div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <div class="radio">
+                          <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_10" id="modificar_item_10" name="checkbox_item_10" value="" required disabled /></label>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <div class="radio">
+                          <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_10" id="eliminar_item_10" name="checkbox_item_10" value="" required disabled /></label>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="otras_operaciones">
+                      <td>
+                        <div class="checkbox">
+                          <label><input class="demas_operaciones" type="checkbox" onclick="toggle(this)"  id="item_checkbox_lim_11" name="check_lim_firm_conjunta" value="">Fondos Mutuos por cuota (Suscripción y Rescate) </label>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="form-group">
+                          <input type="text" class="text-center form-control lim-firm-conjunta" id="lim_firm_conjunta_11"  name="lim_firm_conjunta_11" />
+                        </div>
+                        <div class="row">
+                          <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="error_11"></div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <div class="radio">
+                          <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_11" id="modificar_item_11" name="checkbox_item_11" value="" required disabled /></label>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <div class="radio">
+                          <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_11" id="eliminar_item_11" name="checkbox_item_11" value="" required disabled /></label>
+                        </div>
+                      </td>
+                    </tr>
+                    <!-- /MODULO 2 -->
+                    <!-- MODULO 3 -->
+                    <tr class="otras_operaciones">
+                      <td rowspan="7" class="form42-col1 text-center" valign="center">
+                        <p>Sólo para Versiones Premium, Avanzada y Comercios</p>
+                      </td>
+                      <td>
+                        <div class="checkbox">
+                          <label><input class="demas_operaciones" type="checkbox" onclick="toggle(this)"  id="item_checkbox_lim_12" name="check_lim_firm_conjunta" value="" />Pago Haberes 4ta. Cat. Planilla Manual</label>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="form-group">
+                          <input type="text" class="text-center form-control lim-firm-conjunta" id="lim_firm_conjunta_12"  name="lim_firm_conjunta_12" />
+                        </div>
+                        <div class="row">
+                          <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="error_12"></div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <div class="radio">
+                          <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_12" id="modificar_item_12" name="checkbox_item_12" value="" required disabled /></label>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <div class="radio">
+                          <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_12" id="eliminar_item_12" name="checkbox_item_12" value="" required disabled /></label>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="otras_operaciones">
+                      <td>
+                        <div class="checkbox">
+                          <label><input class="demas_operaciones" type="checkbox" onclick="toggle(this)"  id="item_checkbox_lim_13" name="check_lim_firm_conjunta" value="" />Pago Haberes 5ta. Cat. Planilla Manual</label>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="form-group">
+                          <input type="text" class="text-center form-control lim-firm-conjunta" id="lim_firm_conjunta_13"  name="lim_firm_conjunta_13" />
+                        </div>
+                        <div class="row">
+                          <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="error_13"></div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <div class="radio">
+                          <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_13" id="modificar_item_13" name="checkbox_item_13" value="" required disabled /></label>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <div class="radio">
+                          <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_13" id="eliminar_item_13" name="checkbox_item_13" value="" required disabled></label>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="otras_operaciones">
+                      <td>  
+                        <div class="checkbox">
+                          <label><input class="demas_operaciones" type="checkbox" onclick="toggle(this)"  id="item_checkbox_lim_14" name="check_lim_firm_conjunta" value="" />Pago Proveedores Planilla Manual</label>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="form-group">
+                          <input type="text" class="text-center form-control lim-firm-conjunta" id="lim_firm_conjunta_14"  name="lim_firm_conjunta_14" />
+                        </div>
+                        <div class="row">
+                          <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="error_14"></div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <div class="radio">
+                          <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_14" id="modificar_item_14" name="checkbox_item_14" value="" required disabled /></label>
+                        </div>
+                      </td>
+                      <td class="text-center"> 
+                        <div class="radio">
+                          <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_14" id="eliminar_item_14" name="checkbox_item_14" value="" required disabled /></label>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="otras_operaciones">
+                      <td>
+                        <div class="checkbox">
+                          <label><input class="demas_operaciones" type="checkbox" onclick="toggle(this)"  id="item_checkbox_lim_15" name="check_lim_firm_conjunta" value="" />Pago Proveedores por Documento Planilla Manual</label>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="form-group">
+                          <input type="text" class="text-center form-control lim-firm-conjunta" id="lim_firm_conjunta_15"  name="lim_firm_conjunta_15" />
+                        </div>
+                        <div class="row">
+                          <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="error_15"></div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <div class="radio">
+                          <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_15" id="modificar_item_15" name="checkbox_item_15" value="" required disabled /></label>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <div class="radio">
+                          <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_15" id="eliminar_item_15" name="checkbox_item_15" value="" required disabled /></label>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="otras_operaciones">
+                      <td>
+                        <div class="checkbox">
+                          <label><input class="demas_operaciones" type="checkbox" onclick="toggle(this)"  id="item_checkbox_lim_16" name="check_lim_firm_conjunta" value="" />Pago de Transferencias Masivas Planilla Manual</label>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="form-group">
+                          <input type="text" class="text-center form-control lim-firm-conjunta" id="lim_firm_conjunta_16"  name="lim_firm_conjunta_16" />
+                        </div>
+                        <div class="row">
+                          <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="error_16"></div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <div class="radio">
+                          <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_16" id="modificar_item_16" name="checkbox_item_16" value="" required disabled /></label>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <div class="radio">
+                          <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_16" id="eliminar_item_16" name="checkbox_item_16" value="" required disabled /></label>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="otras_operaciones">
+                    	<td>
+                    		<div class="checkbox">
+                          <label><input class="demas_operaciones" type="checkbox" onclick="toggle(this)"  id="item_checkbox_lim_17" name="check_lim_firm_conjunta" value="" />Pago CTS Soles Planilla Manual</label>
+                        </div>
+                      </td>
+                     	<td>
+                        <div class="form-group">
+                          <input type="text" class="text-center form-control lim-firm-conjunta" id="lim_firm_conjunta_17"  name="lim_firm_conjunta_17" />
+                        </div>
+                        <div class="row">
+                          <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="error_17"></div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <div class="radio">
+                          <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_17" id="modificar_item_17" name="checkbox_item_17" value="" required disabled /></label>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <div class="radio">
+                          <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_17" id="eliminar_item_17" name="checkbox_item_17" value="" required disabled /></label>
+                        </div>
+                      </td>
+                    </tr>    
+                    <tr class="otras_operaciones">
+                    	<td>
+                        <div class="checkbox">
+                          <label><input class="demas_operaciones" type="checkbox" onclick="toggle(this)"  id="item_checkbox_lim_18" name="check_lim_firm_conjunta" value="" />Pago CTS Dólares Planilla Manual</label>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="form-group">
+                          <input type="text" class="text-center form-control lim-firm-conjunta" id="lim_firm_conjunta_18"  name="lim_firm_conjunta_18" />
+                        </div>
+                        <div class="row">
+                          <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="error_18"></div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <div class="radio">
+                          <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_18" id="modificar_item_18" name="checkbox_item_18" value="" required disabled /></label>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <div class="radio">
+                          <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_18" id="eliminar_item_18" name="checkbox_item_18" value="" required disabled /></label>
+                        </div>
+                      </td>
+                    </tr>
+                  	<!-- /MODULO 3 -->
+                  	<!-- MODULO 4 -->
+                  	<tr class="otras_operaciones">
+                    	<td class="form42-col1 text-center" valign="center">
+                        <p>Sólo para Versiones Premium y Avanzado</p>
+                      </td>
+                      <td>
+                        <div class="checkbox">
+                          <label><input class="demas_operaciones" type="checkbox" onclick="toggle(this)"  id="item_checkbox_lim_19" name="check_lim_firm_conjunta" value="" />Pago de Transferencias al Exterior Planilla Manual</label>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="form-group">
+                          <input type="text" class="text-center form-control lim-firm-conjunta" id="lim_firm_conjunta_19"  name="lim_firm_conjunta_19" />
+                        </div>
+                        <div class="row">
+                          <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="error_19"></div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <div class="radio">
+                          <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_19" id="modificar_item_19" name="checkbox_item_19" value="" required disabled /></label>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                      	<div class="radio">
+                          <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_19" id="eliminar_item_19" name="checkbox_item_19" value="" required disabled /></label>
+                        </div>
+                      </td>
+                    </tr>
+                  	<!-- /MODULO 4 -->
+	                  <!-- MODULO 5 -->
+                  	<tr class="otras_operaciones">
+                    	<td rowspan="2" class="form42-col1 text-center" valign="center">
+                        <p>Sólo para Versiones Premium Cash, Premium, Avanzada y Comercios</p>
+                      </td>
+                      <td>
+                      	<div class="checkbox">
+                          <label><input class="demas_operaciones" type="checkbox" onclick="toggle(this)"  id="item_checkbox_lim_20" name="check_lim_firm_conjunta" value="" />Crédito Líquido-Disposición de Línea de Crédito</label>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="form-group">
+                          <input type="text" class="text-center form-control lim-firm-conjunta" id="lim_firm_conjunta_20"  name="lim_firm_conjunta_20" />
+                        </div>
+                        <div class="row">
+                          <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="error_20"></div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <div class="radio">
+                          <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_20" id="modificar_item_20" name="checkbox_item_20" value="" required disabled /></label>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <div class="radio">
+                          <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_20" id="eliminar_item_20" name="checkbox_item_20" value="" required disabled /></label>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="otras_operaciones">
+                    	<td>
+                        <div class="checkbox">
+                          <label><input class="demas_operaciones" type="checkbox" onclick="toggle(this)"  id="item_checkbox_lim_21" name="check_lim_firm_conjunta" value="" />Factoring Electrónico Proveedor</label>
+                        </div>
+                      </td>
+                      <td>
+                      	<div class="form-group">
+                          <input type="text" class="text-center form-control lim-firm-conjunta" id="lim_firm_conjunta_21"  name="lim_firm_conjunta_21" />
+                        </div>
+                        <div class="row">
+                          <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="error_21"></div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <div class="radio">
+                          <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_21" id="modificar_item_21" name="checkbox_item_21" value="" required disabled /></label>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <div class="radio">
+                          <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_21" id="eliminar_item_21" name="checkbox_item_21" value="" required disabled /></label>
+                        </div>
+                      </td>
+                    </tr>
+                    <!-- /MODULO 5 -->
+                    <!-- MODULO 6 -->
+                    <tr class="otras_operaciones">
+                      <td rowspan="3" class="form42-col1 text-center" valign="center">
+                           <p>Sólo para Versiones Premium Cash, Premium y Avanzado</p>
+                      </td>
+                      <td>
+                        <div class="checkbox">
+                          <label><input class="demas_operaciones" type="checkbox" onclick="toggle(this)"  id="item_checkbox_lim_22" name="check_lim_firm_conjunta" value="" />Transferencias al exterior</label>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="form-group">
+                          <input type="text" class="text-center form-control lim-firm-conjunta" id="lim_firm_conjunta_22"  name="lim_firm_conjunta_22" />
+                        </div>
+                        <div class="row">
+                          <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="error_22"></div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <div class="radio">
+                          <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_22" id="modificar_item_22" name="checkbox_item_22" value="" required disabled /></label>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <div class="radio">
+                          <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_22" id="eliminar_item_22" name="checkbox_item_22" value="" required disabled /></label>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="otras_operaciones">
+                      <td>
+                        <div class="checkbox">
+                          <label><input class="demas_operaciones" type="checkbox" onclick="toggle(this)"  id="item_checkbox_lim_23" name="check_lim_firm_conjunta" value="" />Factoring Electrónico</label>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="form-group">
+                          <input type="text" class="text-center form-control lim-firm-conjunta" id="lim_firm_conjunta_23"  name="lim_firm_conjunta_23" />
+                        </div>
+                        <div class="row">
+                          <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="error_23"></div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <div class="radio">
+                          <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_23" id="modificar_item_23" name="checkbox_item_23" value="" required disabled /></label>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <div class="radio">
+                          <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_23" id="eliminar_item_23" name="checkbox_item_23" value="" required disabled /></label>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="otras_operaciones">
+                      <td>
+                        <div class="checkbox">
+                          <label><input class="demas_operaciones" type="checkbox" onclick="toggle(this)"  id="item_checkbox_lim_24" name="check_lim_firm_conjunta" value="" />Comercio Exterior</label>
+                        </div>
+                      <td>
+                        <div class="form-group">
+                          <input type="text" class="text-center form-control lim-firm-conjunta" id="lim_firm_conjunta_24"  name="lim_firm_conjunta_24" />
+                        </div>
+                        <div class="row">
+                          <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="error_24"></div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <div class="radio">
+                          <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_24" id="modificar_item_24" name="checkbox_item_24" value="" required disabled /></label>
+                        </div>
+                       </td>
+                       <td class="text-center">
+                          <div class="radio">
+                            <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_24" id="eliminar_item_24" name="checkbox_item_24" value="" required disabled /></label>
+                          </div>
+                        </td>
+                      </tr>
+                      <!-- /MODULO 6 -->
+                    </table>
+               </section>
+            </section>
+            <!-- /MAIN CONTAINER -->
+
+
+            <!-- MAIN CONTAINER BOTTOM -->
+              
+			  <!--[if (gte IE 9)|!(IE)]><!--> <section id="main-container-bottom" class="container form6"> <!--<![endif]-->
+			  <!--[if lt IE 9 ]> <section id="main-container-bottom" class="container-fluid form6"> <![endif]-->
+               <!-- HEADER -->
+               <header class="header padding-0">
+                 <div class="row">
+                   <div class="col-md-4 col-sm-5 col-xs-6 logo"><img src="img/logo.jpg"></div>
+                   <div class="col-md-8 col-sm-7 col-xs-6 texto-header">
+                     <div><h1>Formulario 4: Modificación Firmas Conjuntas</h1></div>
+                     <div><p>Página 2 de 2</p></div>
+                   </div>
+                 </div>
+               </header>
+               <!-- /HEADER -->
+
+               <section class="contenido-modulo form2-sec2 form6-sec2">
+                <fieldset class="baja_empresa_total" disabled>
+                  
+                  <table class="form42-table">
+                  <tr class="otras_operaciones">
+                    <td rowspan="8" class="form42-col1 text-center" valign="center">
+                      <p>Sólo para Versión Premium</p>
+                    </td>
+                    <td class="form42-col2">
+                      <div class="checkbox">
+                        <label><input class="demas_operaciones" type="checkbox" onclick="toggle(this)"  id="item_checkbox_lim_25" name="check_lim_firm_conjunta" value="" />Pago Haberes 4ta. categoría por Importación de Archivos</label>
+                      </div>
+                    </td>
+                    <td class="form42-col3">
+                      <div class="form-group">
+                        <input type="text" class="form-control lim-firm-conjunta" id="lim_firm_conjunta_25"  name="lim_firm_conjunta_25" />
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                          <div class="error_25"></div>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="form42-col4 text-center">
+                      <div class="radio">
+                        <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_25" id="modificar_item_25" name="checkbox_item_25" value="" required disabled /></label>
+                      </div>
+                    </td>
+                    <td class="form42-col5 text-center">
+                      <div class="radio">
+                        <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_25" id="eliminar_item_25" name="checkbox_item_25" value="" required disabled /></label>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="otras_operaciones">
+                    <td>
+                      <div class="checkbox">
+                        <label><input class="demas_operaciones" type="checkbox" onclick="toggle(this)"  id="item_checkbox_lim_26" name="check_lim_firm_conjunta" value="" />Pago Haberes 5ta. categoría por Importación de Archivos</label>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="form-group">
+                        <input type="text" class="form-control lim-firm-conjunta" id="lim_firm_conjunta_26"  name="lim_firm_conjunta_26" />
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                          <div class="error_26"></div>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="text-center">
+                      <div class="radio">
+                        <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_26" id="modificar_item_26" name="checkbox_item_26" value="" required disabled /></label>
+                      </div>
+                    </td>
+                    <td class="text-center">
+                      <div class="radio">
+                        <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_26" id="eliminar_item_26" name="checkbox_item_26" value="" required disabled /></label>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="otras_operaciones">
+                    <td>
+                      <div class="checkbox">
+                        <label><input class="demas_operaciones" type="checkbox" onclick="toggle(this)"  id="item_checkbox_lim_27" name="check_lim_firm_conjunta" value="" />Pago de Transferencias categoría por Importación de Archivos</label>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="form-group">
+                        <input type="text" class="form-control lim-firm-conjunta" id="lim_firm_conjunta_27"  name="lim_firm_conjunta_27" />
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                          <div class="error_27"></div>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="text-center">
+                      <div class="radio">
+                        <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_27" id="modificar_item_27" name="checkbox_item_27" value="" required disabled /></label>
+                      </div>
+                    </td>
+                    <td class="text-center">
+                      <div class="radio">
+                        <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_27" id="eliminar_item_27" name="checkbox_item_27" value="" required disabled /></label>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="otras_operaciones">
+                    <td>
+                      <div class="checkbox">
+                        <label><input class="demas_operaciones" type="checkbox" onclick="toggle(this)"  id="item_checkbox_lim_28" name="check_lim_firm_conjunta" value="" />Pago a Proveedores por Importación de Archivos</label>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="form-group">
+                        <input type="text" class="form-control lim-firm-conjunta" id="lim_firm_conjunta_28"  name="lim_firm_conjunta_28" />
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                          <div class="error_28"></div>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="text-center">
+                      <div class="radio">
+                        <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_28" id="modificar_item_28" name="checkbox_item_28" value="" required disabled /></label>
+                      </div>
+                    </td>
+                    <td class="text-center">
+                      <div class="radio">
+                        <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_28" id="eliminar_item_28" name="checkbox_item_28" value="" required disabled /></label>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="otras_operaciones">
+                    <td>
+                      <div class="checkbox">
+                        <label><input class="demas_operaciones" type="checkbox" onclick="toggle(this)"  id="item_checkbox_lim_29" name="check_lim_firm_conjunta" value="" />Pago a Proveedores por Documento - Importación de Archivos</label>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                          <div class="error_29"></div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="form-group">
+                        <input type="text" class="form-control lim-firm-conjunta" id="lim_firm_conjunta_29"  name="lim_firm_conjunta_29" />
+                      </div>
+                    </td>
+                    <td class="text-center">
+                      <div class="radio">
+                        <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_29" id="modificar_item_29" name="checkbox_item_29" value="" required disabled /></label>
+                      </div>
+                    </td>
+                    <td class="text-center">
+                      <div class="radio">
+                        <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_29" id="eliminar_item_29" name="checkbox_item_29" value="" required disabled /></label>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="otras_operaciones">
+                    <td>
+                      <div class="checkbox">
+                        <label><input class="demas_operaciones" type="checkbox" onclick="toggle(this)"  id="item_checkbox_lim_30" name="check_lim_firm_conjunta" value="" />Pago de CTS Soles por Importación de Archivos</label>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="form-group">
+                        <input type="text" class="form-control lim-firm-conjunta" id="lim_firm_conjunta_30"  name="lim_firm_conjunta_30" />
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                          <div class="error_30"></div>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="text-center">
+                      <div class="radio">
+                        <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_30" id="modificar_item_30" name="checkbox_item_30" value="" required disabled /></label>
+                      </div>
+                    </td>
+                    <td class="text-center">
+                      <div class="radio">
+                        <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_30" id="eliminar_item_30" name="checkbox_item_30" value="" required disabled /></label>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="otras_operaciones">
+                    <td>
+                      <div class="checkbox">
+                        <label><input class="demas_operaciones" type="checkbox" onclick="toggle(this)"  id="item_checkbox_lim_31" name="check_lim_firm_conjunta" value="" />Pago CTS Dólares por Importación de Archivos</label>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="form-group">
+                        <input type="text" class="form-control lim-firm-conjunta" id="lim_firm_conjunta_31"  name="lim_firm_conjunta_31" />
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                          <div class="error_31"></div>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="text-center">
+                      <div class="radio">
+                        <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_31" id="modificar_item_31" name="checkbox_item_31" value="" required disabled /></label>
+                      </div>
+                    </td>
+                    <td class="text-center">
+                      <div class="radio">
+                        <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_31" id="eliminar_item_31" name="checkbox_item_31" value="" required disabled /></label>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="otras_operaciones">
+                    <td>
+                      <div class="checkbox">
+                        <label><input class="demas_operaciones" type="checkbox" onclick="toggle(this)"  id="item_checkbox_lim_32" name="check_lim_firm_conjunta" value="" />Pago de Transferencias al Exterior por Importación de Archivos</label>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="form-group">
+                        <input type="text" class="form-control lim-firm-conjunta" id="lim_firm_conjunta_32"  name="lim_firm_conjunta_32" />
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                          <div class="error_32"></div>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="text-center">
+                      <div class="radio">
+                        <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_32" id="modificar_item_32" name="checkbox_item_32" value="" required disabled /></label>
+                      </div>
+                    </td>
+                    <td class="text-center">
+                      <div class="radio">
+                        <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_32" id="eliminar_item_32" name="checkbox_item_32" value="" required disabled /></label>
+                      </div>
+                    </td>
+                  </tr>
+                  <!-- /MODULO 7 -->
+                  <!-- MODULO 8 -->
+                  <tr class="otras_operaciones">
+                    <td rowspan="8" class="form42-col1 text-center" valign="center">
+                      <p>Sólo para Versión Premium Cash</p>
+                    </td>
+                    <td>
+                      <div class="checkbox">
+                        <label><input class="demas_operaciones" type="checkbox" onclick="toggle(this)"  id="item_checkbox_lim_33" name="check_lim_firm_conjunta" value="" />Pago de Haberes Masivos (Propio Banco e Interbancarias)</label>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="form-group">
+                        <input type="text" class="form-control lim-firm-conjunta" id="lim_firm_conjunta_33"  name="lim_firm_conjunta_33" />
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                          <div class="error_33"></div>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="text-center">
+                      <div class="radio">
+                        <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_33" id="modificar_item_33" name="checkbox_item_33" value="" required disabled /></label>
+                      </div>
+                    </td>
+                    <td class="text-center">
+                      <div class="radio">
+                        <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_33" id="eliminar_item_33" name="checkbox_item_33" value="" required disabled /></label>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="otras_operaciones">
+                    <td>
+                      <div class="checkbox">
+                        <label><input class="demas_operaciones" type="checkbox" onclick="toggle(this)"  id="item_checkbox_lim_34" name="check_lim_firm_conjunta" value="" />Transferencias Masivas (Propio Banco e Interbancarias)</label>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="form-group">
+                        <input type="text" class="form-control lim-firm-conjunta" id="lim_firm_conjunta_34"  name="lim_firm_conjunta_34" />
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                          <div class="error_34"></div>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="text-center">
+                      <div class="radio">
+                        <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_34" id="modificar_item_34" name="checkbox_item_34" value="" required disabled /></label>
+                      </div>
+                    </td>
+                    <td class="text-center">
+                      <div class="radio">
+                        <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_34" id="eliminar_item_34" name="checkbox_item_34" value="" required disabled /></label>
+                      </div>
+                    </td>  
+                  </tr>
+                  <tr class="otras_operaciones">
+                    <td>
+                      <div class="checkbox">
+                        <label><input class="demas_operaciones" type="checkbox" onclick="toggle(this)"  id="item_checkbox_lim_35" name="check_lim_firm_conjunta" value="" />Transferencias Internacionales Masivas</label>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="form-group">
+                        <input type="text" class="form-control lim-firm-conjunta" id="lim_firm_conjunta_35"  name="lim_firm_conjunta_35" />
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                          <div class="error_35"></div>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="text-center">
+                      <div class="radio">
+                        <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_35" id="modificar_item_35" name="checkbox_item_35" value="" required disabled /></label>
+                      </div>
+                    </td>
+                    <td class="text-center">
+                      <div class="radio">
+                        <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_35" id="eliminar_item_35" name="checkbox_item_35" value="" required disabled /></label>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="otras_operaciones">
+                    <td>
+                      <div class="checkbox">
+                        <label><input class="demas_operaciones" type="checkbox" onclick="toggle(this)"  id="item_checkbox_lim_36" name="check_lim_firm_conjunta" value="" />Pago a Proveedores Masivos (Propio Banco, Interbancarias y Órdenes de Pago)</label>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="form-group">
+                        <input type="text" class="form-control lim-firm-conjunta" id="lim_firm_conjunta_36" name="lim_firm_conjunta_36" />
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                          <div class="error_36"></div>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="text-center">
+                      <div class="radio">
+                        <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_36" id="modificar_item_36" name="checkbox_item_36" value="" required disabled /></label>
+                      </div>
+                    </td>
+                    <td class="text-center">
+                      <div class="radio">
+                        <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_36" id="eliminar_item_36" name="checkbox_item_36" value="" required disabled /></label>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="otras_operaciones">
+                    <td>
+                      <div class="checkbox">
+                        <label><input class="demas_operaciones" type="checkbox" onclick="toggle(this)"  id="item_checkbox_lim_37" name="check_lim_firm_conjunta" value="" />Pago de CTS Masivo (Propio Banco)</label>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="form-group">
+                        <input type="text" class="form-control lim-firm-conjunta" id="lim_firm_conjunta_37" name="lim_firm_conjunta_37" />
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                          <div class="error_37"></div>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="text-center">
+                      <div class="radio">
+                        <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_37" id="modificar_item_37" name="checkbox_item_37" value="" required disabled /></label>
+                      </div>
+                    </td>
+                    <td class="text-center">
+                      <div class="radio">
+                        <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_37" id="eliminar_item_37" name="checkbox_item_37" value="" required disabled /></label>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="otras_operaciones">
+                    <td>
+                      <div class="checkbox">
+                        <label><input class="demas_operaciones" type="checkbox" onclick="toggle(this)"  id="item_checkbox_lim_38" name="check_lim_firm_conjunta" />Recibos Domiciliados Masivos</label>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="form-group">
+                        <input type="text" class="form-control lim-firm-conjunta" id="lim_firm_conjunta_38" name="lim_firm_conjunta_38" />
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                          <div class="error_38"></div>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="text-center">
+                      <div class="radio">
+                        <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_38" id="modificar_item_38" name="checkbox_item_38" value="" required disabled /></label>
+                      </div>
+                    </td>
+                    <td class="text-center">
+                      <div class="radio">
+                        <label><input type="radio" onclick="toggleRadio(this)" class="un_checkbox_38" id="eliminar_item_38" name="checkbox_item_38" value="" required disabled /></label>
+                      </div>
+                     </td>
+                    </tr>
+                  </table>
+                  <!-- /MODULO 8 -->
+               </fieldset>
+               </section>
+
+               <!-- SECCION 4 -->
+               <section class="titulo-modulo hidden-print">
+                  <div class="row">
+                     <div class="col-md-12">
+                        <h3>Sección 4: Autorización de los Representantes Legales de la Empresa - Campo(s) obligatorio(s)</h3>
+
+                     </div>
+                  </div>
+               </section>
+               <section class="titulo-modulo-2 visible-print hidden-xs hidden-sm hidden-md hidden-lg">
+               <div class="row">
+                  <div class="col-md-12">
+                     <img src="img/imgh3.jpg" alt="img" />
+                     <h3>Sección 4: Autorización de los Representantes Legales de la Empresa - Campo(s) obligatorio(s)</h3>
+                  </div>
+               </div>
+            </section>
+
+               <p>El presente formulario debe ser autorizado por representantes legales facultados para ello (Límites, Tipo de Forma).</p>
+               <p>Cualquier modificación posterior de la información contenida en las secciones 1,2 y 3 deberá ser solicitado al Banco exclusivamente a través de la presente. Sin dicho requisito, la solicitud no será procesada por el Banco, manteniéndose vigente la información anterior, sin responsabilidad para el Banco.</p>
+               <section class="contenido-modulo form1-sec-8">
+                  <fieldset class="disabled_1" disabled>
+                  <div class="row">
+                     <div class="col-md-12">
+                        <p>Firma y sello de los Representantes Legales de la Empresa que autorizan la inscripción.</p>
+                     </div>
+                  </div>
+
+                  <div class="row">
+                     <div class="col-md-10 col-sm-10 col-xs-102 col-md-offset-1 col-sm-offset-1">
+
+                        <!-- MODULO CON BORDE 1-->
+                        <div class="col-md-3 col-sm-3 col-xs-3 border-2 box-width-24 padding-0">
+
+                           <div class="col-md-12 border-bottom">
+
+                                 <div class="col-md-12">
+                                    <div class="form-group">
+                                       <label for="rep_leg_doc_1">1. Tipo de Doc. de Identidad</label>
+                                       <select class="form-control" id="rep_leg_doc_1" name="rep_leg_doc_1" onchange="toggleselect(this)" required>
+                                         <option value="">Elija una opción</option>
+                                         <option value="1">D - Carnet Diplomático</option>
+                                         <option value="2">L - DNI/Libreta Electoral</option>
+                                         <option value="3">M - Carnet de Identidad Militar</option>
+                                         <option value="4">E- Carnet de Extranjería</option>
+                                         <option value="5">P - Pasaporte</option>
+                                         <option value="6">O - Otros</option>
+                                       </select>
+                                    </div>
+                                 </div>
+
+                              <div class="col-md-12">
+                                 <div class="form-group">
+                                    <label for="num_doc_rep_leg_1">Nro. Doc. de Identidad</label>
+                                    <input type="text" class="form-control" id="num_doc_rep_leg_1" name="num_doc_rep_leg_1" required>
+                                 </div>
+                              </div>
+
+                              <div class="col-md-12">
+                                 <div class="form-group">
+                                    <label for="cargo_rep_leg_1">Cargo / Puesto</label>
+                                    <input type="text" class="form-control" id="cargo_rep_leg_1" name="cargo_rep_leg_1" required>
+                                 </div>
+                              </div>
+
+                           </div>
+
+                           <div class="col-md-12">
+                              <div class="col-md-12 espacio-firma"></div>
+                              <div class="firma-sello">
+                                 <p>Firma y Sello de Representante Legal</p>
+                              </div>
+                           </div>
+                        </div>
+                        <!-- /MODULO CON BORDE 1-->
+                        <!-- MODULO CON BORDE 2-->
+                        <div class="col-md-3 col-sm-3 col-xs-3 border-2 box-width-24 padding-0">
+
+                           <div class="col-md-12 border-bottom">
+
+
+                                 <div class="col-md-12">
+                                   <div class="form-group">
+                                       <label for="rep_leg_doc_2">2. Tipo de Doc. de Identidad</label>
+                                       <select class="form-control" id="rep_leg_doc_2" name="rep_leg_doc_2" onchange="toggleselect(this)">
+                                         <option value="">Elija una opción</option>
+                                         <option value="1">D - Carnet Diplomático</option>
+                                         <option value="2">L - DNI/Libreta Electoral</option>
+                                         <option value="3">M - Carnet de Identidad Militar</option>
+                                         <option value="4">E- Carnet de Extranjería</option>
+                                         <option value="5">P - Pasaporte</option>
+                                         <option value="6">O - Otros</option>
+                                       </select>
+                                    </div>
+                                 </div>
+
+                              <div class="col-md-12">
+                                 <div class="form-group">
+                                    <label for="num_doc_rep_leg_2">Nro. Doc. de Identidad</label>
+                                    <input type="text" class="form-control" id="num_doc_rep_leg_2" name="num_doc_rep_leg_2">
+                                 </div>
+                              </div>
+
+                              <div class="col-md-12">
+                                 <div class="form-group">
+                                    <label for="cargo_rep_leg_2">Cargo / Puesto</label>
+                                    <input type="text" class="form-control" id="cargo_rep_leg_2" name="cargo_rep_leg_2">
+                                 </div>
+                              </div>
+
+                           </div>
+
+                           <div class="col-md-12">
+                              <div class="col-md-12 espacio-firma"></div>
+                              <div class="firma-sello">
+                                 <p>Firma y Sello de Representante Legal</p>
+                              </div>
+                           </div>
+
+                        </div>
+                        <!-- /MODULO CON BORDE 2-->
+                        <!-- MODULO CON BORDE 3-->
+                        <div class="col-md-3 col-sm-3 col-xs-3 border-2 box-width-24 padding-0">
+
+                           <div class="col-md-12 border-bottom">
+
+
+                                 <div class="col-md-12">
+                                   <div class="form-group">
+                                       <label for="rep_leg_doc_3">3. Tipo de Doc. de Identidad</label>
+                                       <select class="form-control" id="rep_leg_doc_3" name="rep_leg_doc_3" onchange="toggleselect(this)">
+                                           <option value="">Elija una opción</option>
+                                           <option value="1">D - Carnet Diplomático</option>
+                                           <option value="2">L - DNI/Libreta Electoral</option>
+                                           <option value="3">M - Carnet de Identidad Militar</option>
+                                           <option value="4">E- Carnet de Extranjería</option>
+                                           <option value="5">P - Pasaporte</option>
+                                           <option value="6">O - Otros</option>
+                                       </select>
+                                    </div>
+                                 </div>
+
+                              <div class="col-md-12">
+                                 <div class="form-group">
+                                    <label for="num_doc_rep_leg_3">Nro. Doc. de Identidad</label>
+                                    <input type="text" class="form-control" id="num_doc_rep_leg_3" name="num_doc_rep_leg_3">
+                                 </div>
+                              </div>
+
+                              <div class="col-md-12">
+                                 <div class="form-group">
+                                    <label for="cargo_rep_leg_3">Cargo / Puesto</label>
+                                    <input type="text" class="form-control" id="cargo_rep_leg_3" name="cargo_rep_leg_3">
+                                 </div>
+                              </div>
+
+                           </div>
+
+                           <div class="col-md-12">
+                              <div class="col-md-12 espacio-firma"></div>
+                              <div class="firma-sello">
+                                 <p>Firma y Sello de Representante Legal</p>
+                              </div>
+                           </div>
+
+                        </div>
+                        <!-- /MODULO CON BORDE 3-->
+                        <!-- MODULO CON BORDE 4-->
+                        <div class="col-md-3 col-sm-3 col-xs-3 border-2 box-width-24 padding-0">
+
+                           <div class="col-md-12 border-bottom">
+
+                                 <div class="col-md-12">
+                                   <div class="form-group">
+                                       <label for="rep_leg_doc_4">4. Tipo de Doc. de Identidad</label>
+                                       <select class="form-control" id="rep_leg_doc_4" name="rep_leg_doc_4" onchange="toggleselect(this)">
+                                          <option value="">Elija una opción</option>
+                                          <option value="1">D - Carnet Diplomático</option>
+                                          <option value="2">L - DNI/Libreta Electoral</option>
+                                          <option value="3">M - Carnet de Identidad Militar</option>
+                                          <option value="4">E- Carnet de Extranjería</option>
+                                          <option value="5">P - Pasaporte</option>
+                                          <option value="6">O - Otros</option>
+                                       </select>
+                                    </div>
+                                 </div>
+
+                              <div class="col-md-12">
+                                 <div class="form-group">
+                                    <label for="num_doc_rep_leg_4">Nro. Doc. de Identidad</label>
+                                    <input type="text" class="form-control" id="num_doc_rep_leg_4" name="num_doc_rep_leg_4">
+                                 </div>
+                              </div>
+
+                              <div class="col-md-12">
+                                 <div class="form-group">
+                                    <label for="cargo_rep_leg_4">Cargo / Puesto</label>
+                                    <input type="text" class="form-control" id="cargo_rep_leg_4" name="cargo_rep_leg_4">
+                                 </div>
+                              </div>
+
+                           </div>
+
+                           <div class="col-md-12">
+                              <div class="col-md-12 espacio-firma"></div>
+                              <div class="firma-sello">
+                                 <p>Firma y Sello de Representante Legal</p>
+                              </div>
+                           </div>
+
+                        </div>
+                        <!-- /MODULO CON BORDE -->
+                     </div>
+                  </div>
+               </fieldset>
+               </section>
+               <!-- /SECCION 3 -->
+
+               <!-- USO EXCLUSIVO DEL BANCO -->
+               <section class="titulo-modulo hidden-print">
+                  <div class="row">
+                     <div class="col-md-12 text-center">
+                       <h3>PARA USO EXCLUSIVO DEL BANCO</h3>
+                     </div>
+                  </div>
+               </section>
+               <section class="titulo-modulo-3 visible-print hidden-xs hidden-sm hidden-md hidden-lg">
+               <div class="row">
+                  <div class="col-md-12">
+                     <img src="img/imgh3.jpg" alt="img" />
+                     <h3>PARA USO EXCLUSIVO DEL BANCO</h3>
+                  </div>
+               </div>
+            </section>
+
+               <section class="contenido-modulo contenido-uso-exc-banco">
+                  <fieldset>
+                     <div class="row">
+                        <div class="col-md-2 col-sm-3 col-xs-4">
+                           <div class="form-group">
+                              <label for="">Código Central</label>
+                              <input type="text" class="form-control" id="" name="" DISABLED />
+                           </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-6 col-xs-4">
+                           <div class="form-group">
+                              <label for="">Nombre de la Oficina</label>
+                              <input type="text" class="form-control" id="" name="" DISABLED />
+                           </div>
+                        </div>
+
+                        <div class="col-md-2 col-sm-3 col-xs-4">
+                           <div class="form-group">
+                              <label for="">Código de la Oficina</label>
+                              <input type="text" class="form-control" id="" name="" DISABLED />
+                           </div>
+                        </div>
+                     </div>
+
+                     <div class="row">
+                        <div class="col-md-4 col-sm-5 col-xs-5">
+                           <div class="form-group">
+                              <label for="">Nombre del Ejecutivo de Cuenta</label>
+                              <input type="text" class="form-control" id="" name="" DISABLED />
+                           </div>
+                        </div>
+
+                        <div class="col-md-2 col-sm-2 col-xs-2">
+                           <div class="form-group">
+                              <label for="">Registro</label>
+                              <input type="text" class="form-control" id="" name="" DISABLED />
+                           </div>
+                        </div>
+
+                        <div class="col-md-5 col-sm-5 col-xs-5">
+                           <div class="form-group">
+                              <label for="">Correo Electrónico</label>
+                              <input type="text" class="form-control" id="" name="" DISABLED />
+                           </div>
+                        </div>
+                     </div>
+
+                     <div class="row">
+                        <div class="col-md-3">
+                           <h3>V°B° de Firmas y Poderes</h3>
+                        </div>
+                     </div>
+
+                     <div class="row">
+                        <div class="col-md-4 col-sm-5 col-xs-5">
+                           <div class="form-group">
+                              <label for="">Nombre del Gerente / Sub Gerente de Oficina / JAC</label>
+                              <input type="text" class="form-control" id="" name="" DISABLED />
+                           </div>
+                        </div>
+
+                        <div class="col-md-2 col-sm-2 col-xs-2">
+                           <div class="form-group">
+                              <label for="">Registro</label>
+                              <input type="text" class="form-control" id="" name="" DISABLED />
+                           </div>
+                        </div>
+
+                        <div class="col-md-3 col-sm-4 col-xs-4 contenido-firma-sello">
+                           <p>Firma y Sello Ejecutivo de Cuenta</p>
+                        </div>
+                     </div>
+
+                     <div class="row">
+                        <div class="col-md-4 col-sm-6 col-xs-7 banca-automatica border">
+
+                           <h4>BANCA AUTOMÁTICA (No llenar)</h4>
+
+                           <div class="col-md-4 col-sm-5 col-xs-6  padding-0">
+                              <div class="form-group">
+                                 <label for="">Código de Empresa</label>
+                                 <input type="text" class="form-control" id="" name="" DISABLED />
+                              </div>
+                           </div>
+
+                           <div class="col-md-5 col-sm-5 col-xs-6 col-md-offset-3 col-sm-offset-2">
+                              <div class="form-group">
+                                 <label for="">Fecha Ingreso al Sistema</label>
+
+                                 <div class="row">
+                                    <div class="col-md-3 col-sm-3 col-xs-3">
+                                       <input type="text" class="form-control" id="" name="" DISABLED />
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-3">
+                                       <input type="text" class="form-control" id="" name="" DISABLED />
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-3">
+                                       <input type="text" class="form-control" id="" name="" DISABLED />
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+
+                        </div>
+
+                        <div class="col-md-3 col-sm-4 col-xs-4 col-md-offset-2 col-sm-offset-1 contenido-firma-sello subgerente">
+                           <p>Firma y Sello del Gerente / Sub Gerente / JAC</p>
+                        </div>
+                     </div>
+
+                     <div class="row">
+                        <div class="col-md-5 col-sm-6 col-xs-8 col-md-offset-4 col-sm-offset-3 col-xs-offset-2 border text-center">
+                           <h4>LA OFICINA DEBERÁ ARCHIVAR UNA COPIA DE ESTE FORMULARIO</h4>
+                        </div>
+                     </div>
+                  </fieldset>
+               </section>
+               <!-- /USO EXCLUSIVO DEL BANCO -->
+
+            </section>
+            <!-- /MAIN CONTAINER BOTTOM -->
+
+            <!-- BOTON IMPRIMIR -->
+            
+			<!--[if (gte IE 9)|!(IE)]><!--> <section id="box-btn-imprimir" class="container hidden-print"> <!--<![endif]-->
+			  <!--[if lt IE 9 ]> <section id="box-btn-imprimir" class="container-fluid hidden-print"> <![endif]-->
+               <div class="row">
+                  <div class="col-md-4 col-md-offset-4 text-center">
+                     <button type="submit" id="btn-submit" class="btn btn-default" value="Imprimir">Imprimir</button>
+                  </div>
+               </div>
+            </section>
+            <!-- /BOTON IMPRIMIR -->
+      </form>
+      <!-- /FORMULARIO   -->
+
+       <!-- JS -->
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+       <script src="js/jquery.validate.min.js"></script>
+       <script src="js/additional-methods.min.js"></script>
+       <script src="js/jquery.SimpleMask.js"></script>
+       <script src="js/jquery.number.min.js"></script>
+       <script type="text/javascript" src="js/forms/form7.js"></script>
+       <script type="text/javascript">
+   function toggle(el) {
+      if ( el.getAttribute('checked') != 'checked' ) {
+           el.setAttribute('checked','checked');
+      } else {
+         el.removeAttribute("checked");
+      }
+   }
+
+   function toggleRadio(el) {
+      var groupName = el.name;
+      var checkedButtonId = el.id;
+
+      var groupButtonNodes = document.getElementsByName(groupName);
+
+      for (var i = 0; i < groupButtonNodes.length; i++) {
+         if (groupButtonNodes[i].id == checkedButtonId)
+            groupButtonNodes[i].setAttribute('checked', 'checked');
+         else
+            groupButtonNodes[i].removeAttribute('checked');
+      }
+   }
+
+   function toggleselect(el) {
+        var sel = el.options[el.selectedIndex];
+
+      for(var i=0; i<el.length; i++) {
+        el.options[i].removeAttribute("selected");
+      }
+    
+          sel.setAttribute('selected','selected');
+    }
+</script>
+   </body>
+</html>
